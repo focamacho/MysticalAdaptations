@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import javax.annotation.Nullable;
 import javax.sound.midi.Soundbank;
 
+import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.Main;
@@ -15,6 +17,7 @@ import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
+import com.google.common.collect.Multimap;
 import com.focamacho.mysticaladaptations.util.BlockCheck;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
@@ -25,11 +28,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.audio.Sound;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
@@ -51,17 +57,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import scala.reflect.api.Trees.TryExtractor;
 
-public class SeedExtractor extends ItemTool implements IHasModel{
+public class SeedExtractor extends Item implements IHasModel{
 
+	public ToolMaterial toolMaterial;
 	NBTTagCompound tier = new NBTTagCompound();
 	
 	public SeedExtractor(String name, ToolMaterial material, int durability, int tier, boolean register) {
-		super(0, -3.4F, material, null);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setMaxDamage(durability);
 		setCreativeTab(Main.tabMysticalAdaptations);
 		setMaxStackSize(1);
+		this.toolMaterial = material;
 		this.tier.setInteger("tier", tier);
 		if(register) ModItems.ITEMS.add(this);
 	}
@@ -343,6 +350,17 @@ public class SeedExtractor extends ItemTool implements IHasModel{
 		if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
 		if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
 	}
+	
+	@Override
+    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot){
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+
+        if(equipmentSlot == EntityEquipmentSlot.MAINHAND){
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.toolMaterial.getAttackDamage() - 1.0F, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.5D, 0));
+        }
+        return multimap;
+    }
 	
 	@Override
 	public void registerModels() {
