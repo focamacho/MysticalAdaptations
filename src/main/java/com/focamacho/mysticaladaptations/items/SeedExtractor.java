@@ -9,7 +9,6 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.sound.midi.Soundbank;
 
-import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.Main;
