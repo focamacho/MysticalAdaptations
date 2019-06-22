@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "II ",
+    "  C",
+    "SI "
+  ],
+  "key": {
+    "I": {
+      "item": "mysticalagriculture:crafting",
+      "data": 36
+    },
+    "C": {
+      "item": "mysticalagriculture:gear",
+      "data": 3
+    },
+    "S": {
+      "item": "mysticalagriculture:crafting",
+      "data": 22
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:superium_seed_extractor"
+  }
+}
