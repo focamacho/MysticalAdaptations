@@ -1,0 +1,23 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:silicon_block"
+     }
+  ],
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "type": "forge:ore_dict",
+      "ore": "itemSilicon"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:silicon_block"
+  }
+}

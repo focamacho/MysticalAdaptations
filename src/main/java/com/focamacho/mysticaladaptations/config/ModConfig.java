@@ -20,14 +20,14 @@ public class ModConfig
 	public static int INTERMEDIUM_DURABILITY;
 	public static int SUPERIUM_DURABILITY;
 	public static int SUPREMIUM_DURABILITY;
-	
-	/* Mystical Agradditions Compat
 	public static int INSANIUM_DURABILITY;
-	*/
 	
 	public static boolean MOB_SEED_DROP;
 	public static boolean EXTRACTOR_LOWER_TIER;
 	public static boolean EXTRACTOR_ANY_TIER;
+	
+	public static boolean NETHERSTAR_BLOCK;
+	public static boolean SILICON_BLOCK;
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
@@ -52,10 +52,7 @@ public class ModConfig
 		INTERMEDIUM_DURABILITY = config.getInt("INTERMEDIUM_DURABILITY", category, 15, 1, 2147483647, "Intermedium Seed Extractor Durability.");
 		SUPERIUM_DURABILITY = config.getInt("SUPERIUM_DURABILITY", category, 15, 1, 2147483647, "Superium Seed Extractor Durability.");
 		SUPREMIUM_DURABILITY = config.getInt("SUPREMIUM_DURABILITY", category, 15, 1, 2147483647, "Supremium Seed Extractor Durability.");
-		
-		/* Mystical Agradditions Compat
 		INSANIUM_DURABILITY = config.getInt("INSANIUM_DURABILITY", category, 15, 1, 2147483647, "Supremium Seed Extractor Durability. (Only if Mystical Agradditions is loaded)");
-		*/
 		
 		category = "Additional Mechanics";
 		config.addCustomCategoryComment(category, "Some additional mechanics available");
@@ -63,6 +60,11 @@ public class ModConfig
 		EXTRACTOR_LOWER_TIER = config.getBoolean("EXTRACTOR_LOWER_TIER", category, true, "Seed Extractor of larger tiers can pick lower tier seeds.");
 		EXTRACTOR_ANY_TIER = config.getBoolean("EXTRACTOR_ANY_TIER", category, false, "Seed extractors can collect any seed, regardless of the tier.");
 	
+		category = "Blocks(Enable/Disable)";
+		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
+		NETHERSTAR_BLOCK = config.getBoolean("NETHERSTAR_BLOCK", category, true, "Netherstar Block");
+		SILICON_BLOCK = config.getBoolean("SILICON_BLOCK", category, true, "Silicon Block");
+		
 		if(config.hasChanged()){
 			config.save();
 		}

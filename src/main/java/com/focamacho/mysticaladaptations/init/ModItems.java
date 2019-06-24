@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.items.ItemBase;
 import com.focamacho.mysticaladaptations.items.SeedExtractor;
 import com.focamacho.mysticaladaptations.lib.ModToolMaterial;
 import com.focamacho.mysticaladaptations.util.BlockCheck;
@@ -23,7 +24,8 @@ public class ModItems {
 	public static final Item INTERMEDIUM_SEED_EXTRACTOR = new SeedExtractor("intermedium_seed_extractor", ModToolMaterials.INTERMEDIUM, ModConfig.INTERMEDIUM_DURABILITY, 3, true);
 	public static final Item SUPERIUM_SEED_EXTRACTOR = new SeedExtractor("superium_seed_extractor", ModToolMaterials.SUPERIUM, ModConfig.SUPERIUM_DURABILITY, 4, true);
 	public static final Item SUPREMIUM_SEED_EXTRACTOR = new SeedExtractor("supremium_seed_extractor", ModToolMaterials.SUPREMIUM, ModConfig.SUPREMIUM_DURABILITY, 5, true);
-	/* Mystical Agradditions Compat
+
+	public static final Item GEAR = new ItemBase("gear", ModCheck.MYSTICAL_AGRADDITIONS);
 	public static final Item INSANIUM_SEED_EXTRACTOR = new SeedExtractor("insanium_seed_extractor", ModToolMaterial.INSANIUM, ModConfig.INSANIUM_DURABILITY, 6, ModCheck.MYSTICAL_AGRADDITIONS);
-	*/
+
 }

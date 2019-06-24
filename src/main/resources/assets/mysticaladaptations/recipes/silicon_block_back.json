@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shapeless",
+  "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "appliedenergistics2:material",
+        "data": 5
+     }
+  ],
+  "ingredients": [
+    {
+      "item": "mysticaladaptations:silicon_block"
+    }
+  ],
+  "result": {
+    "item": "appliedenergistics2:material",
+    "count": 9,
+    "data": 5
+  }
+}

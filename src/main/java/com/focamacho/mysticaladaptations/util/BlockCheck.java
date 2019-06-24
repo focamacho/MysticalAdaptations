@@ -173,10 +173,9 @@ public class BlockCheck {
 	public static final List<Block> Dye = new ArrayList<Block>(Arrays.asList(
 			(Blocks.RED_FLOWER),
 			(Blocks.YELLOW_FLOWER)));
-	/* Mystical Agradditions Compat
-	public static final List<ItemStack> Netherstar = ModCheck.MYSTICAL_AGRADDITIONS ? new ArrayList<ItemStack>(Arrays.asList(new ItemStack(Item.getByNameOrId("mysticalagradditions:special"), 1, 0))) : null;
-	public static final List<ItemStack> Awakened = ModChecker.DRACONIC_EVOLUTION ? new ArrayList<ItemStack>(Arrays.asList(new ItemStack(Item.getByNameOrId("draconicevolution:draconic_block")))) : null;
-	public static final List<ItemStack> DragonEgg = ModCheck.MYSTICAL_AGRADDITIONS ? new ArrayList<ItemStack>(Arrays.asList(new ItemStack(Item.getByNameOrId("mysticalagradditions:special"), 1, 1))) : null;
-	public static final List<ItemStack> Neutronium = ModCheck.AVARITIA ? new ArrayList<ItemStack>(Arrays.asList(new ItemStack(Item.getByNameOrId("avaritia:block_resource"), 1, 0))) : null;
-	*/
+	public static final List<ItemStack> Netherstar = OreDictionary.getOres("blockNetherStar");
+	public static final List<ItemStack> Awakened = OreDictionary.getOres("blockDraconiumAwakened");
+	public static final List<Block> DragonEgg = new ArrayList<Block>(Arrays.asList((Blocks.DRAGON_EGG)));
+	public static final List<ItemStack> Neutronium = OreDictionary.getOres("blockCosmicNeutronium");
+	public static final List<ItemStack> Silicon = OreDictionary.getOres("blockSilicon");
 }

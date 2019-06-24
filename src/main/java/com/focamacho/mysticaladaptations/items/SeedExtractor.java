@@ -218,16 +218,15 @@ public class SeedExtractor extends Item implements IHasModel{
 			   else if(checkBlockAndTier(itemstack, blockItem, BlockCheck.Starmetal, Type.STARMETAL)) seed = returnSeedItem(Type.STARMETAL);
 			   else if(checkBlockAndTier(itemstack, blockItem, BlockCheck.Uranium238, Type.URANIUM_238)) seed = returnSeedItem(Type.URANIUM_238);
 			   else if(checkBlockAndTier(itemstack, blockItem, BlockCheck.Quicksilver, Type.QUICKSILVER)) seed = returnSeedItem(Type.QUICKSILVER);
-			   /* Mystical Agradditions Compat
+			   else if(checkBlockAndTier(itemstack, blockItem, BlockCheck.Silicon, Type.SILICON)) seed = returnSeedItem(Type.SILICON);
 			   else if(ModCheck.MYSTICAL_AGRADDITIONS) {
 				   if(verifyTier(6, itemstack)) {
 					   if(checkBlock(blockItem, BlockCheck.Netherstar)) seed = new ItemStack(Item.getByNameOrId("mysticalagradditions:nether_star_seeds"));
 					   else if(checkBlock(blockItem, BlockCheck.Awakened)) seed = new ItemStack(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds"));
-					   else if(checkBlock(blockItem, BlockCheck.DragonEgg)) seed = new ItemStack(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds"));
+					   else if(checkNonSolidBlock(iblockstate.getBlock(), BlockCheck.DragonEgg)) seed = new ItemStack(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds"));
 					   else if(checkBlock(blockItem, BlockCheck.Neutronium)) seed = new ItemStack(Item.getByNameOrId("mysticalagradditions:neutronium_seeds"));
 				   }
 			   }
-			   */
 		       
 		       if(seed != null) {
 		    	   if(!worldIn.isRemote) {
@@ -267,7 +266,6 @@ public class SeedExtractor extends Item implements IHasModel{
 		} else return true;
 	}
 	
-	/* Mystical Agradditions Compat
 	public boolean verifyTier(int tier, ItemStack extractor) {
 		if(!ModConfig.EXTRACTOR_ANY_TIER) {
 			if(ModConfig.EXTRACTOR_LOWER_TIER) {
@@ -279,7 +277,6 @@ public class SeedExtractor extends Item implements IHasModel{
 			}
 		} else return true;
 	}
-	*/
 	
 	public boolean checkBlockAndTier(ItemStack extractor, ItemStack blockItem, List<ItemStack> blockList, CropType.Type seed) {
 		if(checkBlock(blockItem, blockList) && verifyTier(seed, extractor) && seed.isEnabled()) return true;
