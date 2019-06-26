@@ -53,6 +53,7 @@ public class RegistryHandler {
 	
 	public static void initRegistries() {
 		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
+		MinecraftForge.EVENT_BUS.register(new BlockCheck());
 		OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
 		OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
 	}
