@@ -331,7 +331,6 @@ public class BlockCheck {
 				}
 			}
 		}
-		System.out.println("Registrado todos esses itens: " + allBlocks);
 		return allBlocks;
 	}
 	
@@ -364,7 +363,6 @@ public class BlockCheck {
 				}
 			}
 		}
-		System.out.println("Registrado todos esses blocos: " + allBlocks);
 		return allBlocks;
 	}
 	
