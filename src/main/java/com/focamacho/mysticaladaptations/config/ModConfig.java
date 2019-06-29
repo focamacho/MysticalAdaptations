@@ -213,7 +213,7 @@ public class ModConfig
 		INTERMEDIUM_DURABILITY = config.getInt("INTERMEDIUM_DURABILITY", category, 15, 1, 2147483647, "Intermedium Seed Extractor Durability.");
 		SUPERIUM_DURABILITY = config.getInt("SUPERIUM_DURABILITY", category, 15, 1, 2147483647, "Superium Seed Extractor Durability.");
 		SUPREMIUM_DURABILITY = config.getInt("SUPREMIUM_DURABILITY", category, 15, 1, 2147483647, "Supremium Seed Extractor Durability.");
-		INSANIUM_DURABILITY = config.getInt("INSANIUM_DURABILITY", category, 15, 1, 2147483647, "Supremium Seed Extractor Durability. (Only if Mystical Agradditions is loaded)");
+		INSANIUM_DURABILITY = config.getInt("INSANIUM_DURABILITY", category, 15, 1, 2147483647, "Insanium Seed Extractor Durability. (Only if Mystical Agradditions is loaded)");
 		
 		category = "Additional Mechanics";
 		config.addCustomCategoryComment(category, "Some additional mechanics available");
