@@ -14,10 +14,11 @@ import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.Main;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
+import com.focamacho.mysticaladaptations.lib.BlockCheck;
+import com.focamacho.mysticaladaptations.lib.BlocksList;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Multimap;
-import com.focamacho.mysticaladaptations.util.BlockCheck;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import net.minecraft.block.Block;
@@ -58,7 +59,7 @@ import scala.reflect.api.Trees.TryExtractor;
 
 public class SeedExtractor extends Item implements IHasModel{
 
-	public ToolMaterial toolMaterial;
+	ToolMaterial toolMaterial;
 	NBTTagCompound tier = new NBTTagCompound();
 	
 	public SeedExtractor(String name, ToolMaterial material, int durability, int tier, boolean register) {

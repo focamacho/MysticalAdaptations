@@ -5,7 +5,9 @@ import java.io.File;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.BlockCheck;
+import com.focamacho.mysticaladaptations.lib.BlocksList;
+import com.focamacho.mysticaladaptations.lib.EntitiesList;
+import com.focamacho.mysticaladaptations.lib.ItemsList;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
@@ -52,9 +54,12 @@ public class RegistryHandler {
 	}
 	
 	public static void initRegistries() {
-		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
-		MinecraftForge.EVENT_BUS.register(new BlockCheck());
 		OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
 		OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
+		MinecraftForge.EVENT_BUS.register(new BlocksList());
+		MinecraftForge.EVENT_BUS.register(new EntitiesList());
+		MinecraftForge.EVENT_BUS.register(new ItemsList());
+		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
+		CraftingHandler.removeRecipes();
 	}
 }

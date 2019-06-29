@@ -25,6 +25,7 @@ public class ModConfig
 	public static boolean MOB_SEED_DROP;
 	public static boolean EXTRACTOR_LOWER_TIER;
 	public static boolean EXTRACTOR_ANY_TIER;
+	public static boolean REMOVE_SEED_RECIPES;
 	
 	public static boolean NETHERSTAR_BLOCK;
 	public static boolean SILICON_BLOCK;
@@ -137,7 +138,6 @@ public class ModConfig
 	public static String silver_seeds;
 	public static String sky_stone_seeds;
 	public static String slate_seeds;
-	public static String slime_seeds;
 	public static String slimy_bone_seeds;
 	public static String soularium_seeds;
 	public static String star_steel_seeds;
@@ -171,6 +171,24 @@ public class ModConfig
 	public static String dragon_egg_seeds;
 	public static String nether_star_seeds;
 	public static String neutronium_seeds;
+	public static String basalz_seeds;
+	public static String blaze_seeds;
+	public static String blitz_seeds;
+	public static String blizz_seeds;
+	public static String chicken_seeds;
+	public static String cow_seeds;
+	public static String creeper_seeds;
+	public static String enderman_seeds;
+	public static String ghast_seeds;
+	public static String guardian_seeds;
+	public static String pig_seeds;
+	public static String rabbit_seeds;
+	public static String sheep_seeds;
+	public static String skeleton_seeds;
+	public static String slime_seeds;
+	public static String spider_seeds;
+	public static String wither_skeleton_seeds;
+	public static String zombie_seeds;
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
@@ -202,14 +220,15 @@ public class ModConfig
 		MOB_SEED_DROP = config.getBoolean("MOB_SEED_DROP", category, true, "Kill a mob using a Seed Extractor to get its seed.");
 		EXTRACTOR_LOWER_TIER = config.getBoolean("EXTRACTOR_LOWER_TIER", category, true, "Seed Extractor of larger tiers can pick lower tier seeds.");
 		EXTRACTOR_ANY_TIER = config.getBoolean("EXTRACTOR_ANY_TIER", category, false, "Seed extractors can collect any seed, regardless of the tier.");
+		REMOVE_SEED_RECIPES = config.getBoolean("REMOVE_SEED_RECIPES", category, true, "Remove all default crafting table seed recipes");
 	
 		category = "Blocks(Enable/Disable)";
 		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
-		NETHERSTAR_BLOCK = config.getBoolean("NETHERSTAR_BLOCK", category, true, "Netherstar Block");
-		SILICON_BLOCK = config.getBoolean("SILICON_BLOCK", category, true, "Silicon Block");
+		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
+		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", true).getBoolean();
 
-		category = "Seeds from Blocks";
-		config.addCustomCategoryComment(category, "Defina quais sementes dropam de quais blocos");
+		category = "Seeds drops";
+		config.addCustomCategoryComment(category, "Set which block or entity drops a seed when right-clicked/killed using a Seed Extractor");
 	    abyssalnite_seeds = config.get(category, "abyssalnite_seeds", "ore:blockAbyssalnite").getString();
 	    adamantine_seeds = config.get(category, "adamantine_seeds", "ore:blockAdamantine").getString();
 	    aluminum_brass_seeds = config.get(category, "aluminum_brass_seeds", "ore:blockAlubrass").getString();
@@ -318,7 +337,7 @@ public class ModConfig
 	    silver_seeds = config.get(category, "silver_seeds", "ore:blockSilver").getString();
 	    sky_stone_seeds = config.get(category, "sky_stone_seeds", "appliedenergistics2:sky_stone_block").getString();
 	    slate_seeds = config.get(category, "slate_seeds", "ore:slate").getString();
-	    slime_seeds = config.get(category, "slime_seeds", "ore:blockSlime").getString();
+	    slime_seeds = config.get(category, "slime_seeds", "ore:blockSlime;entity:minecraft:slime").getString();
 	    slimy_bone_seeds = config.get(category, "slimy_bone_seeds", "ore:blockBone").getString();
 	    soularium_seeds = config.get(category, "soularium_seeds", "ore:blockSoularium").getString();
 	    star_steel_seeds = config.get(category, "star_steel_seeds", "ore:blockStarsteel").getString();
@@ -352,7 +371,24 @@ public class ModConfig
 	    dragon_egg_seeds = config.get(category, "dragon_egg_seeds", "minecraft:dragon_egg").getString();
 	    nether_star_seeds = config.get(category, "nether_star_seeds", "ore:blockNetherStar").getString();
 	    neutronium_seeds = config.get(category, "neutronium_seeds", "ore:blockCosmicNeutronium").getString();
-		
+		basalz_seeds = config.get(category, "basalz_seeds", "entity:thermalfoundation:basalz").getString();
+		blaze_seeds = config.get(category, "blaze_seeds", "entity:minecraft:blaze").getString();
+		blitz_seeds = config.get(category, "blitz_seeds", "entity:thermalfoundation:blitz").getString();
+		blizz_seeds = config.get(category, "blizz_seeds", "entity:thermalfoundation:blizz").getString();
+		chicken_seeds = config.get(category, "chicken_seeds", "entity:minecraft:chicken").getString();
+		cow_seeds = config.get(category, "cow_seeds", "entity:minecraft:cow").getString();
+		creeper_seeds = config.get(category, "creeper_seeds", "entity:minecraft:creeper").getString();
+		enderman_seeds = config.get(category, "enderman_seeds", "entity:minecraft:enderman").getString();
+		ghast_seeds = config.get(category, "ghast_seeds", "entity:minecraft:ghast").getString();
+		guardian_seeds = config.get(category, "guardian_seeds", "entity:minecraft:guardian").getString();
+		pig_seeds = config.get(category, "pig_seeds", "entity:minecraft:pig").getString();
+		rabbit_seeds = config.get(category, "rabbit_seeds", "entity:minecraft:rabbit").getString();
+		sheep_seeds = config.get(category, "sheep_seeds", "entity:minecraft:sheep").getString();
+		skeleton_seeds = config.get(category, "skeleton_seeds", "entity:minecraft:skeleton").getString();
+		spider_seeds = config.get(category, "spider_seeds", "entity:minecraft:spider").getString();
+		wither_skeleton_seeds = config.get(category, "wither_skeleton_seeds", "entity:minecraft:wither_skeleton").getString();
+		zombie_seeds = config.get(category, "zombie_seeds", "entity:minecraft:zombie").getString();
+	    
 		if(config.hasChanged()){
 			config.save();
 		}
