@@ -54,8 +54,8 @@ public class RegistryHandler {
 	}
 	
 	public static void initRegistries() {
-		OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
-		OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
+		if(ModConfig.NETHERSTAR_BLOCK) OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
+		if(ModConfig.SILICON_BLOCK) OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
 		MinecraftForge.EVENT_BUS.register(new BlocksList());
 		MinecraftForge.EVENT_BUS.register(new EntitiesList());
 		MinecraftForge.EVENT_BUS.register(new ItemsList());

@@ -15,3 +15,6 @@ item.gear.name=§5Insanium Tool Core
 # BLOCKS
 tile.netherstar_block.name=Block of Nether Stars
 tile.silicon_block.name=Silicon Block
+
+# JEI
+jei.mysticaladaptations.extractor=Seed Extractor

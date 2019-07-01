@@ -26,6 +26,7 @@ public class ModConfig
 	public static boolean EXTRACTOR_LOWER_TIER;
 	public static boolean EXTRACTOR_ANY_TIER;
 	public static boolean REMOVE_SEED_RECIPES;
+	public static boolean JEI_COMPAT;
 	
 	public static boolean NETHERSTAR_BLOCK;
 	public static boolean SILICON_BLOCK;
@@ -221,8 +222,9 @@ public class ModConfig
 		EXTRACTOR_LOWER_TIER = config.getBoolean("EXTRACTOR_LOWER_TIER", category, true, "Seed Extractor of larger tiers can pick lower tier seeds.");
 		EXTRACTOR_ANY_TIER = config.getBoolean("EXTRACTOR_ANY_TIER", category, false, "Seed extractors can collect any seed, regardless of the tier.");
 		REMOVE_SEED_RECIPES = config.getBoolean("REMOVE_SEED_RECIPES", category, true, "Remove all default crafting table seed recipes");
+		JEI_COMPAT = config.getBoolean("JEI_COMPAT", category, true, "Enable/Disable JEI Compat");
 	
-		category = "Blocks(Enable/Disable)";
+		category = "Blocks";
 		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
 		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
 		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", true).getBoolean();
@@ -240,7 +242,7 @@ public class ModConfig
 	    aquarium_seeds = config.get(category, "aquarium_seeds", "ore:blockAquarium").getString();
 	    ardite_seeds = config.get(category, "ardite_seeds", "ore:blockArdite").getString();
 	    basalt_seeds = config.get(category, "basalt_seeds", "ore:stoneBasalt").getString();
-	    black_quartz_seeds = config.get(category, "black_quartz_seeds", "ore:blockQuartzBlack").getString();
+	    black_quartz_seeds = config.get(category, "black_quartz_seeds", "actuallyadditions:block_misc;actuallyadditions:block_misc:1;actuallyadditions:block_misc:2").getString();
 	    blue_topaz_seeds = config.get(category, "blue_topaz_seeds", "ore:blockBlueTopaz").getString();
 	    boron_seeds = config.get(category, "boron_seeds", "ore:blockBoron").getString();
 	    brass_seeds = config.get(category, "brass_seeds", "ore:blockBrass").getString();
@@ -288,7 +290,7 @@ public class ModConfig
 	    grains_of_infinity_seeds = config.get(category, "grains_of_infinity_seeds", "ore:compressedx1DustBedrock").getString();
 	    graphite_seeds = config.get(category, "graphite_seeds", "ore:blockGraphite").getString();
 	    hop_graphite_seeds = config.get(category, "hop_graphite_seeds", "").getString();
-	    ice_seeds = config.get(category, "ice_seeds", "").getString();
+	    ice_seeds = config.get(category, "ice_seeds", "minecraft:snow;minecraft:ice;minecraft:packed_ice").getString();
 	    invar_seeds = config.get(category, "invar_seeds", "ore:blockInvar").getString();
 	    iridium_ore_seeds = config.get(category, "iridium_ore_seeds", "ore:oreIridium").getString();
 	    iridium_seeds = config.get(category, "iridium_seeds", "ore:blockIridium").getString();
@@ -312,7 +314,7 @@ public class ModConfig
 	    mithril_seeds = config.get(category, "mithril_seeds", "ore:blockMithril").getString();
 	    moonstone_seeds = config.get(category, "moonstone_seeds", "ore:blockMoonstone").getString();
 	    mystical_flower_seeds = config.get(category, "mystical_flower_seeds", "botania:flower;botania:flower:1;botania:flower:2;botania:flower:3;botania:flower:4;botania:flower:5;botania:flower:6;botania:flower:7;botania:flower:8;botania:flower:9;botania:flower:10;botania:flower:11;botania:flower:12;botania:flower:13;botania:flower:14;botania:flower:15").getString();
-	    nature_seeds = config.get(category, "nature_seeds", "").getString();
+	    nature_seeds = config.get(category, "nature_seeds", "minecraft:vine;minecraft:cactus;minecraft:reeds;minecraft:pumpkin;minecraft:melon_block;minecraft:waterlily;minecraft:tallgrass:1;minecraft:dye:3;minecraft:carrot;minecraft:potato").getString();
 	    nether_quartz_seeds = config.get(category, "nether_quartz_seeds", "ore:blockQuartz").getString();
 	    nether_seeds = config.get(category, "nether_seeds", "ore:netherrack").getString();
 	    nickel_seeds = config.get(category, "nickel_seeds", "ore:blockNickel").getString();
@@ -328,7 +330,7 @@ public class ModConfig
 	    redstone_seeds = config.get(category, "redstone_seeds", "ore:blockRedstone").getString();
 	    refined_obsidian_seeds = config.get(category, "refined_obsidian_seeds", "ore:blockRefinedObsidian").getString();
 	    rock_crystal_seeds = config.get(category, "rock_crystal_seeds", "astralsorcery:blockcustomore").getString();
-	    rubber_seeds = config.get(category, "rubber_seeds", "ore:logRubber").getString();
+	    rubber_seeds = config.get(category, "rubber_seeds", "ore:logRubber;ore:woodRubber").getString();
 	    ruby_seeds = config.get(category, "ruby_seeds", "ore:blockRuby").getString();
 	    saltpeter_seeds = config.get(category, "saltpeter_seeds", "").getString();
 	    sapphire_seeds = config.get(category, "sapphire_seeds", "ore:blockSapphire").getString();
