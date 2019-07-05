@@ -77,6 +77,9 @@ public class SeedExtractor extends Item implements IHasModel{
         ItemStack seed = null;
         
     	ItemStack itemstack = player.getHeldItem(hand);
+	if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
+	if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
+
         RayTraceResult raytraceresult = this.rayTrace(worldIn, player, true);
         BlockPos pos = null;
 
