@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.items.ItemBase;
 import com.focamacho.mysticaladaptations.items.SeedExtractor;
-import com.focamacho.mysticaladaptations.lib.BlocksList;
 import com.focamacho.mysticaladaptations.lib.ModToolMaterial;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 

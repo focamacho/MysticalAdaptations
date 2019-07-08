@@ -8,9 +8,7 @@ import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.lib.BlocksList;
-import com.focamacho.mysticaladaptations.lib.EntitiesList;
-import com.focamacho.mysticaladaptations.lib.ItemsList;
+import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorItemStacks;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorRecipe;
@@ -58,21 +56,17 @@ public class CompatJEI implements IModPlugin {
 	
 	        if(ModCheck.MYSTICAL_AGRADDITIONS) {
 	        	registry.addRecipeCatalyst(new ItemStack(ModItems.INSANIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
-	            ItemStack NetherStarSeeds = new ItemStack(Item.getByNameOrId("mysticalagradditions:nether_star_seeds"));
-	            ItemStack AwakenedSeeds = new ItemStack(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds"));
-	            ItemStack DragonEggSeeds = new ItemStack(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds"));
-	            ItemStack NeutroniumSeeds = new ItemStack(Item.getByNameOrId("mysticalagradditions:neutronium_seeds"));
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(ItemsList.Netherstar, BlocksList.Netherstar, EntitiesList.Netherstar)) {
-	            	extractorRecipies.add(new ExtractorRecipe(NetherStarSeeds, item));
+	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.nether_star_seeds)) {
+	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.nether_star_seeds.getSeed(), item));
 	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(ItemsList.Awakened, BlocksList.Awakened, EntitiesList.Awakened)) {
-	            	extractorRecipies.add(new ExtractorRecipe(AwakenedSeeds, item));
+	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.awakened_draconium_seeds)) {
+	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.awakened_draconium_seeds.getSeed(), item));
 	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(ItemsList.DragonEgg, BlocksList.DragonEgg, EntitiesList.DragonEgg)) {
-	            	extractorRecipies.add(new ExtractorRecipe(DragonEggSeeds, item));
+	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.dragon_egg_seeds)) {
+	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.dragon_egg_seeds.getSeed(), item));
 	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(ItemsList.Neutronium, BlocksList.Neutronium, EntitiesList.Neutronium)) {
-	            	extractorRecipies.add(new ExtractorRecipe(NeutroniumSeeds, item));
+	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.neutronium_seeds)) {
+	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.neutronium_seeds.getSeed(), item));
 	        	}
 	        }
 

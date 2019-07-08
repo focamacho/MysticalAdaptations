@@ -15,7 +15,6 @@ import com.focamacho.mysticaladaptations.Main;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.lib.BlockCheck;
-import com.focamacho.mysticaladaptations.lib.BlocksList;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Multimap;
@@ -77,9 +76,9 @@ public class SeedExtractor extends Item implements IHasModel{
         ItemStack seed = null;
         
     	ItemStack itemstack = player.getHeldItem(hand);
-	if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
-	if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
-
+		if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
+		if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
+		
         RayTraceResult raytraceresult = this.rayTrace(worldIn, player, true);
         BlockPos pos = null;
 

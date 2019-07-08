@@ -3,11 +3,10 @@ package com.focamacho.mysticaladaptations.util.handlers;
 import java.io.File;
 
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.lib.BlocksList;
-import com.focamacho.mysticaladaptations.lib.EntitiesList;
-import com.focamacho.mysticaladaptations.lib.ItemsList;
+import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
@@ -50,15 +49,14 @@ public class RegistryHandler {
 	
 	public static void preInitRegistries(FMLPreInitializationEvent event) {
 		ModConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations.cfg"));
+		RecipesConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations_recipes.cfg"));
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
 	}
 	
 	public static void initRegistries() {
 		if(ModConfig.NETHERSTAR_BLOCK) OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
 		if(ModConfig.SILICON_BLOCK) OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
-		MinecraftForge.EVENT_BUS.register(new BlocksList());
-		MinecraftForge.EVENT_BUS.register(new EntitiesList());
-		MinecraftForge.EVENT_BUS.register(new ItemsList());
+		MinecraftForge.EVENT_BUS.register(new SeedExtractorRecipes());
 		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
 		CraftingHandler.removeRecipes();
 	}

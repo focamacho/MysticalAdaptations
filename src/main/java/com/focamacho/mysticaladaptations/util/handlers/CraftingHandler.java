@@ -7,7 +7,6 @@ import com.blakebr0.mysticalagriculture.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.blakebr0.mysticalagriculture.util.ModChecker;
 import com.focamacho.mysticaladaptations.config.ModConfig;
-import com.focamacho.mysticaladaptations.lib.BlocksList;
 import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Lists;
