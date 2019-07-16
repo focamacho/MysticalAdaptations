@@ -23,7 +23,7 @@ public class SeedExtractorRecipe {
 	private Integer tier;
 	private Type type;
 	
-	public SeedExtractorRecipe(String config, Type seed) {
+	public SeedExtractorRecipe(String[] config, Type seed) {
 		this.itemList = getItemsFromConfig(config);
 		this.blockList = getBlocksFromConfig(config);
 		this.entityList = getEntitiesFromConfig(config);
@@ -32,7 +32,7 @@ public class SeedExtractorRecipe {
 		this.type = seed;
 	}
 	
-	public SeedExtractorRecipe(String config, ItemStack seed, int tier) {
+	public SeedExtractorRecipe(String[] config, ItemStack seed, int tier) {
 		this.itemList = getItemsFromConfig(config);
 		this.blockList = getBlocksFromConfig(config);
 		this.entityList = getEntitiesFromConfig(config);
@@ -40,28 +40,25 @@ public class SeedExtractorRecipe {
 		this.tier = tier;
 	}
 	
-	private static List<ItemStack> getItemsFromConfig(String config) {
+	private static List<ItemStack> getItemsFromConfig(String[] config) {
 		List<ItemStack> allItems = new ArrayList<ItemStack>();
-		String[] itemList = config.split(";");
-		if(!(itemList.length <= 0)) {
-			for(String item : itemList) {
-				if(item.startsWith("ore:")) {
-					String[] split = item.split(":");
-					allItems.addAll(getItemListFromOredict(split[1]));
-				} else if(item.startsWith("entity")) {
-					//nothing
-				} else {
-					String[] split = item.split(":");
-					if(split.length > 2) {
-						ItemStack itemA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]), 1, Integer.parseInt(split[2]));
-						if(!(itemA.getItem() == Items.AIR)) {
-							allItems.add(itemA);
-						}
-					} else if(split.length == 2){
-						ItemStack itemA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]));
-						if(!(itemA.getItem() == Items.AIR)) {
-							allItems.add(itemA);
-						}
+		for(String item : config) {
+			if(item.startsWith("ore:")) {
+				String[] split = item.split(":");
+				allItems.addAll(getItemListFromOredict(split[1]));
+			} else if(item.startsWith("entity")) {
+				//nothing
+			} else {
+				String[] split = item.split(":");
+				if(split.length > 2) {
+					ItemStack itemA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]), 1, Integer.parseInt(split[2]));
+					if(!(itemA.getItem() == Items.AIR)) {
+						allItems.add(itemA);
+					}
+				} else if(split.length == 2){
+					ItemStack itemA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]));
+					if(!(itemA.getItem() == Items.AIR)) {
+						allItems.add(itemA);
 					}
 				}
 			}
@@ -75,32 +72,29 @@ public class SeedExtractorRecipe {
 	}
 	
 	
-	private static List<Block> getBlocksFromConfig(String config) {
+	private static List<Block> getBlocksFromConfig(String[] config) {
 		List<Block> allBlocks = new ArrayList<Block>();
-		String[] blockList = config.split(";");
-		if(!(blockList.length <= 0)) {
-			for(String block : blockList) {
-				if(block.startsWith("ore:")) {
-					//nothing
-				} else if(block.startsWith("entity")) {
-					//nothing
-				} else {
-					String[] split = block.split(":");
-					if(split.length > 2) {
-						ItemStack blockA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]), 1, Integer.parseInt(split[2]));
-						if(blockA.getItem() == Items.AIR) {
-							Block blockB = Block.getBlockFromName(split[0] + ":" + split[1]);
-							if(blockB != null) {
-								allBlocks.add(blockB);
-							}
+		for(String block : config) {
+			if(block.startsWith("ore:")) {
+				//nothing
+			} else if(block.startsWith("entity")) {
+				//nothing
+			} else {
+				String[] split = block.split(":");
+				if(split.length > 2) {
+					ItemStack blockA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]), 1, Integer.parseInt(split[2]));
+					if(blockA.getItem() == Items.AIR) {
+						Block blockB = Block.getBlockFromName(split[0] + ":" + split[1]);
+						if(blockB != null) {
+							allBlocks.add(blockB);
 						}
-					} else if(split.length == 2){
-						ItemStack blockA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]));
-						if(blockA.getItem() == Items.AIR) {
-							Block blockB = Block.getBlockFromName(split[0] + ":" + split[1]);
-							if(blockB != null) {
-								allBlocks.add(blockB);
-							}
+					}
+				} else if(split.length == 2){
+					ItemStack blockA = new ItemStack(Item.getByNameOrId(split[0] + ":" + split[1]));
+					if(blockA.getItem() == Items.AIR) {
+						Block blockB = Block.getBlockFromName(split[0] + ":" + split[1]);
+						if(blockB != null) {
+							allBlocks.add(blockB);
 						}
 					}
 				}
@@ -109,18 +103,15 @@ public class SeedExtractorRecipe {
 		return allBlocks;
 	}
 	
-	private static List<ResourceLocation> getEntitiesFromConfig(String config) {
+	private static List<ResourceLocation> getEntitiesFromConfig(String[] config) {
 		List<EntityEntry> entityRegistry = ForgeRegistries.ENTITIES.getValues();
-		String[] entityList = config.split(";");
 		List<ResourceLocation> allEntities = new ArrayList<ResourceLocation>();
-		if(!(entityList.length <= 0)) {
-			for(String entity : entityList) {
-				if(entity.startsWith("entity")) {
-					String[] split = entity.split(":");
-					for(EntityEntry entityE : entityRegistry) {
-						ResourceLocation entityR = new ResourceLocation(split[1] + ":" + split[2]);
-						if(entityE.getRegistryName().equals(entityR)) allEntities.add(entityR);
-					}
+		for(String entity : config) {
+			if(entity.startsWith("entity")) {
+				String[] split = entity.split(":");
+				for(EntityEntry entityE : entityRegistry) {
+					ResourceLocation entityR = new ResourceLocation(split[1] + ":" + split[2]);
+					if(entityE.getRegistryName().equals(entityR)) allEntities.add(entityR);
 				}
 			}
 		}
