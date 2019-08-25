@@ -1,0 +1,18 @@
+{
+  "type": "forge:ore_shapeless",
+  "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:netherstar_block"
+     }
+  ],
+  "ingredients": [
+    {
+      "item": "mysticaladaptations:netherstar_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:nether_star",
+    "count": 9
+  }
+}

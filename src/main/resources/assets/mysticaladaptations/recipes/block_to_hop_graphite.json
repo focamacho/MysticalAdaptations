@@ -1,0 +1,24 @@
+{
+  "type": "forge:ore_shapeless",
+  "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:hop_graphite_block"
+     },
+     {
+        "type": "minecraft:item_exists",
+        "item": "immersiveengineering:material",
+        "data": 19
+     }
+  ],
+  "ingredients": [
+    {
+      "item": "mysticaladaptations:hop_graphite_block"
+    }
+  ],
+  "result": {
+    "item": "immersiveengineering:material",
+    "count": 9,
+    "data": 19
+  }
+}

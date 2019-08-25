@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "mysticaladaptations:blocks/hop_graphite_block"
+   }
+}

@@ -1,0 +1,25 @@
+# TAB
+itemGroup.tab.mysticaladaptations.name=Mystical Adaptations
+
+# SEED EXTRACTOR
+item.inferium_seed_extractor.name=§eInferium Seed Extractor
+item.prudentium_seed_extractor.name=§aPrudentium Seed Extractor
+item.intermedium_seed_extractor.name=§6Intermedium Seed Extractor
+item.superium_seed_extractor.name=§bSuperium Seed Extractor
+item.supremium_seed_extractor.name=§cSupremium Seed Extractor
+item.insanium_seed_extractor.name=§5Insanium Seed Extractor
+
+# ITEMS
+item.gear.name=§5Insanium Tool Core
+
+# BLOCKS
+tile.netherstar_block.name=Block of Nether Stars
+tile.silicon_block.name=Silicon Block
+tile.hop_graphite_block.name=Block of HOP Graphite
+
+# JEI
+jei.mysticaladaptations.extractor=Seed Extractor
+# Default message: "Can be obtained from killing mobs using a Seed Extractor of Tier 4 or higher. Drop Chance: 10%
+jei.mysticaladaptations.experience_seeds_drop=Can be obtained from killing mobs using a Seed Extractor of Tier
+jei.mysticaladaptations.experience_seeds_drop_higher=or higher.
+jei.mysticaladaptations.experience_seeds_drop_chance=Drop Chance:

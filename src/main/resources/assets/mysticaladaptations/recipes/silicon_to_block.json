@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:silicon_block"
+     },
+     {
+        "type": "minecraft:item_exists",
+        "item": "appliedenergistics2:material",
+        "data": 5
+     }
+  ],
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+        "item": "appliedenergistics2:material",
+        "data": 5
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:silicon_block"
+  }
+}

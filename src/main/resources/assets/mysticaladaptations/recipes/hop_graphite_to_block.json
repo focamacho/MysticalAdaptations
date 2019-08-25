@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:hop_graphite_block"
+     },
+     {
+        "type": "minecraft:item_exists",
+        "item": "immersiveengineering:material",
+        "data": 19
+     }
+  ],
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+        "item": "immersiveengineering:material",
+        "data": 19
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:hop_graphite_block"
+  }
+}

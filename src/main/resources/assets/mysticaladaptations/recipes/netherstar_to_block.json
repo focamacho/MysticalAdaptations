@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:netherstar_block"
+     }
+  ],
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:netherstar_block"
+  }
+}

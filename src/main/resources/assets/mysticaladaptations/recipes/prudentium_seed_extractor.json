@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "II ",
+    "  C",
+    "SI "
+  ],
+  "key": {
+    "I": {
+      "item": "mysticalagriculture:crafting",
+      "data": 34
+    },
+    "C": {
+      "item": "mysticalagriculture:gear",
+      "data": 1
+    },
+    "S": {
+      "item": "mysticalagriculture:crafting",
+      "data": 22
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:prudentium_seed_extractor"
+  }
+}
