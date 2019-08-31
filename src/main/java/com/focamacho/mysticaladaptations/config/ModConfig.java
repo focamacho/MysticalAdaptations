@@ -37,9 +37,6 @@ public class ModConfig {
 	public static boolean SILICON_BLOCK;
 	public static boolean HOP_GRAPHITE_BLOCK;
 	
-	public static boolean ENABLE_INSANIUM_ARMOR;
-	public static boolean INSANIUM_ARMOR_FLIGHT;
-	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
         if(eventArgs.getModID().equals(Reference.MOD_ID)) {
@@ -87,11 +84,6 @@ public class ModConfig {
 		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
 		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", true).getBoolean();
 		HOP_GRAPHITE_BLOCK = config.get(category, "HOP_GRAPHITE_BLOCK", true).getBoolean();
-	    
-		category = "Mystical Agradditions";
-		config.addCustomCategoryComment(category, "Mystical Agradditions addons");
-		ENABLE_INSANIUM_ARMOR = config.getBoolean("ENABLE_INSANIUM_ARMOR", category, true, "Enable Insanium Armor");
-		INSANIUM_ARMOR_FLIGHT = config.getBoolean("INSANIUM_ARMOR_FLIGHT", category, true, "Enable Insanium Armor Flight");
 		
 		if(config.hasChanged()){
 			config.save();

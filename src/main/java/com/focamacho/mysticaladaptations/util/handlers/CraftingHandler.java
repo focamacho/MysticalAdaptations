@@ -5,12 +5,15 @@ import java.util.List;
 
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Lists;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
@@ -50,8 +53,17 @@ public class CraftingHandler {
 			seedItems.add(type.getSeed());
 		}
 		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.REMOVE_AGRADDITIONS_RECIPES) {
-			for(com.blakebr0.mysticalagradditions.lib.CropType.Type type : com.blakebr0.mysticalagradditions.lib.CropType.Type.values()) {
-				seedItems.add(type.getSeed());
+			if(Item.getByNameOrId("mysticalagradditions:nether_star_seeds") != null && Item.getByNameOrId("mysticalagradditions:nether_star_seeds") != Items.AIR) {
+				seedItems.add(Item.getByNameOrId("mysticalagradditions:nether_star_seeds"));
+			}
+			if(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds") != null && Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds") != Items.AIR) {
+				seedItems.add(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds"));
+			}
+			if(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds") != null && Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds") != Items.AIR) {
+				seedItems.add(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds"));
+			}
+			if(Item.getByNameOrId("mysticalagradditions:neutronium_seeds") != null && Item.getByNameOrId("mysticalagradditions:neutronium_seeds") != Items.AIR) {
+				seedItems.add(Item.getByNameOrId("mysticalagradditions:neutronium_seeds"));
 			}
 		}
 		return seedItems;
