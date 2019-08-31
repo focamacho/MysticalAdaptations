@@ -7,6 +7,7 @@ import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.util.DummyRecipe;
+import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Lists;
 
 import net.minecraft.item.Item;
@@ -39,6 +40,7 @@ public class CraftingHandler {
 		             }
 	             }
 		     }
+		     
 		}
 	}
 	
@@ -46,6 +48,11 @@ public class CraftingHandler {
 		List<Item> seedItems = new ArrayList<Item>();
 		for(Type type : Type.values()) {
 			seedItems.add(type.getSeed());
+		}
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.REMOVE_AGRADDITIONS_RECIPES) {
+			for(com.blakebr0.mysticalagradditions.lib.CropType.Type type : com.blakebr0.mysticalagradditions.lib.CropType.Type.values()) {
+				seedItems.add(type.getSeed());
+			}
 		}
 		return seedItems;
 	}

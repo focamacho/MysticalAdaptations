@@ -3,8 +3,10 @@ package com.focamacho.mysticaladaptations.lib;
 import java.util.List;
 
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.util.ModCheck;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -12,7 +14,14 @@ public class BlockCheck {
 
 	public static ItemStack getSeedFromBlock(ItemStack extractor, ItemStack blockItem, Block block) {
 		for(SeedExtractorRecipe recipe : SeedExtractorRecipes.allRecipes) {
-			if(checkRecipe(recipe, extractor, blockItem, block) && recipe.getType().isEnabled()) return recipe.getSeed();
+			if(checkRecipe(recipe, extractor, blockItem, block)) {
+				if(recipe.getType() != null && recipe.getType().isEnabled()) return recipe.getSeed();
+				else {
+					if(ModCheck.MYSTICAL_AGRADDITIONS && recipe.getSeed() != null && recipe.getSeed().getItem() != Items.AIR) {
+						return recipe.getSeed();
+					}
+				}
+			}
 		}
 		return null;
 	}

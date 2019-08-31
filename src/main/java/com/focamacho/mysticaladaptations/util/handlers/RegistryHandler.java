@@ -59,6 +59,10 @@ public class RegistryHandler {
 		if(ModConfig.HOP_GRAPHITE_BLOCK) OreDictionary.registerOre("blockHOPGraphite", ModBlocks.HOP_GRAPHITE_BLOCK);
 		MinecraftForge.EVENT_BUS.register(new SeedExtractorRecipes());
 		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
+		SeedExtractorRecipes.init();
+	}
+	
+	public static void postInitRegistries() {
 		CraftingHandler.removeRecipes();
 	}
 }

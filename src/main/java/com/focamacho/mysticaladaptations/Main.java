@@ -45,7 +45,7 @@ public class Main {
 	
 	@EventHandler
 	public static void PostInit(FMLPostInitializationEvent event) {
-		
+		RegistryHandler.postInitRegistries();
 	}
 	
 	public static final CreativeTabs tabMysticalAdaptations = new CreativeTabs("tab.mysticaladaptations.name") {		
