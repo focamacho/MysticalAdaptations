@@ -50,7 +50,7 @@ public class InsaniumAxe extends ItemAxe implements IRepairMaterial, IHasModel {
 		super(material, damage, -3.2F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAgriculture.CREATIVE_TAB);
+		this.setCreativeTab(Main.tabMysticalAdaptations);
 		this.color = color;
 		
 		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);

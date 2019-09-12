@@ -13,6 +13,7 @@ item.insanium_seed_extractor.name=§5Insanium Seed Extractor
 item.gear.name=§5Insanium Tool Core
 item.gear_armor.name=§5Insanium Armor Core
 item.gear_insanium_arrow_head.name=§5Insanium Arrow Head
+item.insanium_fertilization_core.name=§5Insanium Fertilization Core
 
 # ARMORS
 item.insanium_helmet.name=§5Insanium Helmet
