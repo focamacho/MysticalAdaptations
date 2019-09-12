@@ -2,12 +2,16 @@ package com.focamacho.mysticaladaptations.util.handlers;
 
 import java.io.File;
 
+import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
+import com.focamacho.mysticaladaptations.init.ModEntities;
 import com.focamacho.mysticaladaptations.init.ModItems;
+import com.focamacho.mysticaladaptations.items.InsaniumArmor;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.IHasModel;
+import com.focamacho.mysticaladaptations.util.ModCheck;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -50,6 +54,9 @@ public class RegistryHandler {
 		ModConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations.cfg"));
 		RecipesConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations_recipes.cfg"));
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
+		if(ModCheck.MYSTICAL_AGRADDITIONS && (ModConfig.INSANIUM_ARMOR || ModConfig.INSANIUM_TOOLS)) MinecraftForge.EVENT_BUS.register(new CraftingHandler());
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModEntities.init();
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModEntities.initModels();
 	}
 	
 	public static void initRegistries() {
@@ -57,9 +64,10 @@ public class RegistryHandler {
 		if(ModConfig.NETHERSTAR_BLOCK) OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
 		if(ModConfig.SILICON_BLOCK) OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
 		if(ModConfig.HOP_GRAPHITE_BLOCK) OreDictionary.registerOre("blockHOPGraphite", ModBlocks.HOP_GRAPHITE_BLOCK);
-		MinecraftForge.EVENT_BUS.register(new SeedExtractorRecipes());
-		MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
-		SeedExtractorRecipes.init();
+		
+		if(ModConfig.MOB_SEED_DROP) MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
+		if(ModConfig.ENABLE_SEED_EXTRACTORS) SeedExtractorRecipes.init();
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_ARMOR) MinecraftForge.EVENT_BUS.register(new InsaniumArmor.AbilityHandler());
 	}
 	
 	public static void postInitRegistries() {

@@ -27,7 +27,6 @@ public class ModConfig {
 	public static boolean EXTRACTOR_ANY_TIER;
 	public static boolean REMOVE_SEED_RECIPES;
 	public static boolean REMOVE_MOBS_SEED_RECIPES;
-	public static boolean REMOVE_AGRADDITIONS_RECIPES;
 	public static boolean JEI_COMPAT;
 	public static boolean EXPERIENCE_SEEDS_DROP;
 	public static int EXPERIENCE_SEEDS_DROP_CHANCE;
@@ -36,6 +35,15 @@ public class ModConfig {
 	public static boolean NETHERSTAR_BLOCK;
 	public static boolean SILICON_BLOCK;
 	public static boolean HOP_GRAPHITE_BLOCK;
+	
+	public static boolean INSANIUM_ARMOR;
+	public static boolean INSANIUM_ARMOR_FLIGHT;
+	public static boolean INSANIUM_ARMOR_SATURATION;
+	public static boolean INSANIUM_ARMOR_HUNGERLESS;
+	public static boolean REMOVE_AGRADDITIONS_RECIPES;
+	public static boolean INSANIUM_TOOLS;
+	public static boolean INSANIUM_PICKAXE_OBSIDIAN;
+	public static boolean INSANIUM_SHEARS_DOUBLES;
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
@@ -84,6 +92,16 @@ public class ModConfig {
 		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
 		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", true).getBoolean();
 		HOP_GRAPHITE_BLOCK = config.get(category, "HOP_GRAPHITE_BLOCK", true).getBoolean();
+		
+		category = "Mystical Agradditions";
+		config.addCustomCategoryComment(category, "Cool things for Mystical Agradditions");
+		INSANIUM_ARMOR = config.getBoolean("INSANIUM_ARMOR", category, true, "Enable the Insanium Armor");
+		INSANIUM_ARMOR_FLIGHT = config.getBoolean("INSANIUM_ARMOR_FLIGHT", category, true, "Wearing a full set of Insanium Armor gives flight");
+		INSANIUM_ARMOR_SATURATION = config.getBoolean("INSANIUM_ARMOR_SATURATION", category, false, "Wearing a full set of a Insanium Armor gives saturation effect - Yeah, that's OP");
+		INSANIUM_ARMOR_HUNGERLESS = config.getBoolean("INSANIUM_ARMOR_HUNGERLESS", category, true, "Wearing a full set of a Insanium Armor keeps your hunger bar always full");
+		INSANIUM_TOOLS = config.getBoolean("INSANIUM_TOOLS", category, true, "Enable Insanium Tools");
+		INSANIUM_PICKAXE_OBSIDIAN = config.getBoolean("INSANIUM_PICKAXE_OBSIDIAN", category, true, "Insanium Pickaxe breaks obsidian instantly");
+		INSANIUM_SHEARS_DOUBLES = config.getBoolean("INSANIUM_SHEARS_DOUBLES", category, true, "Insanium Shears doubles drops obtained from shearing entities.");
 		
 		if(config.hasChanged()){
 			config.save();

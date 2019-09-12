@@ -11,10 +11,34 @@ item.insanium_seed_extractor.name=§5Insanium Seed Extractor
 
 # ITEMS
 item.gear.name=§5Insanium Tool Core
+item.gear_armor.name=§5Insanium Armor Core
+item.gear_insanium_arrow_head.name=§5Insanium Arrow Head
+
+# ARMORS
+item.insanium_helmet.name=§5Insanium Helmet
+item.insanium_chestplate.name=§5Insanium Chestplate
+item.insanium_leggings.name=§5Insanium Leggings
+item.insanium_boots.name=§5Insanium Boots
+
+# TOOLS
+item.insanium_hoe.name=§5Insanium Hoe
+item.insanium_shovel.name=§5Insanium Shovel
+item.insanium_arrow.name=§5Insanium Arrow
+item.insanium_bow.name=§5Insanium Bow
+item.insanium_sword.name=§5Insanium Sword
+item.watering_can_insanium.name=§5Insanium Watering Can
+item.insanium_pickaxe.name=§5Insanium Pickaxe
+item.insanium_shears.name=§5Insanium Shears
+
+item.insanium_paxel.name=§5Insanium Paxel
+item.insanium_axe.name=§5Insanium Axe
+item.insanium_scythe.name=§5Insanium Scythe
+item.insanium_sickle.name=§5Insanium Sickle
+item.insanium_fishing_rod.name=§5Insanium Fishing Rod
 
 # BLOCKS
 tile.netherstar_block.name=Block of Nether Stars
-tile.silicon_block.name=Silicon Block
+tile.silicon_block.name=Block of Silicon
 tile.hop_graphite_block.name=Block of HOP Graphite
 
 # JEI
@@ -23,3 +47,8 @@ jei.mysticaladaptations.extractor=Seed Extractor
 jei.mysticaladaptations.experience_seeds_drop=Can be obtained from killing mobs using a Seed Extractor of Tier
 jei.mysticaladaptations.experience_seeds_drop_higher=or higher.
 jei.mysticaladaptations.experience_seeds_drop_chance=Drop Chance:
+
+# TOOLTIPS
+tooltip.mysticaladaptations.insanium_shears=Doubles drops obtained from shearing entities.
+tooltip.mysticaladaptations.hungerless=Hungerless
+tooltip.mysticaladaptations.insanium_pickaxe=Instantly breaks obsidian.

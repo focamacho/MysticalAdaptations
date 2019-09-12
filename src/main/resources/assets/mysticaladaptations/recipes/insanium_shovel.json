@@ -1,0 +1,26 @@
+    {
+      "type": "forge:ore_shaped",
+        "conditions": [
+         {
+            "type": "minecraft:item_exists",
+            "item": "mysticaladaptations:insanium_shovel"
+         }
+      ],
+      "pattern": [
+        "C",
+        "S",
+        "S"
+      ],
+      "key": {
+        "C": {
+          "item": "mysticaladaptations:gear"
+        },
+        "S": {
+          "item": "mysticalagriculture:crafting",
+          "data": 22
+        }
+      },
+      "result": {
+        "item": "mysticaladaptations:insanium_shovel"
+      }
+    }

@@ -3,9 +3,11 @@ package com.focamacho.mysticaladaptations.util.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
+import com.focamacho.mysticaladaptations.init.ModRecipes;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
@@ -15,6 +17,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 import scala.actors.threadpool.Arrays;
@@ -106,6 +110,11 @@ public class CraftingHandler {
 	public static Type[] getMobTypes() {
 		Type[] mobTypes = new Type[] {Type.BASALZ, Type.BLAZE, Type.BLITZ, Type.BLIZZ, Type.CHICKEN, Type.COW, Type.CREEPER, Type.ENDERMAN, Type.GHAST, Type.GUARDIAN, Type.PIG, Type.RABBIT, Type.SHEEP, Type.SKELETON, Type.SPIDER, Type.WITHER_SKELETON, Type.ZOMBIE, Type.SLIME};
 		return mobTypes;
+	}
+	
+	@SubscribeEvent
+	public void recipes(RegistryEvent.Register<IRecipe> e) {
+		ModRecipes.initRecipes();
 	}
 
 }

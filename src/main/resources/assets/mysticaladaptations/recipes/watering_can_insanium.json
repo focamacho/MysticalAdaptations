@@ -1,0 +1,30 @@
+    {
+      "type": "forge:ore_shaped",
+        "conditions": [
+         {
+            "type": "minecraft:item_exists",
+            "item": "mysticaladaptations:watering_can_insanium"
+         }
+      ],
+      "pattern": [
+        "IC ",
+        "ISI",
+        " I "
+      ],
+      "key": {
+        "I": {
+          "item": "mysticalagradditions:insanium",
+          "data": 2
+        },
+        "C": {
+          "item": "mysticaladaptations:insanium_fertilization_core"
+        },
+        "S": {
+          "item": "mysticalagriculture:crafting",
+          "data": 48
+        }
+      },
+      "result": {
+        "item": "mysticaladaptations:watering_can_insanium"
+      }
+    }

@@ -1,0 +1,6 @@
+{
+    "parent": "mysticaladaptations:item/insanium_fishing_rod",
+    "textures": {
+        "layer0": "mysticaladaptations:items/insanium_fishing_rod_cast"
+    }
+}

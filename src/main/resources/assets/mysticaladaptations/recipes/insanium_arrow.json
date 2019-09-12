@@ -1,0 +1,31 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:insanium_arrow"
+     }
+  ],
+  "pattern": [
+    "I",
+    "C",
+    "S"
+  ],
+  "key": {
+    "I": {
+      "item": "mysticaladaptations:gear_insanium_arrow_head"
+    },
+    "C": {
+      "item": "mysticalagriculture:crafting",
+      "data": 22
+    },
+    "S": {
+      "item": "mysticalagriculture:crafting",
+      "data": 24
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_arrow",
+    "count": 12
+  }
+}

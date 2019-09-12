@@ -1,0 +1,30 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:insanium_sword"
+     }
+  ],
+  "pattern": [
+    "I",
+    "C",
+    "S"
+  ],
+  "key": {
+    "I": {
+      "item": "mysticalagradditions:insanium",
+      "data": 2
+    },
+    "C": {
+      "item": "mysticaladaptations:gear"
+    },
+    "S": {
+      "item": "mysticalagriculture:crafting",
+      "data": 22
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_sword"
+  }
+}

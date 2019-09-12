@@ -1,0 +1,35 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:gear_armor"
+     }
+  ],
+  "pattern": [
+    "EBE",
+    "DCD",
+    "EDE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagradditions:insanium",
+      "data": 0
+    },
+    "D": {
+      "item": "mysticalagradditions:stuff",
+      "data": 3
+    },
+    "C": {
+      "item": "mysticalagriculture:gear",
+      "data": 9
+    },
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "blockNetherStar"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:gear_armor"
+  }
+}

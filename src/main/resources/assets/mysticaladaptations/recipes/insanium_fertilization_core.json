@@ -1,0 +1,34 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+        "type": "minecraft:item_exists",
+        "item": "mysticaladaptations:insanium_fertilization_core"
+     }
+  ],
+  "pattern": [
+    "EBE",
+    "DCD",
+    "EDE"
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagradditions:insanium",
+      "data": 0
+    },
+    "D": {
+      "item": "mysticalagriculture:fertilized_essence"
+    },
+    "C": {
+      "item": "mysticalagriculture:crafting",
+      "data": 54
+    },
+    "B": {
+      "type": "forge:ore_dict",
+      "ore": "blockNetherStar"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_fertilization_core"
+  }
+}
