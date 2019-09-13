@@ -36,6 +36,7 @@ public class Main {
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
 		RegistryHandler.preInitRegistries(event);
+		proxy.registerEntityRenderer();
 	}
 
 	@EventHandler
