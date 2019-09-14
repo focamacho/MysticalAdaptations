@@ -46,9 +46,8 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumPickaxe extends ItemPickaxe implements IRepairMaterial, IHasModel {
+public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
 	    
-	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
 	public InsaniumPickaxe(String name, ToolMaterial material, TextFormatting color){
@@ -73,21 +72,6 @@ public class InsaniumPickaxe extends ItemPickaxe implements IRepairMaterial, IHa
 		} else {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.DARK_PURPLE + Tooltips.EMPTY);
 		}
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
     @Override

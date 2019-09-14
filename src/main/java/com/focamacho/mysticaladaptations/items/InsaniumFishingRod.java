@@ -27,9 +27,8 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumFishingRod extends ItemFishingRod implements IRepairMaterial, IHasModel {
+public class InsaniumFishingRod extends ItemFishingRod implements IHasModel {
 	
-	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
 	public InsaniumFishingRod(String name, ToolMaterial material, TextFormatting color){
@@ -48,21 +47,6 @@ public class InsaniumFishingRod extends ItemFishingRod implements IRepairMateria
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial() {
-		return repairMaterial;
 	}
 	
 	@Override

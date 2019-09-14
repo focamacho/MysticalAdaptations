@@ -15,12 +15,12 @@ public class BlockBase extends Block implements IHasModel {
 	
 	public BlockBase(String name, Material material, SoundType sound, float hardness, float resistance, boolean register) {
 		super(material);
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(Main.tabMysticalAdaptations);
-		setSoundType(sound);
-		setHardness(hardness);
-		setResistance(resistance);
+		this.setUnlocalizedName(name);
+		this.setRegistryName(name);
+		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setSoundType(sound);
+		this.setHardness(hardness);
+		this.setResistance(resistance);
 		
 		if(register){
 			ModBlocks.BLOCKS.add(this);

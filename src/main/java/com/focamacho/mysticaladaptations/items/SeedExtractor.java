@@ -37,11 +37,11 @@ public class SeedExtractor extends Item implements IHasModel{
 	NBTTagCompound tier = new NBTTagCompound();
 	
 	public SeedExtractor(String name, ToolMaterial material, int durability, int tier, boolean register) {
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setMaxDamage(durability);
-		setCreativeTab(Main.tabMysticalAdaptations);
-		setMaxStackSize(1);
+		this.setUnlocalizedName(name);
+		this.setRegistryName(name);
+		this.setMaxDamage(durability);
+		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setMaxStackSize(1);
 		this.toolMaterial = material;
 		this.tier.setInteger("tier", tier);
 		if(register) ModItems.ITEMS.add(this);

@@ -45,9 +45,8 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumShears extends ItemShears implements IRepairMaterial, IHasModel {
+public class InsaniumShears extends ItemShears implements IHasModel {
 
-	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
 	public InsaniumShears(String name, ToolMaterial material, TextFormatting color){
@@ -72,21 +71,6 @@ public class InsaniumShears extends ItemShears implements IRepairMaterial, IHasM
 		} else {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.DARK_PURPLE + Tooltips.EMPTY);
 		}
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
     @Override

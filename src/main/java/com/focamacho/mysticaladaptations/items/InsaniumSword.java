@@ -42,9 +42,8 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumSword extends ItemSword implements IRepairMaterial, IHasModel {
+public class InsaniumSword extends ItemSword implements IHasModel {
 	    
-	public ItemStack repairMaterial;
 	public TextFormatting color;
 	public final ToolMaterial material;
 	
@@ -70,21 +69,6 @@ public class InsaniumSword extends ItemSword implements IRepairMaterial, IHasMod
 		} else {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.DARK_PURPLE + Tooltips.EMPTY);
 		}
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
 	public float getDamageVsEntity(ItemStack stack){

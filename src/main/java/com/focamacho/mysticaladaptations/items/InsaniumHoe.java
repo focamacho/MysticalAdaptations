@@ -40,10 +40,9 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumHoe extends ItemHoe implements IRepairMaterial, IHasModel {
+public class InsaniumHoe extends ItemHoe implements IHasModel {
 	
 	public int range;
-	public ItemStack repairMaterial;
 	public TextFormatting color;
 	
 	public InsaniumHoe(String name, ToolMaterial material, int range, TextFormatting color){
@@ -133,21 +132,6 @@ public class InsaniumHoe extends ItemHoe implements IRepairMaterial, IHasModel {
             }
             return false;
         }
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
 	@Override

@@ -39,9 +39,7 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumArmor extends ItemArmor implements IRepairMaterial, IHasModel {
-	
-	private ItemStack repairMaterial;
+public class InsaniumArmor extends ItemArmor implements IHasModel {
 	
 	public InsaniumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
@@ -96,21 +94,6 @@ public class InsaniumArmor extends ItemArmor implements IRepairMaterial, IHasMod
 	@Override
 	public int getItemEnchantability(){
 		return 0;
-	}
-
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
 	public static boolean isFullSet(EntityPlayer player){		

@@ -46,9 +46,8 @@ import net.minecraftforge.oredict.OreDictionary;
  * https://github.com/BlakeBr0/MysticalAgriculture/
 */
 
-public class InsaniumBow extends ItemBow implements IRepairMaterial, ICustomBow, IHasModel {
+public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
 
-	public ItemStack repairMaterial;
 	public ToolMaterial toolMaterial;
 	public float damage;
 	public float drawSpeed;
@@ -99,21 +98,6 @@ public class InsaniumBow extends ItemBow implements IRepairMaterial, ICustomBow,
 		} else {
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.DARK_PURPLE + Tooltips.EMPTY);
 		}
-	}
-	
-	@Override
-    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
-        return OreDictionary.itemMatches(getRepairMaterial(), repair, false);
-    }
-
-	@Override
-	public void setRepairMaterial(ItemStack stack){
-		repairMaterial = stack;
-	}
-
-	@Override
-	public ItemStack getRepairMaterial(){
-		return repairMaterial;
 	}
 	
 	@Override

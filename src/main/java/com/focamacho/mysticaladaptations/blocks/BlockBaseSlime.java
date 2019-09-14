@@ -13,10 +13,10 @@ import net.minecraft.item.ItemBlock;
 public class BlockBaseSlime extends BlockSlime implements IHasModel {
 
 	public BlockBaseSlime(String name, boolean register) {
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setCreativeTab(Main.tabMysticalAdaptations);
-		setSoundType(SoundType.SLIME);
+		this.setUnlocalizedName(name);
+		this.setRegistryName(name);
+		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setSoundType(SoundType.SLIME);
 		
 		if(register){
 			ModBlocks.BLOCKS.add(this);
