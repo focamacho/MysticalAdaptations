@@ -1,17 +1,14 @@
 package com.focamacho.mysticaladaptations.items;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.helper.CropHelper;
 import com.blakebr0.cucumber.helper.NBTHelper;
-import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.item.ItemBase;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
@@ -46,10 +43,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
 /*
  * Code from BlakeBr0's Mystical Agriculture.

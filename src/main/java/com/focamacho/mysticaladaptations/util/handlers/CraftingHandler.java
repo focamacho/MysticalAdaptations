@@ -3,25 +3,20 @@ package com.focamacho.mysticaladaptations.util.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.lib.Parts;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
-import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.init.ModRecipes;
-import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Lists;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
-import scala.actors.threadpool.Arrays;
 
 public class CraftingHandler {
 	

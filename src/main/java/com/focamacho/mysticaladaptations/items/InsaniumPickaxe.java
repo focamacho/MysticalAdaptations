@@ -5,10 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.helper.NBTHelper;
-import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.ToolTools;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;

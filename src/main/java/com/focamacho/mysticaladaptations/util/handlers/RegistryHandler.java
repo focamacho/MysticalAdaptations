@@ -2,7 +2,6 @@ package com.focamacho.mysticaladaptations.util.handlers;
 
 import java.io.File;
 
-import com.blakebr0.mysticalagriculture.crafting.ModRecipes;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
@@ -18,11 +17,9 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber

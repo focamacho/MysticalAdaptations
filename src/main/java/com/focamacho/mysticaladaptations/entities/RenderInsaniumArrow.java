@@ -1,6 +1,5 @@
 package com.focamacho.mysticaladaptations.entities;
 
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.focamacho.mysticaladaptations.util.Reference;
 
 import net.minecraft.client.renderer.entity.RenderArrow;

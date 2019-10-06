@@ -107,6 +107,17 @@ public class ModRecipes {
 			addShapelessRecipe(new ItemStack(ModItems.GEAR), new ItemStack(ModItems.INSANIUM_FISHING_ROD, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
 			
 			if(com.blakebr0.mysticalagriculture.config.ModConfig.confWateringCans) addShapelessRecipe(new ItemStack(ModItems.INSANIUM_FERTILIZATION_CORE), ModItems.WATERING_CAN_INSANIUM, new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+			
+			if(ModConfig.ENABLE_SEED_EXTRACTORS) {
+				addShapelessRecipe(new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemGear, 1, 0), new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemGear, 1, 1), new ItemStack(ModItems.PRUDENTIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemGear, 1, 2), new ItemStack(ModItems.INTERMEDIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemGear, 1, 3), new ItemStack(ModItems.SUPERIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				addShapelessRecipe(new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemGear, 1, 4), new ItemStack(ModItems.SUPREMIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				if(ModCheck.MYSTICAL_AGRADDITIONS) {
+					addShapelessRecipe(new ItemStack(ModItems.GEAR), new ItemStack(ModItems.INSANIUM_SEED_EXTRACTOR, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(com.blakebr0.mysticalagriculture.items.ModItems.itemCoreRemover, 1, OreDictionary.WILDCARD_VALUE));
+				}
+			}
 		}
 	}
 	

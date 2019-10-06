@@ -331,6 +331,7 @@ public class SeedExtractorRecipes {
 		wither_skeleton_seeds = new SeedExtractorRecipe(RecipesConfig.wither_skeleton_seeds, Type.WITHER_SKELETON);
 		zombie_seeds = new SeedExtractorRecipe(RecipesConfig.zombie_seeds, Type.ZOMBIE);
 		allRecipes.add(water_seeds);
+		allRecipes.add(rubber_seeds);
 		allRecipes.add(wood_seeds);
 		allRecipes.add(copper_seeds);
 		allRecipes.add(tin_seeds);
@@ -462,7 +463,6 @@ public class SeedExtractorRecipes {
 		allRecipes.add(aquamarine_seeds);
 		allRecipes.add(dilithium_seeds);
 		allRecipes.add(iridium_ore_seeds);
-		allRecipes.add(rubber_seeds);
 		allRecipes.add(starmetal_seeds);
 		allRecipes.add(uranium_238_seeds);
 		allRecipes.add(quicksilver_seeds);

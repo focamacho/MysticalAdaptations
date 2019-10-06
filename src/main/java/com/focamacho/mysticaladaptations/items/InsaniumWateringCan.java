@@ -3,13 +3,9 @@ package com.focamacho.mysticaladaptations.items;
 import java.util.List;
 import java.util.Random;
 
-import com.blakebr0.cucumber.iface.IEnableable;
-import com.blakebr0.cucumber.item.ItemMeta;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.blakebr0.mysticalagriculture.util.MystUtils;
 import com.focamacho.mysticaladaptations.Main;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;

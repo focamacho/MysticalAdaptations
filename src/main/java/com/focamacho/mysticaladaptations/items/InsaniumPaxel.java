@@ -4,12 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 
 import com.blakebr0.cucumber.helper.NBTHelper;
-import com.blakebr0.cucumber.iface.IRepairMaterial;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.cucumber.util.Utils;
-import com.blakebr0.mysticalagradditions.MysticalAgradditions;
-import com.blakebr0.mysticalagradditions.lib.MAHelper;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;

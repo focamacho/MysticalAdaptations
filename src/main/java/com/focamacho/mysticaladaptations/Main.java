@@ -2,7 +2,6 @@ package com.focamacho.mysticaladaptations;
 
 import java.io.File;
 
-import com.blakebr0.cucumber.registry.ModRegistry;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.proxy.CommonProxy;

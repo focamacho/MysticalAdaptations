@@ -3,7 +3,6 @@ package com.focamacho.mysticaladaptations.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.focamacho.mysticaladaptations.Main;
 import com.focamacho.mysticaladaptations.blocks.BlockBase;
 import com.focamacho.mysticaladaptations.blocks.BlockBaseSlime;
 import com.focamacho.mysticaladaptations.config.ModConfig;
