@@ -6,10 +6,7 @@ import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.config.ModConfig;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
-import com.focamacho.mysticaladaptations.util.ModCheck;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemFishingRod;

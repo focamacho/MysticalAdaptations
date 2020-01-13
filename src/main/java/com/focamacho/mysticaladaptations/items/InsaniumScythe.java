@@ -12,10 +12,8 @@ import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
-import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.Block;

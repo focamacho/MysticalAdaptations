@@ -1,16 +1,12 @@
 package com.focamacho.mysticaladaptations.util.compat.tconstruct;
 
 import com.blakebr0.mysticalagradditions.tinkers.TraitProsperous;
-import com.focamacho.mysticaladaptations.init.ModRecipes;
 import com.focamacho.mysticaladaptations.lib.FluidRender;
 import com.focamacho.mysticaladaptations.util.Reference;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

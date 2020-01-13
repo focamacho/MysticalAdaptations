@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;

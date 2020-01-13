@@ -1,15 +1,12 @@
 package com.focamacho.mysticaladaptations.blocks;
 
 import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.init.ModBlocks;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block implements IHasModel {
 	

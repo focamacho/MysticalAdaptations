@@ -12,7 +12,6 @@ import com.focamacho.mysticaladaptations.items.InsaniumArmor;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
-import com.focamacho.mysticaladaptations.util.compat.crafttweaker.CTSeedExtractor;
 import com.focamacho.mysticaladaptations.util.compat.crafttweaker.CompatCT;
 import com.focamacho.mysticaladaptations.util.compat.tconstruct.CompatTConstruct;
 

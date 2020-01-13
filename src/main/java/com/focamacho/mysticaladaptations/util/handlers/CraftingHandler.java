@@ -10,7 +10,6 @@ import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.google.common.collect.Lists;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;

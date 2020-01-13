@@ -3,7 +3,6 @@ package com.focamacho.mysticaladaptations.util.compat.jei.extractor;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 

@@ -7,7 +7,6 @@ import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 
 import crafttweaker.CraftTweakerAPI;
-import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.minecraft.item.ItemStack;
 
 public class CompatCT {

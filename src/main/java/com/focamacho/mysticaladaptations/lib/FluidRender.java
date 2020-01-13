@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.cucumber.helper.ResourceHelper;
-import com.blakebr0.mysticalagradditions.MysticalAgradditions;
 import com.focamacho.mysticaladaptations.util.Reference;
 
 import net.minecraft.block.Block;

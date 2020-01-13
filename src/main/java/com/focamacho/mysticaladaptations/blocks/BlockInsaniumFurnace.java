@@ -5,12 +5,9 @@ import java.util.Random;
 
 import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Colors;
-import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.init.ModBlocks;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.tileentity.TileInsaniumFurnace;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
@@ -28,7 +25,6 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
