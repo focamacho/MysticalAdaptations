@@ -45,8 +45,6 @@ public class InsaniumAxe extends ItemAxe implements IHasModel {
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
 		this.color = color;
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

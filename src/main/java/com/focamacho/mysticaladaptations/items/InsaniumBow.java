@@ -76,8 +76,6 @@ public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
                 return entity != null && entity.isHandActive() && entity.getActiveItemStack() == stack ? 1.0F : 0.0F;
             }
         });
-        
-        if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

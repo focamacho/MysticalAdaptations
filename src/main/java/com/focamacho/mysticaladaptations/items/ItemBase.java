@@ -18,12 +18,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBase extends Item implements IHasModel{
 
-	public ItemBase(String name, boolean register) {
+	public ItemBase(String name) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
-		
-		if(register) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

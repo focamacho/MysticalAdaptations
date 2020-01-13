@@ -3,9 +3,12 @@ package com.focamacho.mysticaladaptations.util.compat.jei;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.blakebr0.mysticalagriculture.compat.jei.reprocessor.ReprocessorCategory;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
+import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorItemStacks;
@@ -41,30 +44,18 @@ public class CompatJEI implements IModPlugin {
             registry.addRecipeCatalyst(new ItemStack(ModItems.INTERMEDIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
             registry.addRecipeCatalyst(new ItemStack(ModItems.SUPERIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
             registry.addRecipeCatalyst(new ItemStack(ModItems.SUPREMIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
-	        for(Type seed : Type.values()){
-	        	if(seed.isEnabled()) {
-		        	for(ItemStack item : ExtractorItemStacks.getItemStacksFromType(seed)) {
-		        		extractorRecipies.add(new ExtractorRecipe(seed, item));
-		        	}
-	        	}
-	        }
-	
-	        if(ModCheck.MYSTICAL_AGRADDITIONS) {
-	        	registry.addRecipeCatalyst(new ItemStack(ModItems.INSANIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.nether_star_seeds)) {
-	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.nether_star_seeds.getSeed(), item));
-	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.awakened_draconium_seeds)) {
-	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.awakened_draconium_seeds.getSeed(), item));
-	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.dragon_egg_seeds)) {
-	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.dragon_egg_seeds.getSeed(), item));
-	        	}
-	            for(ItemStack item : ExtractorItemStacks.getItemStacks(SeedExtractorRecipes.neutronium_seeds)) {
-	            	extractorRecipies.add(new ExtractorRecipe(SeedExtractorRecipes.neutronium_seeds.getSeed(), item));
-	        	}
-	        }
+	        if(ModCheck.MYSTICAL_AGRADDITIONS) registry.addRecipeCatalyst(new ItemStack(ModItems.INSANIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
 	        
+            for(SeedExtractorRecipe recipe : SeedExtractorRecipes.allRecipes) {
+            	for(ItemStack item : ExtractorItemStacks.getItemStacks(recipe)) {
+            		extractorRecipies.add(new ExtractorRecipe(recipe.getSeed(), item, recipe.getTier()));
+            	}
+            }
+	        
+            if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_REPROCESSOR && com.blakebr0.mysticalagriculture.config.ModConfig.confSeedReprocessor) {
+            	registry.addRecipeCatalyst(new ItemStack(ModBlocks.INSANIUM_REPROCESSOR_BLOCK), ReprocessorCategory.UID);
+            }
+            
 	        if(ModConfig.EXPERIENCE_SEEDS_DROP) {
 	        	registry.addDescription(new ItemStack(Type.EXPERIENCE.getSeed()), I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop") + " " + (ModConfig.EXTRACTOR_ANY_TIER ? "1" : Type.EXPERIENCE.getTier()) + " " + (!ModConfig.EXTRACTOR_LOWER_TIER ? "." : I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop_higher")) + "\n\n" + I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop_chance") + " " + ModConfig.EXPERIENCE_SEEDS_DROP_CHANCE + "%");
 	        }

@@ -1,0 +1,36 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:supremium_furnace"
+	 },
+	 {
+	    "type": "minecraft:item_exists",
+		"item": "mysticaladaptations:insanium_furnace"
+	 }
+  ],
+  "pattern": [
+	" E ",
+	"EDE",
+	" B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagradditions:insanium",
+	  "data": 0
+    },
+	"D": {
+      "item": "mysticalagriculture:supremium_furnace",
+	  "data": 0
+    },
+	"B": {
+      "item": "mysticalagradditions:storage",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_furnace",
+	"data": 0
+  }
+}

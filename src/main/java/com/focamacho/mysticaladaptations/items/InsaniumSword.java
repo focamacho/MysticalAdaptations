@@ -50,8 +50,6 @@ public class InsaniumSword extends ItemSword implements IHasModel {
 		this.setCreativeTab(Main.tabMysticalAdaptations);
 		this.color = color;
 		this.material = material;
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 		
 	@Override

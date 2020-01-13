@@ -1,0 +1,36 @@
+{
+  "type": "forge:ore_shaped",
+    "conditions": [
+     {
+	    "type": "minecraft:item_exists",
+		"item": "mysticalagriculture:supremium_reprocessor"
+	 },
+	 {
+	    "type": "minecraft:item_exists",
+		"item": "mysticaladaptations:insanium_reprocessor"
+	 }
+  ],
+  "pattern": [
+	" E ",
+	"EDE",
+	" B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagradditions:insanium",
+	  "data": 0
+    },
+	"D": {
+      "item": "mysticalagriculture:supremium_reprocessor",
+	  "data": 0
+    },
+	"B": {
+      "item": "mysticalagradditions:storage",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_reprocessor",
+	"data": 0
+  }
+}

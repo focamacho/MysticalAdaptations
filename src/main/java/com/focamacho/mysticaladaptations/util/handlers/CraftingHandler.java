@@ -13,6 +13,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -43,6 +44,17 @@ public class CraftingHandler {
 	             }
 		     }
 		     
+		     if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.REMOVE_AGRADDITIONS_RECIPES) {
+		    	ResourceLocation[] seedsAgradditions = {new ResourceLocation("mysticalagradditions:nether_star_seeds"), new ResourceLocation("mysticalagradditions:awakened_draconium_seeds"), new ResourceLocation("mysticalagradditions:dragon_egg_seeds"), new ResourceLocation("mysticalagradditions:neutronium_seeds")};
+		    	for(ResourceLocation resource : seedsAgradditions) {
+		    		if(recipeRegistry.getValue(resource) != null) {
+		    			IRecipe recipe = recipeRegistry.getValue(resource);
+		    			recipeRegistry.remove(recipe.getRegistryName());
+						recipeRegistry.register(DummyRecipe.from(recipe));
+		    		}
+		    	}
+		     }
+		     
 		}
 	}
 	
@@ -50,20 +62,6 @@ public class CraftingHandler {
 		List<Item> seedItems = new ArrayList<Item>();
 		for(Type type : Type.values()) {
 			seedItems.add(type.getSeed());
-		}
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.REMOVE_AGRADDITIONS_RECIPES) {
-			if(Item.getByNameOrId("mysticalagradditions:nether_star_seeds") != null && Item.getByNameOrId("mysticalagradditions:nether_star_seeds") != Items.AIR) {
-				seedItems.add(Item.getByNameOrId("mysticalagradditions:nether_star_seeds"));
-			}
-			if(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds") != null && Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds") != Items.AIR) {
-				seedItems.add(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds"));
-			}
-			if(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds") != null && Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds") != Items.AIR) {
-				seedItems.add(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds"));
-			}
-			if(Item.getByNameOrId("mysticalagradditions:neutronium_seeds") != null && Item.getByNameOrId("mysticalagradditions:neutronium_seeds") != Items.AIR) {
-				seedItems.add(Item.getByNameOrId("mysticalagradditions:neutronium_seeds"));
-			}
 		}
 		return seedItems;
 	}

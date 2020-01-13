@@ -33,7 +33,6 @@ public class InsaniumArrow extends ItemArrow implements IHasModel {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

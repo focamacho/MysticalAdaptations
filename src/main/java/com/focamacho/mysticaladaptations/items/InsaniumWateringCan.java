@@ -49,7 +49,6 @@ public class InsaniumWateringCan extends Item implements IHasModel {
 		this.setMaxStackSize(1);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
-		if(ModCheck.MYSTICAL_AGRADDITIONS && com.blakebr0.mysticalagriculture.config.ModConfig.confWateringCans && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 
 	@Override

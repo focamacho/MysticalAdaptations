@@ -13,7 +13,7 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block implements IHasModel {
 	
-	public BlockBase(String name, Material material, SoundType sound, float hardness, float resistance, boolean register) {
+	public BlockBase(String name, Material material, SoundType sound, float hardness, float resistance) {
 		super(material);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
@@ -21,11 +21,6 @@ public class BlockBase extends Block implements IHasModel {
 		this.setSoundType(sound);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
-		
-		if(register){
-			ModBlocks.BLOCKS.add(this);
-			ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-		}
 	}
 	
 	@Override

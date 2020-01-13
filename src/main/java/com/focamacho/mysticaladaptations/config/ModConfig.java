@@ -31,6 +31,7 @@ public class ModConfig {
 	public static boolean EXPERIENCE_SEEDS_DROP;
 	public static int EXPERIENCE_SEEDS_DROP_CHANCE;
 	public static boolean EXPERIENCE_SEEDS_DROP_DURABILITY;
+	public static boolean ENCHANTABLE_EXTRACTOR;
 	
 	public static boolean NETHERSTAR_BLOCK;
 	public static boolean SILICON_BLOCK;
@@ -44,6 +45,11 @@ public class ModConfig {
 	public static boolean INSANIUM_TOOLS;
 	public static boolean INSANIUM_PICKAXE_OBSIDIAN;
 	public static boolean INSANIUM_SHEARS_DOUBLES;
+	public static boolean INSANIUM_REPROCESSOR;
+	public static boolean INSANIUM_FURNACE;
+	public static boolean ULTIMATE_FURNACE_RECIPE;
+	public static boolean TINKERS_INSANIUM;
+	public static boolean ULTIMATE_REPROCESSOR_RECIPE;
 	
 	@SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
@@ -86,7 +92,8 @@ public class ModConfig {
 		EXPERIENCE_SEEDS_DROP = config.getBoolean("EXPERIENCE_SEEDS_DROP", category, true, "If true, mobs will have a configurable chance of dropping a Experience Seeds when killed using a Seed Extractor.");
 		EXPERIENCE_SEEDS_DROP_CHANCE = config.getInt("EXPERIENCE_SEEDS_DROP_CHANCE", category, 10, 1, 100, "Set Experience Seeds drop chance.");
 		EXPERIENCE_SEEDS_DROP_DURABILITY = config.getBoolean("EXPERIENCE_SEEDS_DROP_DURABILITY", category, false, "Consume 1 from the Seed Extractor Durability when a Experience Seed is dropped.");
-	
+		ENCHANTABLE_EXTRACTOR = config.getBoolean("ENCHANTABLE_EXTRACTOR", category, true, "Set whether Seed Extractors can be enchanted using books.");
+		
 		category = "Blocks";
 		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
 		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
@@ -102,6 +109,11 @@ public class ModConfig {
 		INSANIUM_TOOLS = config.getBoolean("INSANIUM_TOOLS", category, true, "Enable Insanium Tools");
 		INSANIUM_PICKAXE_OBSIDIAN = config.getBoolean("INSANIUM_PICKAXE_OBSIDIAN", category, true, "Insanium Pickaxe breaks obsidian instantly");
 		INSANIUM_SHEARS_DOUBLES = config.getBoolean("INSANIUM_SHEARS_DOUBLES", category, true, "Insanium Shears doubles drops obtained from shearing entities.");
+		INSANIUM_REPROCESSOR = config.getBoolean("INSANIUM_REPROCESSOR", category, true, "Enable the Insanium Seed Reprocessor");
+		INSANIUM_FURNACE = config.getBoolean("INSANIUM_FURNACE", category, true, "Enable the Insanium Furnace");
+		ULTIMATE_FURNACE_RECIPE = config.getBoolean("ULTIMATE_FURNACE_RECIPE", category, true, "Changes the Ultimate Furnace recipe to use a Insanium Furnace instead of a Supremium Furnace");
+		TINKERS_INSANIUM = config.getBoolean("TINKERS_INSANIUM", category, true, "Enable/Disable Tinker's Construct Insanium Compat");
+		ULTIMATE_REPROCESSOR_RECIPE = config.getBoolean("ULTIMATE_REPROCESSOR_RECIPE", category, true, "Changes the Ultimate Seed Reprocessor recipe to use a Insanium Seed Reprocessor instead of a Supremium Seed Reprocessor");
 		
 		if(config.hasChanged()){
 			config.save();

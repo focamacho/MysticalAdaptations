@@ -172,9 +172,9 @@ public class SeedExtractorRecipes {
 	public static SeedExtractorRecipe spider_seeds;
 	public static SeedExtractorRecipe wither_skeleton_seeds;
 	public static SeedExtractorRecipe zombie_seeds;
-	public static List<SeedExtractorRecipe> allRecipes = new ArrayList<SeedExtractorRecipe>(Arrays.asList());
+	public static List<SeedExtractorRecipe> allRecipes = new ArrayList<SeedExtractorRecipe>();
 	
-	public static void init() {
+	public static void preInit() {
 		water_seeds = new SeedExtractorRecipe(RecipesConfig.water_seeds, Type.WATER);
 		wood_seeds = new SeedExtractorRecipe(RecipesConfig.wood_seeds, Type.WOOD);
 		copper_seeds = new SeedExtractorRecipe(RecipesConfig.copper_seeds, Type.COPPER);
@@ -485,7 +485,9 @@ public class SeedExtractorRecipes {
 		allRecipes.add(spider_seeds);
 		allRecipes.add(wither_skeleton_seeds);
 		allRecipes.add(zombie_seeds);
-		
+	}
+	
+	public static void init() {
 		if(ModCheck.MYSTICAL_AGRADDITIONS) {
 			nether_star_seeds = new SeedExtractorRecipe(RecipesConfig.nether_star_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:nether_star_seeds")), 6);
 			awakened_draconium_seeds = new SeedExtractorRecipe(RecipesConfig.awakened_draconium_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds")), 6);

@@ -66,8 +66,6 @@ public class InsaniumScythe extends ItemBase implements IHasModel {
 		this.toolMaterial = material;
 		this.color = color;
 		this.setRegistryName(name);
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

@@ -55,8 +55,6 @@ public class InsaniumSickle extends ItemBase implements IHasModel {
 		this.range = range;
 		this.toolMaterial = material;
 		this.color = color;
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	public int getRange(ItemStack stack){

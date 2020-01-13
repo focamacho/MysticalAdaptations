@@ -55,7 +55,6 @@ public class InsaniumPaxel extends ItemTool implements IHasModel {
 		this.setHarvestLevel("axe", material.getHarvestLevel());
 		this.setMaxDamage((int) (material.getMaxUses() * 1.5));
 		this.color = color;
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 
 	@Override

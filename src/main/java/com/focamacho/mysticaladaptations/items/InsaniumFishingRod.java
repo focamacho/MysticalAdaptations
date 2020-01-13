@@ -35,8 +35,6 @@ public class InsaniumFishingRod extends ItemFishingRod implements IHasModel {
 		this.color = color;
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

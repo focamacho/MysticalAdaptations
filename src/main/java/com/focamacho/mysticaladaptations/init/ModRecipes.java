@@ -1,15 +1,25 @@
 package com.focamacho.mysticaladaptations.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.mysticalagriculture.crafting.TinkeringTableManager;
 import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.util.DummyRecipe;
 import com.focamacho.mysticaladaptations.util.ModCheck;
+import com.google.common.collect.Lists;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.ForgeRegistry;
 
 /*
  * Code from BlakeBr0's Mystical Agriculture.
@@ -18,7 +28,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ModRecipes {
 	
+	public static final ItemStack insanium_nugget = new ItemStack(Item.getByNameOrId("mysticalagradditions:insanium"), 1, 3);
 	public static final ItemStack insanium_ingot = new ItemStack(Item.getByNameOrId("mysticalagradditions:insanium"), 1, 2);
+	public static final ItemStack insanium_block = new ItemStack(Item.getByNameOrId("mysticalagradditions:insanium"), 1, 1);
 	
 	public static void addShapedRecipe(ItemStack output, Object... input){
 		RecipeHelper.addShapedRecipe(output, input);
@@ -119,6 +131,32 @@ public class ModRecipes {
 				}
 			}
 		}
+		
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_FURNACE && ModConfig.ULTIMATE_FURNACE_RECIPE && com.blakebr0.mysticalagriculture.config.ModConfig.confUltimateFurnace && com.blakebr0.mysticalagriculture.config.ModConfig.confEssenceFurnaces) {
+			ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>)ForgeRegistries.RECIPES;
+		    ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValues());
+			
+		    for(IRecipe recipe : recipes) {
+		    	if(recipe.getRegistryName().toString().equalsIgnoreCase("mysticalagriculture:core/ultimate_furnace") && recipe.getRecipeOutput().getItem().equals(new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.blockUltimateFurnace).getItem())) {
+		    		recipeRegistry.remove(recipe.getRegistryName());
+		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.blockUltimateFurnace), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', new ItemStack(Item.getByNameOrId("mysticalagradditions:storage"), 1), 'F', new ItemStack(ModBlocks.INSANIUM_FURNACE_BLOCK));
+		    	}
+		    }
+		}
+		
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_REPROCESSOR && ModConfig.ULTIMATE_REPROCESSOR_RECIPE && com.blakebr0.mysticalagriculture.config.ModConfig.confUltimateReprocessor && com.blakebr0.mysticalagriculture.config.ModConfig.confSeedReprocessor) {
+			ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>)ForgeRegistries.RECIPES;
+		    ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValues());
+			
+		    for(IRecipe recipe : recipes) {
+		    	if(recipe.getRegistryName().toString().equalsIgnoreCase("mysticalagriculture:ultimate_reprocessor") && recipe.getRecipeOutput().getItem().equals(new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.ULTIMATE_REPROCESSOR).getItem())) {
+		    		recipeRegistry.remove(recipe.getRegistryName());
+		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.ULTIMATE_REPROCESSOR), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', new ItemStack(Item.getByNameOrId("mysticalagradditions:storage"), 1), 'F', new ItemStack(ModBlocks.INSANIUM_REPROCESSOR_BLOCK));
+		    	}
+		    }
+		}
+		
+		
 	}
 	
 }

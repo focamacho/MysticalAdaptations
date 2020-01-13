@@ -51,8 +51,6 @@ public class InsaniumShears extends ItemShears implements IHasModel {
 		this.setCreativeTab(Main.tabMysticalAdaptations);
 		this.setMaxDamage(material.getMaxUses());
 		this.color = color;
-		
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

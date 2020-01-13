@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.lib.BlockCheck;
 import com.focamacho.mysticaladaptations.util.IHasModel;
@@ -13,10 +14,12 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -36,7 +39,7 @@ public class SeedExtractor extends Item implements IHasModel{
 	ToolMaterial toolMaterial;
 	NBTTagCompound tier = new NBTTagCompound();
 	
-	public SeedExtractor(String name, ToolMaterial material, int durability, int tier, boolean register) {
+	public SeedExtractor(String name, ToolMaterial material, int durability, int tier) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setMaxDamage(durability);
@@ -44,7 +47,6 @@ public class SeedExtractor extends Item implements IHasModel{
 		this.setMaxStackSize(1);
 		this.toolMaterial = material;
 		this.tier.setInteger("tier", tier);
-		if(register) ModItems.ITEMS.add(this);
 	}
 	
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand) {
@@ -80,7 +82,6 @@ public class SeedExtractor extends Item implements IHasModel{
         return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
     }
     
-	
 	public void seedExtractorUse(World worldIn, EntityPlayer player, ItemStack extractor, ItemStack seed, BlockPos pos) {
       	worldIn.setBlockToAir(pos);
       	EntityItem seedDrop = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), seed);
@@ -127,6 +128,11 @@ public class SeedExtractor extends Item implements IHasModel{
 		}
 		if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
 		if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
+	}
+	
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+		return ModConfig.ENCHANTABLE_EXTRACTOR;
 	}
 	
 	@Override

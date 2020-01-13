@@ -45,7 +45,6 @@ public class InsaniumArmor extends ItemArmor implements IHasModel {
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
 	    this.setMaxStackSize(1);
-	    if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_ARMOR) ModItems.ITEMS.add(this);
 	}
 	
 	@Override

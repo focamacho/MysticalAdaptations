@@ -41,6 +41,8 @@ item.insanium_fishing_rod.name=§5Insanium Fishing Rod
 tile.netherstar_block.name=Block of Nether Stars
 tile.silicon_block.name=Block of Silicon
 tile.hop_graphite_block.name=Block of HOP Graphite
+tile.insanium_furnace.name=§5Insanium Furnace
+tile.insanium_reprocessor.name=§5Insanium Seed Reprocessor
 
 # JEI
 jei.mysticaladaptations.extractor=Seed Extractor
@@ -53,3 +55,10 @@ jei.mysticaladaptations.experience_seeds_drop_chance=Drop Chance:
 tooltip.mysticaladaptations.insanium_shears=Doubles drops obtained from shearing entities.
 tooltip.mysticaladaptations.hungerless=Hungerless
 tooltip.mysticaladaptations.insanium_pickaxe=Instantly breaks obsidian.
+
+# CONTAINERS
+container.mysticaladaptations.insaniumfurnace.name=Insanium Furnace
+
+# TINKERS CONSTRUCT
+fluid.insanium.name=Insanium
+material.mysticaladaptations.insanium.name=Insanium

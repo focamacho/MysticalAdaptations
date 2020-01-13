@@ -17,11 +17,11 @@ public class ExtractorRecipe extends BlankRecipeWrapper {
 	private ItemStack tool;
 	private ItemStack output;
 	
-	public ExtractorRecipe(Type seed, ItemStack item) {
-		output = new ItemStack(seed.getSeed());
+	public ExtractorRecipe(ItemStack seed, ItemStack item, int tier) {
+		output = seed;
 		inputs.add(item);
 		if(!ModConfig.EXTRACTOR_ANY_TIER) {
-			switch(seed.getTier()) {
+			switch(tier) {
 				case 1:
 					tool = new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR);
 					break;
@@ -43,18 +43,6 @@ public class ExtractorRecipe extends BlankRecipeWrapper {
 			}
 		} else {
 			tool = new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR);
-		}
-		
-		inputs.add(tool);
-	}
-	
-	public ExtractorRecipe(ItemStack seed, ItemStack item) {
-		output = seed;
-		inputs.add(item);
-		if(ModConfig.EXTRACTOR_ANY_TIER) {
-			tool = new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR);
-		} else {
-			tool = new ItemStack(ModItems.INSANIUM_SEED_EXTRACTOR);
 		}
 		
 		inputs.add(tool);

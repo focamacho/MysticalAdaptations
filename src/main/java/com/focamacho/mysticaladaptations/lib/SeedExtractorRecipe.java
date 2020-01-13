@@ -3,6 +3,7 @@ package com.focamacho.mysticaladaptations.lib;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 
 import net.minecraft.block.Block;
@@ -118,6 +119,15 @@ public class SeedExtractorRecipe {
 		return allEntities;
 	}
 	
+	private List<ItemStack> removeAirFromList(ItemStack[] blockList){
+		List<ItemStack> newList = new ArrayList<ItemStack>();
+		for(ItemStack item : blockList) {
+			if(!(item.getItem() == Items.AIR)) {
+				newList.add(item);
+			}
+		}
+		return newList;
+	}
 	public List<ItemStack> getItemsList() {
 		return this.itemList;
 	}
