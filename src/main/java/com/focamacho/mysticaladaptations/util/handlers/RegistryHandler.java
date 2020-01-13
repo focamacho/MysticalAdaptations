@@ -65,7 +65,6 @@ public class RegistryHandler {
 		if(ModCheck.CRAFTTWEAKER) CompatCT.preInit();
 		if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
 			CompatTConstruct.init();
-			CompatTConstruct.initFluidModels();
 		}
 	}
 	

@@ -12,4 +12,7 @@ public class CommonProxy {
 
 	}
 	
+	public void initTConstructModels() {
+
+	}
 }
