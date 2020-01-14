@@ -20,7 +20,7 @@ public class ClientProxy extends CommonProxy {
 	}
 	
 	public void initTConstructModels() {
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.TINKERS_INSANIUM) CompatTConstruct.initFluidModels();
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) CompatTConstruct.initFluidModels();
 	}
 
 }
