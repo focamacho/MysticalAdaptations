@@ -20,6 +20,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -61,7 +62,6 @@ public class RegistryHandler {
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
 		if(ModCheck.MYSTICAL_AGRADDITIONS && (ModConfig.INSANIUM_ARMOR || ModConfig.INSANIUM_TOOLS)) MinecraftForge.EVENT_BUS.register(new CraftingHandler());
 		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModEntities.init();
-		if(ModConfig.ENABLE_SEED_EXTRACTORS) SeedExtractorRecipes.preInit();
 		if(ModCheck.CRAFTTWEAKER) CompatCT.preInit();
 		if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
 			CompatTConstruct.init();
