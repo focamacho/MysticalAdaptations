@@ -7,9 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TooltipsHandler {
 
+	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void itemTooltipEvent(ItemTooltipEvent event) {
 		if(ItemStack.areItemStacksEqual(event.getItemStack(), new ItemStack(ModItems.itemCharm, 1, 19))) {
