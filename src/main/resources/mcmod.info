@@ -2,10 +2,10 @@
 {
   "modid": "mysticaladaptations",
   "name": "Mystical Adaptations",
-  "description": "A new way to get seeds from Mystical Agriculture!",
+  "description": "Seed Extractors, Insanium Armor, Insanium Tools & more.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/mystical-adaptations",
   "updateUrl": "",
   "authorList": ["Focamacho"],
   "credits": "BlakeBr0 for Mystical Agriculture",

@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +30,6 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
 
 public class InsaniumArmor extends ItemArmor implements IHasModel {
 	

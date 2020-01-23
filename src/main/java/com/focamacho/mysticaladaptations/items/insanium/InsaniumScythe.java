@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.List;
 
@@ -44,11 +44,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
-
 public class InsaniumScythe extends ItemBase implements IHasModel {
 
 	public int range;
@@ -69,6 +64,7 @@ public class InsaniumScythe extends ItemBase implements IHasModel {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
+		tooltip.add(Tooltips.RANGE + Colors.DARK_PURPLE + "5x5");
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
@@ -80,12 +76,12 @@ public class InsaniumScythe extends ItemBase implements IHasModel {
 	}
 	
 	public int getRange(ItemStack stack){
-		int range = 1;
+		int range = 2;
 		if(stack.getItem() == ModItems.INSANIUM_SCYTHE){
 			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.SCYTHING_AOE.getIndex()){
-					range = 2;
+					range = 3;
 				}
 			}
 		}

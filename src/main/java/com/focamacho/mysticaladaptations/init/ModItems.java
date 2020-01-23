@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
+import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.config.ModConfig;
-import com.focamacho.mysticaladaptations.items.InsaniumArmor;
-import com.focamacho.mysticaladaptations.items.InsaniumArrow;
-import com.focamacho.mysticaladaptations.items.InsaniumAxe;
-import com.focamacho.mysticaladaptations.items.InsaniumBow;
-import com.focamacho.mysticaladaptations.items.InsaniumFishingRod;
-import com.focamacho.mysticaladaptations.items.InsaniumHoe;
-import com.focamacho.mysticaladaptations.items.InsaniumPaxel;
-import com.focamacho.mysticaladaptations.items.InsaniumPickaxe;
-import com.focamacho.mysticaladaptations.items.InsaniumScythe;
-import com.focamacho.mysticaladaptations.items.InsaniumShears;
-import com.focamacho.mysticaladaptations.items.InsaniumShovel;
-import com.focamacho.mysticaladaptations.items.InsaniumSickle;
-import com.focamacho.mysticaladaptations.items.InsaniumSword;
-import com.focamacho.mysticaladaptations.items.InsaniumWateringCan;
 import com.focamacho.mysticaladaptations.items.ItemBase;
 import com.focamacho.mysticaladaptations.items.SeedExtractor;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumApple;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumArmor;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumArrow;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumAxe;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumBow;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumFishingRod;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumHoe;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumPaxel;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumPickaxe;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumScythe;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumShears;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumShovel;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumSickle;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumSword;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumWateringCan;
 import com.focamacho.mysticaladaptations.lib.ModToolMaterial;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 
@@ -47,6 +49,9 @@ public class ModItems {
 	public static Item GEAR_ARMOR;
 	public static Item GEAR_INSANIUM_ARROW_HEAD;
 	public static Item INSANIUM_FERTILIZATION_CORE;
+	
+	//Insanium Apple
+	public static Item INSANIUM_APPLE;
 	
 	//Insanium Armor
 	public static Item INSANIUM_HELMET;
@@ -92,15 +97,22 @@ public class ModItems {
 		
 		if(ModCheck.MYSTICAL_AGRADDITIONS) {
 			//Crafting Items
-			GEAR = new ItemBase("gear");
-			GEAR_ARMOR = new ItemBase("gear_armor");
-			GEAR_INSANIUM_ARROW_HEAD = new ItemBase("gear_insanium_arrow_head");
-			INSANIUM_FERTILIZATION_CORE = new ItemBase("insanium_fertilization_core");
+			GEAR = new ItemBase("gear", Tooltips.CORE_REMOVAL);
+			GEAR_ARMOR = new ItemBase("gear_armor", Tooltips.CORE_REMOVAL);
+			GEAR_INSANIUM_ARROW_HEAD = new ItemBase("gear_insanium_arrow_head", null);
+			INSANIUM_FERTILIZATION_CORE = new ItemBase("insanium_fertilization_core", Tooltips.CORE_REMOVAL);
 			
 			ITEMS.add(GEAR);
 			ITEMS.add(GEAR_ARMOR);
 			ITEMS.add(GEAR_INSANIUM_ARROW_HEAD);
 			ITEMS.add(INSANIUM_FERTILIZATION_CORE);
+			
+			//Insanium Apple
+			if(com.blakebr0.mysticalagriculture.config.ModConfig.confEssenceApples) {
+				INSANIUM_APPLE = new InsaniumApple("insanium_apple");
+				
+				ITEMS.add(INSANIUM_APPLE);
+			}
 			
 			//Insanium Armor
 			if(ModConfig.INSANIUM_ARMOR) {
@@ -124,8 +136,8 @@ public class ModItems {
 				INSANIUM_HOE = new InsaniumHoe("insanium_hoe", ModToolMaterial.INSANIUM, 2, TextFormatting.DARK_PURPLE);
 				INSANIUM_SHEARS = new InsaniumShears("insanium_shears", ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
 				INSANIUM_BOW = new InsaniumBow("insanium_bow", ModToolMaterial.INSANIUM, 1.0F, TextFormatting.DARK_PURPLE);
-				INSANIUM_SICKLE = new InsaniumSickle("insanium_sickle", 2, ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
-				INSANIUM_SCYTHE = new InsaniumScythe("insanium_scythe", 1, ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
+				INSANIUM_SICKLE = new InsaniumSickle("insanium_sickle", 3, ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
+				INSANIUM_SCYTHE = new InsaniumScythe("insanium_scythe", 2, ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
 				INSANIUM_FISHING_ROD = new InsaniumFishingRod("insanium_fishing_rod", ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);
 				INSANIUM_ARROW = new InsaniumArrow("insanium_arrow");
 				INSANIUM_PAXEL = new InsaniumPaxel("insanium_paxel", ModToolMaterial.INSANIUM, TextFormatting.DARK_PURPLE);

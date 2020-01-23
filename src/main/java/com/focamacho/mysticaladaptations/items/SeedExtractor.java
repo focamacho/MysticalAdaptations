@@ -7,6 +7,7 @@ import com.focamacho.mysticaladaptations.Main;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.lib.BlockCheck;
 import com.focamacho.mysticaladaptations.util.IHasModel;
+import com.focamacho.mysticaladaptations.util.Utils;
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
@@ -103,26 +104,8 @@ public class SeedExtractor extends Item implements IHasModel{
 	
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flagIn) {
-		switch(tier.getInteger("tier")) {
-			case 1:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.YELLOW + tier.getInteger("tier"));
-				break;
-			case 2:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.GREEN + tier.getInteger("tier"));
-				break;
-			case 3:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.GOLD + tier.getInteger("tier"));
-				break;
-			case 4:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.AQUA + tier.getInteger("tier"));
-				break;
-			case 5:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.RED + tier.getInteger("tier"));
-				break;
-			case 6:
-				list.add(ChatFormatting.GRAY + "Tier: " + ChatFormatting.DARK_PURPLE + tier.getInteger("tier"));
-				break;
-		}
+		int tier = this.tier.getInteger("tier");
+		list.add(ChatFormatting.GRAY + "Tier: " + Utils.getColorFromTier(tier) + tier);
 		if(!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
 		if(!itemstack.getTagCompound().hasKey("tier")) itemstack.setTagCompound(this.tier);
 	}

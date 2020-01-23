@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.List;
 import java.util.Random;
@@ -30,11 +30,6 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
 
 public class InsaniumWateringCan extends Item implements IHasModel {
 		

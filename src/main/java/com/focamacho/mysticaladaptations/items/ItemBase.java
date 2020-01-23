@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,16 +16,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBase extends Item implements IHasModel{
 
-	public ItemBase(String name) {
+	private String itemTooltip;
+	
+	public ItemBase(String name, @Nullable String tooltip) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.itemTooltip = tooltip;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
-		if(stack.getItem().equals(ModItems.GEAR) || stack.getItem().equals(ModItems.GEAR_ARMOR) || stack.getItem().equals(ModItems.INSANIUM_FERTILIZATION_CORE)) tooltip.add(Tooltips.CORE_REMOVAL);
+		if(itemTooltip != null) tooltip.add(itemTooltip);
 	}
 	
 	@Override

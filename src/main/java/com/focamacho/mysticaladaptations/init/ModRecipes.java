@@ -18,11 +18,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.ForgeRegistry;
 
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
-
 public class ModRecipes {
 	
 	public static final ItemStack insanium_nugget = new ItemStack(Item.getByNameOrId("mysticalagradditions:insanium"), 1, 3);

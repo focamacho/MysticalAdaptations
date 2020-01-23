@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.List;
 
@@ -32,11 +32,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
 
 public class InsaniumSickle extends ItemBase implements IHasModel {
 	
@@ -81,6 +76,7 @@ public class InsaniumSickle extends ItemBase implements IHasModel {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
+		tooltip.add(Tooltips.RANGE + Colors.DARK_PURPLE + "7x7x7");
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ToolType.TOOL_TYPE)){

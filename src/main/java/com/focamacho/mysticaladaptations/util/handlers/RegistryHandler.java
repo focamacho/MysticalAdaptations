@@ -8,7 +8,7 @@ import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModEntities;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
-import com.focamacho.mysticaladaptations.items.InsaniumArmor;
+import com.focamacho.mysticaladaptations.items.insanium.InsaniumArmor;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
@@ -20,7 +20,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -76,6 +75,7 @@ public class RegistryHandler {
 		
 		if(ModConfig.ENABLE_SEED_EXTRACTORS) SeedExtractorRecipes.init();
 		if(ModConfig.MOB_SEED_DROP) MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
+		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) MinecraftForge.EVENT_BUS.register(new TooltipsHandler());
 		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_ARMOR) MinecraftForge.EVENT_BUS.register(new InsaniumArmor.AbilityHandler());
 		if(ModCheck.CRAFTTWEAKER) CompatCT.init();
 		

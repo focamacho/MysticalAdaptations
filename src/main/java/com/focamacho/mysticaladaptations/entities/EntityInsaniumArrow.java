@@ -12,11 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
-
 public class EntityInsaniumArrow extends EntityArrow {
 
     public EntityInsaniumArrow(World world){

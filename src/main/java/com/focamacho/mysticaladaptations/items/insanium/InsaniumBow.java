@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.List;
 
@@ -33,11 +33,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
 
 public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
 

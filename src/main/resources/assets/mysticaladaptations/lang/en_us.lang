@@ -15,6 +15,9 @@ item.gear_armor.name=§5Insanium Armor Core
 item.gear_insanium_arrow_head.name=§5Insanium Arrow Head
 item.insanium_fertilization_core.name=§5Insanium Fertilization Core
 
+# FOOD
+item.insanium_apple.name=§5Insanium Apple
+
 # ARMORS
 item.insanium_helmet.name=§5Insanium Helmet
 item.insanium_chestplate.name=§5Insanium Chestplate
@@ -52,9 +55,13 @@ jei.mysticaladaptations.experience_seeds_drop_higher=or higher.
 jei.mysticaladaptations.experience_seeds_drop_chance=Drop Chance:
 
 # TOOLTIPS
-tooltip.mysticaladaptations.insanium_shears=Doubles drops obtained from shearing entities.
+tooltip.mysticaladaptations.insanium_shears=Doubles drops obtained from shearing entities
 tooltip.mysticaladaptations.hungerless=Hungerless
-tooltip.mysticaladaptations.insanium_pickaxe=Instantly breaks obsidian.
+tooltip.mysticaladaptations.insanium_pickaxe=Instantly breaks obsidian
+tooltip.mysticaladaptations.insanium_lure=Catches fish faster than normal
+tooltip.mysticaladaptations.insanium_axe_up=Breaks all Logs above the target block
+tooltips.mysticaladaptations.sickle_aoe_charm=§eObs: §79x9x9 if applied to Insanium Sickle
+tooltips.mysticaladaptations.scythe_aoe_charm=§eObs: §77x7 if applied to Insanium Scythe
 
 # CONTAINERS
 container.mysticaladaptations.insaniumfurnace.name=Insanium Furnace

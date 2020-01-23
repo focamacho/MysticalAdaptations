@@ -1,5 +1,6 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -7,7 +8,6 @@ import javax.annotation.Nullable;
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.ToolTools;
-import com.blakebr0.mysticalagriculture.blocks.ModBlocks;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.Main;
@@ -16,18 +16,12 @@ import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextFormatting;
@@ -36,19 +30,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
+public class InsaniumAxe extends ItemAxe implements IHasModel {
 
-public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
-	    
 	public TextFormatting color;
 	
-	public InsaniumPickaxe(String name, ToolMaterial material, TextFormatting color){
-		super(material);
+	public InsaniumAxe(String name, ToolMaterial material, float damage, TextFormatting color){
+		super(material, damage, -3.2F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setCreativeTab(Main.tabMysticalAdaptations);
@@ -59,7 +47,7 @@ public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced){
 		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		if(ModConfig.INSANIUM_PICKAXE_OBSIDIAN) tooltip.add(I18n.translateToLocal("tooltip.mysticaladaptations.insanium_pickaxe"));
+		if(ModConfig.INSANIUM_AXE_UP) tooltip.add(I18n.translateToLocal("tooltip.mysticaladaptations.insanium_axe_up"));
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ToolType.TOOL_TYPE)){
@@ -69,26 +57,9 @@ public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
 		}
 	}
 	
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
-		ItemStack stack = player.getHeldItem(hand);
-		if(stack.getItem() == ModItems.INSANIUM_PICKAXE){
-			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
-			if(tag.hasKey(ToolType.TOOL_TYPE)){
-				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINERS_VISION.getIndex()){
-			    	ItemStack torch = new ItemStack(ModBlocks.blockMinersTorch);
-			    	if(torch.onItemUse(player, world, pos, hand, side, hitX, hitY, hitZ) != EnumActionResult.FAIL){
-			    		return EnumActionResult.SUCCESS;
-			    	}
-				}
-			}
-		}
-        return EnumActionResult.FAIL;
-    }
-	
 	@Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player){
-		if(stack.getItem() == ModItems.INSANIUM_PICKAXE){
+		if(stack.getItem() == ModItems.INSANIUM_AXE){
 			NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 			if(tag.hasKey(ToolType.TOOL_TYPE)){
 				if(tag.getInteger(ToolType.TOOL_TYPE) == ToolType.MINING_AOE.getIndex()){
@@ -100,6 +71,19 @@ public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
 		            }
 		            return blocks;
 				}
+			} else if(ModConfig.INSANIUM_AXE_UP){
+				for(BlockPos woodPos : getAllWood(player.getEntityWorld(), pos)) {
+	        		if(woodPos != pos){
+	        			IBlockState aoeState = player.getEntityWorld().getBlockState(woodPos);
+	        			if(aoeState.getBlockHardness(player.getEntityWorld(), woodPos) <= player.getEntityWorld().getBlockState(pos).getBlockHardness(player.getEntityWorld(), pos) + 5.0F){
+	        				if(aoeState.getBlock().isToolEffective("axe", aoeState)){
+	        					canHarvest(player.getEntityWorld(), woodPos, true, stack, player);
+	        				}   
+	        			} else {
+	        				return false;
+	        			}
+	        		}
+	        	}
 			}
 		}
 		return super.onBlockStartBreak(stack, pos, player);
@@ -127,20 +111,37 @@ public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
         	return false;
         }
         
-        if(radius > 0 && hardness >= 0.2F && state.getBlock().isToolEffective("pickaxe", state)){
+        if(radius > 0 && hardness >= 0.2F && state.getBlock().isToolEffective("axe", state)){
         	Iterable<BlockPos> blocks = BlockPos.getAllInBox(pos.add(-xRange, -yRange, -zRange), pos.add(xRange, yRange, zRange));
-        	for(BlockPos aoePos : blocks){
-        		if(aoePos != pos){
-        			IBlockState aoeState = world.getBlockState(aoePos);
-        			if(aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F){
-        				if(aoeState.getBlock().isToolEffective("pickaxe", aoeState)){
-        					canHarvest(world, aoePos, true, stack, player);
-        				}   
-        			} else {
-        				return false;
-        			}
-        		}
-            }	
+        	if(ModConfig.INSANIUM_AXE_UP) {
+	        	for(BlockPos aoePos : blocks){
+	        		for(BlockPos woodPos : getAllWood(world, aoePos)) {
+	            		if(woodPos != pos){
+	            			IBlockState aoeState = world.getBlockState(woodPos);
+	            			if(aoeState.getBlockHardness(world, woodPos) <= hardness + 5.0F){
+	            				if(aoeState.getBlock().isToolEffective("axe", aoeState)){
+	            					canHarvest(world, woodPos, true, stack, player);
+	            				}   
+	            			} else {
+	            				return false;
+	            			}
+	            		}
+	            	}
+	            }
+        	} else {
+        		for(BlockPos aoePos : blocks){
+            		if(aoePos != pos){
+            			IBlockState aoeState = world.getBlockState(aoePos);
+            			if(aoeState.getBlockHardness(world, aoePos) <= hardness + 5.0F){
+            				if(aoeState.getBlock().isToolEffective("axe", aoeState)){
+            					canHarvest(world, aoePos, true, stack, player);
+            				}   
+            			} else {
+            				return false;
+            			}
+            		}
+                }
+        	}
         }
         return true;
     }	
@@ -156,15 +157,19 @@ public class InsaniumPickaxe extends ItemPickaxe implements IHasModel {
         return false;
     }
     
-    @Override
-    public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        Material material = state.getMaterial();
-        if(ModConfig.INSANIUM_PICKAXE_OBSIDIAN && OreDictionary.itemMatches(new ItemStack(Item.getItemFromBlock(state.getBlock())), new ItemStack(Item.getItemFromBlock(Blocks.OBSIDIAN)), false)) return 9999F;
-        return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : this.efficiency;
+    private List<BlockPos> getAllWood(World world, BlockPos pos) {
+    	List<BlockPos> blockPosList = new ArrayList<BlockPos>();
+    	BlockPos blockpos = pos.up();
+    	while(world.getBlockState(blockpos).getBlock().isWood(world, blockpos)){
+    		blockPosList.add(blockpos);
+    		blockpos = blockpos.up();
+    	}
+    	return blockPosList;
     }
     
 	@Override
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
+
 }

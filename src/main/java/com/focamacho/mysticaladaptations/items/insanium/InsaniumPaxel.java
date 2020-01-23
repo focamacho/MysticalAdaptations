@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.items;
+package com.focamacho.mysticaladaptations.items.insanium;
 
 import java.util.HashSet;
 import java.util.List;
@@ -33,11 +33,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-
-/*
- * Code from BlakeBr0's Mystical Agradditions.
- * https://github.com/BlakeBr0/MysticalAgradditions
-*/
 
 public class InsaniumPaxel extends ItemTool implements IHasModel {
 

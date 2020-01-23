@@ -6,11 +6,6 @@ import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-/*
- * Code from BlakeBr0's Mystical Agriculture.
- * https://github.com/BlakeBr0/MysticalAgriculture/
-*/
-
 public class RenderInsaniumArrow extends RenderArrow<EntityInsaniumArrow> {
 	
 	public RenderInsaniumArrow(RenderManager renderManager){

@@ -45,6 +45,8 @@ public class ModConfig {
 	public static boolean INSANIUM_TOOLS;
 	public static boolean INSANIUM_PICKAXE_OBSIDIAN;
 	public static boolean INSANIUM_SHEARS_DOUBLES;
+	public static boolean INSANIUM_LURE;
+	public static boolean INSANIUM_AXE_UP;
 	public static boolean INSANIUM_REPROCESSOR;
 	public static boolean INSANIUM_FURNACE;
 	public static boolean ULTIMATE_FURNACE_RECIPE;
@@ -110,6 +112,8 @@ public class ModConfig {
 		INSANIUM_PICKAXE_OBSIDIAN = config.getBoolean("INSANIUM_PICKAXE_OBSIDIAN", category, true, "Insanium Pickaxe breaks obsidian instantly");
 		INSANIUM_SHEARS_DOUBLES = config.getBoolean("INSANIUM_SHEARS_DOUBLES", category, true, "Insanium Shears doubles drops obtained from shearing entities.");
 		INSANIUM_REPROCESSOR = config.getBoolean("INSANIUM_REPROCESSOR", category, true, "Enable the Insanium Seed Reprocessor");
+		INSANIUM_LURE = config.getBoolean("INSANIUM_LURE", category, true, "Insanium Fishing Rod catches fish faster than normal");
+		INSANIUM_AXE_UP = config.getBoolean("INSANIUM_AXE_UP", category, true, "Insanium Axe breaks all log blocks above the target block");
 		INSANIUM_FURNACE = config.getBoolean("INSANIUM_FURNACE", category, true, "Enable the Insanium Furnace");
 		ULTIMATE_FURNACE_RECIPE = config.getBoolean("ULTIMATE_FURNACE_RECIPE", category, true, "Changes the Ultimate Furnace recipe to use a Insanium Furnace instead of a Supremium Furnace");
 		TINKERS_INSANIUM = config.getBoolean("TINKERS_INSANIUM", category, true, "Enable/Disable Tinker's Construct Insanium Compat");
