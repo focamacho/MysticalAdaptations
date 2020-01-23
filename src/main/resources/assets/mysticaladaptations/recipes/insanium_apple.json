@@ -1,0 +1,26 @@
+    {
+      "type": "forge:ore_shaped",
+        "conditions": [
+         {
+            "type": "minecraft:item_exists",
+            "item": "mysticaladaptations:insanium_apple"
+         }
+      ],
+      "pattern": [
+        " E ",
+        "EAE",
+        " E "
+      ],
+      "key": {
+        "E": {
+          "item": "mysticalagradditions:insanium",
+          "data": 0
+        },
+        "A": {
+          "item": "mysticalagriculture:supremium_apple"
+        }
+      },
+      "result": {
+        "item": "mysticaladaptations:insanium_apple"
+      }
+    }
