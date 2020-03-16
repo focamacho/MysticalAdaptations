@@ -34,20 +34,21 @@ public class InsaniumArmor extends ItemArmor {
 	
 	public InsaniumArmor(String name, ArmorMaterial material, int index, EntityEquipmentSlot slot){
 		super(material, index, slot);
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
-		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
-	    this.setMaxStackSize(1);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
+	    setMaxStackSize(1);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced){
-		int damage = stack.getMaxDamage() - stack.getItemDamage();
-		tooltip.add(Tooltips.DURABILITY + Colors.DARK_PURPLE + damage);
-		if(ModConfig.INSANIUM_ARMOR_HUNGERLESS){ tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + I18n.translateToLocal("tooltip.mysticaladaptations.hungerless")); }
-		else if(ModConfig.INSANIUM_ARMOR_SATURATION){ tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Utils.localize(MobEffects.SATURATION.getName())); }
-		else if(ModConfig.INSANIUM_ARMOR_FLIGHT){ tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Tooltips.FLIGHT); }
+		tooltip.add(Tooltips.DURABILITY + Colors.DARK_PURPLE + (stack.getMaxDamage() - stack.getItemDamage()));
+		
+		if(ModConfig.INSANIUM_ARMOR_HUNGERLESS) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + I18n.translateToLocal("tooltip.mysticaladaptations.hungerless"));
+		else if(ModConfig.INSANIUM_ARMOR_SATURATION) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Utils.localize(MobEffects.SATURATION.getName())); 
+		else if(ModConfig.INSANIUM_ARMOR_FLIGHT) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Tooltips.FLIGHT);
+		
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ArmorType.ARMOR_TYPE)){
 			tooltip.add(Tooltips.CHARM_SLOT + Colors.DARK_PURPLE + ArmorType.byIndex(tag.getInteger(ArmorType.ARMOR_TYPE)).getLocalizedName());
@@ -62,14 +63,14 @@ public class InsaniumArmor extends ItemArmor {
 			if(player.isInWater()){
 				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
-		}
-		
-		if(ModConfig.INSANIUM_ARMOR_SATURATION && isFullSet(player)) {
-			player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 5, 0, true, false));
-		}
-		
-		if(ModConfig.INSANIUM_ARMOR_HUNGERLESS && isFullSet(player)) {
-			if(player.getFoodStats().needFood()) player.getFoodStats().setFoodLevel(20);
+			
+			if(ModConfig.INSANIUM_ARMOR_SATURATION) {
+				player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 5, 0, true, false));
+			}
+			
+			if(ModConfig.INSANIUM_ARMOR_HUNGERLESS) {
+				if(player.getFoodStats().needFood()) player.getFoodStats().setFoodLevel(20);
+			}
 		}
 		
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);

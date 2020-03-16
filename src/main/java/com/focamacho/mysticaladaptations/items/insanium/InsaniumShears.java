@@ -1,4 +1,5 @@
 package com.focamacho.mysticaladaptations.items.insanium;
+
 import java.util.List;
 import java.util.Random;
 
