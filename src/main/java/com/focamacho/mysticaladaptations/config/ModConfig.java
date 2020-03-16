@@ -38,7 +38,6 @@ public class ModConfig {
 	public static boolean HOP_GRAPHITE_BLOCK;
 	
 	public static boolean INSANIUM_ARMOR;
-	public static boolean INSANIUM_ARMOR_FLIGHT;
 	public static boolean INSANIUM_ARMOR_SATURATION;
 	public static boolean INSANIUM_ARMOR_HUNGERLESS;
 	public static boolean REMOVE_AGRADDITIONS_RECIPES;
@@ -105,7 +104,6 @@ public class ModConfig {
 		category = "Mystical Agradditions";
 		config.addCustomCategoryComment(category, "Cool things for Mystical Agradditions");
 		INSANIUM_ARMOR = config.getBoolean("INSANIUM_ARMOR", category, true, "Enable the Insanium Armor");
-		INSANIUM_ARMOR_FLIGHT = config.getBoolean("INSANIUM_ARMOR_FLIGHT", category, true, "Wearing a full set of Insanium Armor gives flight");
 		INSANIUM_ARMOR_SATURATION = config.getBoolean("INSANIUM_ARMOR_SATURATION", category, false, "Wearing a full set of a Insanium Armor gives saturation effect - Yeah, that's OP");
 		INSANIUM_ARMOR_HUNGERLESS = config.getBoolean("INSANIUM_ARMOR_HUNGERLESS", category, true, "Wearing a full set of a Insanium Armor keeps your hunger bar always full");
 		INSANIUM_TOOLS = config.getBoolean("INSANIUM_TOOLS", category, true, "Enable Insanium Tools");

@@ -47,7 +47,7 @@ public class InsaniumArmor extends ItemArmor {
 		
 		if(ModConfig.INSANIUM_ARMOR_HUNGERLESS) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + I18n.translateToLocal("tooltip.mysticaladaptations.hungerless"));
 		else if(ModConfig.INSANIUM_ARMOR_SATURATION) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Utils.localize(MobEffects.SATURATION.getName())); 
-		else if(ModConfig.INSANIUM_ARMOR_FLIGHT) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Tooltips.FLIGHT);
+		else if(com.blakebr0.mysticalagriculture.config.ModConfig.confSupremiumFlight) tooltip.add(Tooltips.SET_BONUS + Colors.DARK_PURPLE + Tooltips.FLIGHT);
 		
 		NBTTagCompound tag = NBTHelper.getTagCompound(stack);
 		if(tag.hasKey(ArmorType.ARMOR_TYPE)){
@@ -127,7 +127,7 @@ public class InsaniumArmor extends ItemArmor {
     			Boolean hasSet = InsaniumArmor.isFullSet(player);
     			if(playersWithSet.contains(key)){
     				if(hasSet){
-    					if(ModConfig.INSANIUM_ARMOR_FLIGHT){
+    					if(com.blakebr0.mysticalagriculture.config.ModConfig.confSupremiumFlight){
     						player.capabilities.allowFlying = true;
     					}
     					if(com.blakebr0.mysticalagriculture.config.ModConfig.confSetBonuses){
