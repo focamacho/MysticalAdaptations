@@ -2,6 +2,7 @@ package com.focamacho.mysticaladaptations.util.handlers;
 
 import java.io.File;
 
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
@@ -10,7 +11,6 @@ import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import com.focamacho.mysticaladaptations.items.insanium.InsaniumArmor;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.crafttweaker.CompatCT;
 import com.focamacho.mysticaladaptations.util.compat.tconstruct.CompatTConstruct;
@@ -44,14 +44,10 @@ public class RegistryHandler {
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event) {
 		for(Item item : ModItems.ITEMS) {
-			if(item instanceof IHasModel) {
-				((IHasModel)item).registerModels();
-			}
+			MysticalAdaptations.proxy.registerItemRenderer(item, 0, "inventory");
 		}
 		for(Block block : ModBlocks.BLOCKS) {
-			if(block instanceof IHasModel) {
-				((IHasModel)block).registerModels();
-			}
+			MysticalAdaptations.proxy.registerItemRenderer(Item.getItemFromBlock(block), 0, "inventory");
 		}
 	}
 	

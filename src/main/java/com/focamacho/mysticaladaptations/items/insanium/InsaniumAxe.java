@@ -10,10 +10,9 @@ import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -31,7 +30,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumAxe extends ItemAxe implements IHasModel {
+public class InsaniumAxe extends ItemAxe {
 
 	public TextFormatting color;
 	
@@ -39,7 +38,7 @@ public class InsaniumAxe extends ItemAxe implements IHasModel {
 		super(material, damage, -3.2F);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.color = color;
 	}
 	
@@ -166,10 +165,5 @@ public class InsaniumAxe extends ItemAxe implements IHasModel {
     	}
     	return blockPosList;
     }
-    
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 
 }

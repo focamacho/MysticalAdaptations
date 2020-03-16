@@ -9,10 +9,9 @@ import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -34,7 +33,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class InsaniumPaxel extends ItemTool implements IHasModel {
+public class InsaniumPaxel extends ItemTool {
 
 	public ItemStack repairMaterial;
 	public TextFormatting color;
@@ -43,7 +42,7 @@ public class InsaniumPaxel extends ItemTool implements IHasModel {
 		super(4, -3.2F, material, new HashSet<>());
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setHarvestLevel("pickaxe", material.getHarvestLevel());
 		this.setHarvestLevel("shovel", material.getHarvestLevel());
 		this.setHarvestLevel("axe", material.getHarvestLevel());
@@ -194,10 +193,5 @@ public class InsaniumPaxel extends ItemTool implements IHasModel {
         if(ModConfig.INSANIUM_PICKAXE_OBSIDIAN && OreDictionary.itemMatches(new ItemStack(Item.getItemFromBlock(state.getBlock())), new ItemStack(Item.getItemFromBlock(Blocks.OBSIDIAN)), false)) return 9999F;
         return material != Material.IRON && material != Material.ANVIL && material != Material.ROCK ? super.getDestroySpeed(stack, state) : this.efficiency;
     }
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 	
 }

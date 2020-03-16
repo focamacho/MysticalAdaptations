@@ -5,9 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -27,13 +26,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumFishingRod extends ItemFishingRod implements IHasModel {
+public class InsaniumFishingRod extends ItemFishingRod {
 	
 	public TextFormatting color;
 	
 	public InsaniumFishingRod(String name, ToolMaterial material, TextFormatting color){
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setRegistryName(name);
 		this.color = color;
 		this.setMaxStackSize(1);
@@ -95,9 +94,4 @@ public class InsaniumFishingRod extends ItemFishingRod implements IHasModel {
 		tooltip.add(Tooltips.DURABILITY + color + (damage > -1 ? damage : Tooltips.UNLIMITED));
 	}
 	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-
 }

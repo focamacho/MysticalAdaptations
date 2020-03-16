@@ -7,9 +7,8 @@ import com.blakebr0.cucumber.iface.IEnableable;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.tileentity.TileInsaniumFurnace;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -40,7 +39,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockInsaniumFurnace extends BlockContainer implements IEnableable, IHasModel {
+public class BlockInsaniumFurnace extends BlockContainer implements IEnableable {
 	
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     protected final boolean isBurning;
@@ -52,7 +51,7 @@ public class BlockInsaniumFurnace extends BlockContainer implements IEnableable,
         this.isBurning = isBurning;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-        this.setCreativeTab(Main.tabMysticalAdaptations);
+        this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setHardness(5.0F);
 		this.setResistance(10.0F);
     }
@@ -249,11 +248,6 @@ public class BlockInsaniumFurnace extends BlockContainer implements IEnableable,
 	@Override
 	public boolean isEnabled() {
 		return ModConfig.confEssenceFurnaces;
-	}
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 	}
 
 	public static void setState(boolean active, World world, BlockPos pos) {

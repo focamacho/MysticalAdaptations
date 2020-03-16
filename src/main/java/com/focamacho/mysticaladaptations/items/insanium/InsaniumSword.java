@@ -7,9 +7,8 @@ import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
@@ -31,7 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumSword extends ItemSword implements IHasModel {
+public class InsaniumSword extends ItemSword {
 	    
 	public TextFormatting color;
 	public final ToolMaterial material;
@@ -40,7 +39,7 @@ public class InsaniumSword extends ItemSword implements IHasModel {
 		super(material);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.color = color;
 		this.material = material;
 	}
@@ -107,10 +106,5 @@ public class InsaniumSword extends ItemSword implements IHasModel {
         }
         return multimap;
     }
-    
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 
 }

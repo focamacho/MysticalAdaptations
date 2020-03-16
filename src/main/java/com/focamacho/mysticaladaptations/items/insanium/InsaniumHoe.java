@@ -8,9 +8,8 @@ import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -31,7 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumHoe extends ItemHoe implements IHasModel {
+public class InsaniumHoe extends ItemHoe {
 	
 	public int range;
 	public TextFormatting color;
@@ -41,7 +40,7 @@ public class InsaniumHoe extends ItemHoe implements IHasModel {
 		this.range = range;
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.color = color;
 	}
 	
@@ -121,11 +120,6 @@ public class InsaniumHoe extends ItemHoe implements IHasModel {
             }
             return false;
         }
-	}
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
 
 }

@@ -3,10 +3,9 @@ package com.focamacho.mysticaladaptations.items;
 import java.util.List;
 import java.util.Random;
 
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.lib.BlockCheck;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.focamacho.mysticaladaptations.util.Utils;
 import com.google.common.collect.Multimap;
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -32,7 +31,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class SeedExtractor extends Item implements IHasModel{
+public class SeedExtractor extends Item {
 
 	ToolMaterial toolMaterial;
 	NBTTagCompound tier = new NBTTagCompound();
@@ -41,7 +40,7 @@ public class SeedExtractor extends Item implements IHasModel{
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setMaxDamage(durability);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setMaxStackSize(1);
 		this.toolMaterial = material;
 		this.tier.setInteger("tier", tier);
@@ -125,10 +124,5 @@ public class SeedExtractor extends Item implements IHasModel{
         }
         return multimap;
     }
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 		
 }

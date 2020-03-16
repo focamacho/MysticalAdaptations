@@ -1,6 +1,6 @@
 package com.focamacho.mysticaladaptations.util.compat.tconstruct;
 
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.BlockFluidClassic;
@@ -11,7 +11,7 @@ public class BlockMolten extends BlockFluidClassic {
 
 	public BlockMolten(Fluid fluid) {
 		super(fluid, Material.LAVA);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 	}
 
 	@Override

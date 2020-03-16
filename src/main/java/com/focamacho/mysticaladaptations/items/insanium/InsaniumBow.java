@@ -9,9 +9,8 @@ import com.blakebr0.cucumber.iface.ICustomBow;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -34,7 +33,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
+public class InsaniumBow extends ItemBow implements ICustomBow {
 
 	public ToolMaterial toolMaterial;
 	public float damage;
@@ -43,7 +42,7 @@ public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
 	
 	public InsaniumBow(String name, ToolMaterial material, float drawSpeed, TextFormatting color){
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.toolMaterial = material;
 		this.damage = material.getAttackDamage() / 4;
 		this.drawSpeed = drawSpeed;
@@ -184,10 +183,5 @@ public class InsaniumBow extends ItemBow implements ICustomBow, IHasModel {
             }
         }
     }
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 	
 }

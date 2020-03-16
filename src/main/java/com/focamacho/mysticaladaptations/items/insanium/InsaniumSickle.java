@@ -11,9 +11,8 @@ import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.Block;
@@ -33,7 +32,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumSickle extends ItemBase implements IHasModel {
+public class InsaniumSickle extends ItemBase {
 	
 	public int range;
 	public ToolMaterial toolMaterial;
@@ -44,7 +43,7 @@ public class InsaniumSickle extends ItemBase implements IHasModel {
 		this.setMaxStackSize(1);
 		this.setMaxDamage(material.getMaxUses());
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.range = range;
 		this.toolMaterial = material;
 		this.color = color;
@@ -151,10 +150,4 @@ public class InsaniumSickle extends ItemBase implements IHasModel {
 
         return multimap;
     }
-    
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-
 }

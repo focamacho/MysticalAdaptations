@@ -8,8 +8,7 @@ import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.config.ModConfig;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.util.IHasModel;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,13 +20,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumApple extends ItemFood implements IHasModel {
+public class InsaniumApple extends ItemFood {
 	
 	public InsaniumApple(String name){
         super(25, 1.1F, false);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setAlwaysEdible();
 	}
 	
@@ -97,10 +96,4 @@ public class InsaniumApple extends ItemFood implements IHasModel {
 			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
 		}
 	}
-
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
-
 }

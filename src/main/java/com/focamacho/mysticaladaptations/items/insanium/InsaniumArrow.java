@@ -6,9 +6,8 @@ import javax.annotation.Nullable;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.entities.EntityInsaniumArrow;
-import com.focamacho.mysticaladaptations.util.IHasModel;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,12 +18,12 @@ import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class InsaniumArrow extends ItemArrow implements IHasModel {
+public class InsaniumArrow extends ItemArrow {
 	
 	public InsaniumArrow(String name){
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 	}
 	
 	@Override
@@ -51,11 +50,6 @@ public class InsaniumArrow extends ItemArrow implements IHasModel {
 		} else {
 			tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO);
 		}
-	}
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
 	
 }

@@ -6,8 +6,7 @@ import java.util.Random;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
-import com.focamacho.mysticaladaptations.Main;
-import com.focamacho.mysticaladaptations.util.IHasModel;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
@@ -31,13 +30,13 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class InsaniumWateringCan extends Item implements IHasModel {
+public class InsaniumWateringCan extends Item {
 		
 	private boolean water = false;
 	private long ticks;
 	
 	public InsaniumWateringCan(String name) {
-		this.setCreativeTab(Main.tabMysticalAdaptations);
+		this.setCreativeTab(MysticalAdaptations.tabMysticalAdaptations);
 		this.setMaxStackSize(1);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
@@ -124,9 +123,4 @@ public class InsaniumWateringCan extends Item implements IHasModel {
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
     	tooltip.add(Tooltips.RANGE + Colors.DARK_PURPLE + "11x11");
     }
-	
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0, "inventory");
-	}
 }
