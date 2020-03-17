@@ -3,17 +3,9 @@ package com.focamacho.mysticaladaptations.init;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.augment.*;
-import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.augment.HungerlessAugment;
 import com.focamacho.mysticaladaptations.augment.WoodcutterAugment;
 import com.focamacho.mysticaladaptations.util.Utils;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ModAugments {
 

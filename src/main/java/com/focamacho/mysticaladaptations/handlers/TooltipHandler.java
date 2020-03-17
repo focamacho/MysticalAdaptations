@@ -3,18 +3,13 @@ package com.focamacho.mysticaladaptations.handlers;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.util.Utils;
-import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TooltipHandler {
 

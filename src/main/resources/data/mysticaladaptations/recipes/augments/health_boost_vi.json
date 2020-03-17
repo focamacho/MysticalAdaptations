@@ -1,0 +1,45 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticalagriculture:health_boost_v"
+    },
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticaladaptations:health_boost_vi"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:health_boost_v_augment"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:health_boost_vi_augment"
+  }
+}

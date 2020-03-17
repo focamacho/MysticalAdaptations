@@ -3,8 +3,6 @@ package com.focamacho.mysticaladaptations.augment;
 import com.blakebr0.cucumber.util.ToolTools;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import com.focamacho.mysticaladaptations.handlers.TooltipHandler;
-import com.focamacho.mysticaladaptations.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
