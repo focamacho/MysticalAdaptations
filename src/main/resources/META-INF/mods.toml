@@ -14,12 +14,12 @@ Seed Extractors, Insanium Armor, Insanium Tools & more.
 [[dependencies.mysticaladaptations]]
     modId="mysticalagriculture"
     mandatory=true
-    versionRange="[,]"
+    versionRange="[2,]"
     ordering="BEFORE"
     side="BOTH"
 [[dependencies.mysticaladaptations]]
     modId="mysticalagradditions"
     mandatory=true
-    versionRange="[,]"
+    versionRange="[2,]"
     ordering="BEFORE"
     side="BOTH"
