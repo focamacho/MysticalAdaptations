@@ -11,3 +11,15 @@ authors="Focamacho"
 description='''
 Seed Extractors, Insanium Armor, Insanium Tools & more.
 '''
+[[dependencies.mysticalagriculture]]
+    modId="mysticalagriculture"
+    mandatory=true
+    versionRange="[,]"
+    ordering="BEFORE"
+    side="BOTH"
+[[dependencies.mysticalagradditions]]
+    modId="mysticalagradditions"
+    mandatory=true
+    versionRange="[,]"
+    ordering="BEFORE"
+    side="BOTH"
