@@ -6,10 +6,10 @@ modId="mysticaladaptations"
 version="${file.jarVersion}"
 displayName="Mystical Adaptations"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/mystical-adaptations"
-credits="Thanks to BlakeBr0 for Mystical Agriculture"
+credits="BlakeBr0 for Mystical Agriculture"
 authors="Focamacho"
 description='''
-Seed Extractors, Insanium Armor, Insanium Tools & more.
+Seed Extractors, Insanium Armor, Insanium Tools and more.
 '''
 [[dependencies.mysticaladaptations]]
     modId="mysticalagriculture"
