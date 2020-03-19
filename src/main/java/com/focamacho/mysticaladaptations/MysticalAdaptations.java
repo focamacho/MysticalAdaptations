@@ -36,7 +36,6 @@ public class MysticalAdaptations {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new TooltipHandler());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -44,7 +43,7 @@ public class MysticalAdaptations {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-
+        MinecraftForge.EVENT_BUS.register(new TooltipHandler());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
