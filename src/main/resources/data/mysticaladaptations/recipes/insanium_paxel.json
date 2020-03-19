@@ -1,0 +1,35 @@
+{
+  "type": "crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "mysticaladaptations:insanium_paxel"
+    },
+    {
+      "type": "forge:item_exists",
+      "item": "mysticaladaptations:insanium_pickaxe"
+    }
+  ],
+  "pattern": [
+    "ABC",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "A": {
+      "item": "mysticaladaptations:insanium_axe"
+    },
+    "B": {
+      "item": "mysticaladaptations:insanium_pickaxe"
+    },
+    "C": {
+      "item": "mysticaladaptations:insanium_shovel"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_paxel"
+  }
+}

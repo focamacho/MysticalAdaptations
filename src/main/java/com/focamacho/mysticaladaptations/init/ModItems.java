@@ -1,5 +1,6 @@
 package com.focamacho.mysticaladaptations.init;
 
+import com.blakebr0.mysticalagradditions.item.EssencePaxelItem;
 import com.blakebr0.mysticalagriculture.item.EssenceWateringCanItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
@@ -11,6 +12,7 @@ import com.focamacho.mysticaladaptations.lib.ModArmorMaterial;
 import com.focamacho.mysticaladaptations.lib.ModItemTier;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemTier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class ModItems {
 	public static Item INSANIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab));
 	public static Item INSANIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab));
 	public static Item INSANIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab));
+	public static Item INSANIUM_PAXEL = new EssencePaxelItem(ItemTier.DIAMOND, 6, 1, p -> p.group(MysticalAdaptations.creativeTab));
 
 	public static void initItems() {
 		INSANIUM_SWORD.setRegistryName(Utils.getRegistryName("insanium_sword"));
@@ -43,6 +46,7 @@ public class ModItems {
 		INSANIUM_CHESTPLATE.setRegistryName(Utils.getRegistryName("insanium_chestplate"));
 		INSANIUM_LEGGINGS.setRegistryName(Utils.getRegistryName("insanium_leggings"));
 		INSANIUM_BOOTS.setRegistryName(Utils.getRegistryName("insanium_boots"));
+		INSANIUM_PAXEL.setRegistryName(Utils.getRegistryName("insanium_paxel"));
 
 		allItems.add(INSANIUM_SWORD);
 		allItems.add(INSANIUM_PICKAXE);
@@ -55,6 +59,7 @@ public class ModItems {
 		allItems.add(INSANIUM_CHESTPLATE);
 		allItems.add(INSANIUM_LEGGINGS);
 		allItems.add(INSANIUM_BOOTS);
+		allItems.add(INSANIUM_PAXEL);
 	}
 
 }
