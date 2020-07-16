@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.2'
+version = '1.2.1'
 group = 'com.focamacho.mysticaladaptations'
 archivesBaseName = 'mysticaladaptations'
 
@@ -51,19 +51,23 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com"
+    }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
-	
+
     // Cucumber
-    compile files("libs/Cucumber-1.15.2-3.0.7.jar")
+    compile fg.deobf("curse.maven:cucumber:2986330")
 
     //Mystical Agriculture
-    compile files("libs/MysticalAgriculture-1.15.2-3.0.7.jar")
+    compile fg.deobf("curse.maven:mysticalagriculture:2990821")
 
     //Mystical Agradditions
-    compile files("libs/MysticalAgradditions-1.15.2-3.0.1.jar")
+    compile fg.deobf("curse.maven:mysticalagradditions:2969998")
 
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")

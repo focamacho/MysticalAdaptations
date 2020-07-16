@@ -6,9 +6,11 @@ import com.focamacho.mysticaladaptations.handlers.TooltipHandler;
 import com.focamacho.mysticaladaptations.init.ModAugments;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import com.focamacho.mysticaladaptations.item.extractor.SeedExtractorRecipeHandler;
+import com.focamacho.mysticaladaptations.tileentity.InsaniumFurnaceTileEntity;
+import com.focamacho.mysticaladaptations.tileentity.InsaniumReprocessorTileEntity;
 import com.focamacho.mysticaladaptations.util.Reference;
+import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -105,11 +107,19 @@ public class MysticalAdaptations {
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
 
+        public static TileEntityType<InsaniumFurnaceTileEntity> INSANIUM_FURNACE;
+        public static TileEntityType<InsaniumReprocessorTileEntity> INSANIUM_REPROCESSOR;
+
         @SubscribeEvent
-        public void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
-            ModTileEntities.initTileEntities();
-            IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
-            ModTileEntities.allTileEntities.forEach(registry::register);
+        public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
+            INSANIUM_FURNACE = TileEntityType.Builder.create(InsaniumFurnaceTileEntity::new, ModBlocks.INSANIUM_FURNACE).build(null);
+            INSANIUM_REPROCESSOR = TileEntityType.Builder.create(InsaniumReprocessorTileEntity::new, ModBlocks.INSANIUM_REPROCESSOR).build(null);
+
+            INSANIUM_FURNACE.setRegistryName(Utils.getRegistryName("insanium_furnace_tile"));
+            INSANIUM_REPROCESSOR.setRegistryName(Utils.getRegistryName("insanium_reprocessor_tile"));
+
+            event.getRegistry().register(INSANIUM_FURNACE);
+            event.getRegistry().register(INSANIUM_REPROCESSOR);
         }
 
         @SubscribeEvent

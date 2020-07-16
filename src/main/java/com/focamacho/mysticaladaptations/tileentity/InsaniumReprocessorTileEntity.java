@@ -9,7 +9,7 @@ import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
 import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
-import com.focamacho.mysticaladaptations.init.ModTileEntities;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -71,7 +71,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     };
 
     public InsaniumReprocessorTileEntity() {
-        super(ModTileEntities.INSANIUM_REPROCESSOR);
+        super(MysticalAdaptations.RegistryEvents.INSANIUM_REPROCESSOR);
         this.inventory.setSlotValidator(this::canInsertStack);
         this.inventory.setOutputSlots(2);
     }

@@ -23,8 +23,9 @@ public class ModBlocks {
         INSANIUM_REPROCESSOR.setRegistryName(Utils.getRegistryName("insanium_reprocessor"));
 
         allBlocks.add(INSANIUM_FURNACE);
-        //allBlocks.add(INSANIUM_REPROCESSOR);
+        allBlocks.add(INSANIUM_REPROCESSOR);
+
         ModItems.allItems.add(new BlockItem(INSANIUM_FURNACE, new Item.Properties().group(MysticalAdaptations.creativeTab)).setRegistryName(Utils.getRegistryName("insanium_furnace")));
-        //ModItems.allItems.add(new BlockItem(INSANIUM_REPROCESSOR, new Item.Properties().group(MysticalAdaptations.creativeTab)).setRegistryName(Utils.getRegistryName("insanium_reprocessor")));
+        ModItems.allItems.add(new BlockItem(INSANIUM_REPROCESSOR, new Item.Properties().group(MysticalAdaptations.creativeTab)).setRegistryName(Utils.getRegistryName("insanium_reprocessor")));
     }
 }

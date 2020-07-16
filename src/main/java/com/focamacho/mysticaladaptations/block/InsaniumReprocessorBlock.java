@@ -17,10 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.ITextComponent;
@@ -46,6 +43,18 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     }
 
     @Override
+    public ActionResultType func_225533_a_(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+        if (!world.isRemote()) {
+            TileEntity tile = world.getTileEntity(pos);
+            if (tile instanceof InsaniumReprocessorTileEntity) {
+                player.openContainer((INamedContainerProvider) tile);
+            }
+        }
+
+        return ActionResultType.SUCCESS;
+    }
+
+    @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             TileEntity tile = world.getTileEntity(pos);
@@ -53,12 +62,10 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
                 InsaniumReprocessorTileEntity furnace = (InsaniumReprocessorTileEntity) tile;
                 InventoryHelper.dropItems(world, pos, furnace.getInventory().getStacks());
             }
-
-            if (state.hasTileEntity())
-                world.removeTileEntity(pos);
         }
-    }
 
+        super.onReplaced(state, world, pos, newState, isMoving);
+    }
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());

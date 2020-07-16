@@ -1,7 +1,7 @@
 package com.focamacho.mysticaladaptations.tileentity;
 
 import com.blakebr0.cucumber.lib.Localizable;
-import com.focamacho.mysticaladaptations.init.ModTileEntities;
+import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.FurnaceContainer;
@@ -12,7 +12,7 @@ import net.minecraft.util.text.ITextComponent;
 
 public class InsaniumFurnaceTileEntity extends AbstractFurnaceTileEntity {
     public InsaniumFurnaceTileEntity() {
-        super(ModTileEntities.INSANIUM_FURNACE, IRecipeType.SMELTING);
+        super(MysticalAdaptations.RegistryEvents.INSANIUM_FURNACE, IRecipeType.SMELTING);
     }
 
     protected ITextComponent getDefaultName() {
