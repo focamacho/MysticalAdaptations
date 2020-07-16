@@ -40,6 +40,7 @@ public class ModConfig {
 	public static boolean INSANIUM_ARMOR;
 	public static boolean INSANIUM_ARMOR_SATURATION;
 	public static boolean INSANIUM_ARMOR_HUNGERLESS;
+	public static boolean INSANIUM_ARMOR_FIRERESISTANCE;
 	public static boolean REMOVE_AGRADDITIONS_RECIPES;
 	public static boolean INSANIUM_TOOLS;
 	public static boolean INSANIUM_PICKAXE_OBSIDIAN;
@@ -106,6 +107,7 @@ public class ModConfig {
 		INSANIUM_ARMOR = config.getBoolean("INSANIUM_ARMOR", category, true, "Enable the Insanium Armor");
 		INSANIUM_ARMOR_SATURATION = config.getBoolean("INSANIUM_ARMOR_SATURATION", category, false, "Wearing a full set of a Insanium Armor gives saturation effect - Yeah, that's OP");
 		INSANIUM_ARMOR_HUNGERLESS = config.getBoolean("INSANIUM_ARMOR_HUNGERLESS", category, true, "Wearing a full set of a Insanium Armor keeps your hunger bar always full");
+		INSANIUM_ARMOR_FIRERESISTANCE = config.getBoolean("INSANIUM_ARMOR_FIRERESISTANCE", category, false, "Wearing a full set of a Insanium Armor gives fire resistance effect");
 		INSANIUM_TOOLS = config.getBoolean("INSANIUM_TOOLS", category, true, "Enable Insanium Tools");
 		INSANIUM_PICKAXE_OBSIDIAN = config.getBoolean("INSANIUM_PICKAXE_OBSIDIAN", category, true, "Insanium Pickaxe breaks obsidian instantly");
 		INSANIUM_SHEARS_DOUBLES = config.getBoolean("INSANIUM_SHEARS_DOUBLES", category, true, "Insanium Shears doubles drops obtained from shearing entities.");

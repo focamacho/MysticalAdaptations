@@ -63,6 +63,10 @@ public class InsaniumArmor extends ItemArmor {
 			if(player.isInWater()){
 				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0, true, false));
 			}
+
+			if(ModConfig.INSANIUM_ARMOR_FIRERESISTANCE && player.isBurning()) {
+				player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 5, 0, true, false));
+			}
 			
 			if(ModConfig.INSANIUM_ARMOR_SATURATION) {
 				player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 5, 0, true, false));
