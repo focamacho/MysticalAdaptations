@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "mysticaladaptations:block/insanium_reprocessor" },
+    "facing=south": { "model": "mysticaladaptations:block/insanium_reprocessor", "y": 180 },
+    "facing=west":  { "model": "mysticaladaptations:block/insanium_reprocessor", "y": 270 },
+    "facing=east":  { "model": "mysticaladaptations:block/insanium_reprocessor", "y": 90 }
+  }
+}

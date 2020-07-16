@@ -1,6 +1,9 @@
 {
 	"itemGroup.mysticaladaptations": "Mystical Adaptations",
 
+	"block.mysticaladaptations.insanium_furnace": "Insanium Furnace",
+	"block.mysticaladaptations.insanium_reprocessor": "Insanium Seed Reprocessor",
+
 	"item.mysticaladaptations.insanium_helmet": "Insanium Helmet",
 	"item.mysticaladaptations.insanium_chestplate": "Insanium Chestplate",
 	"item.mysticaladaptations.insanium_leggings": "Insanium Leggings",
@@ -21,5 +24,7 @@
 	"augment.mysticaladaptations.absorption_vi": "Absorption VI",
 	"augment.mysticaladaptations.health_boost_vi": "Health Boost VI",
 	"augment.mysticaladaptations.attack_aoe_iv": "Attack AOE IV",
-	"augment.mysticaladaptations.tilling_aoe_v": "Tilling AOE V"
+	"augment.mysticaladaptations.tilling_aoe_v": "Tilling AOE V",
+
+	"container.mysticaladaptations.insanium_furnace": "Insanium Furnace"
 }

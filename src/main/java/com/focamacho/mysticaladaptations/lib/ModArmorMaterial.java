@@ -1,6 +1,7 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.mysticalagradditions.item.ModItems;
+import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
@@ -15,7 +16,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.5F, () -> {
+    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, ConfigHolder.ENCHANTABLE_INSANIUM_ARMOR ? 30 : 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.5F, () -> {
         return Ingredient.fromItems(new IItemProvider[]{(IItemProvider) ModItems.INSANIUM_INGOT.get()});
     });
 
@@ -35,7 +36,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
         this.enchantability = enchantability;
         this.soundEvent = soundEvent;
         this.toughness = toughness;
-        this.repairMaterial = new LazyValue(repairMaterial);
+        this.repairMaterial = new LazyValue<>(repairMaterial);
     }
 
     public int getDurability(EquipmentSlotType slot) {

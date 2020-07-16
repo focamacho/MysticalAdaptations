@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1'
+version = '1.2'
 group = 'com.focamacho.mysticaladaptations'
 archivesBaseName = 'mysticaladaptations'
 
@@ -54,19 +54,16 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
 	
     // Cucumber
-    compileOnly files("libs/Cucumber-1.15.2-3.0.2.jar")
-    runtimeOnly files("libs/Cucumber-1.15.2-3.0.2.jar")
+    compile files("libs/Cucumber-1.15.2-3.0.7.jar")
 
     //Mystical Agriculture
-    compileOnly files("libs/MysticalAgriculture-1.15.2-3.0.0.jar")
-    runtimeOnly files("libs/MysticalAgriculture-1.15.2-3.0.0.jar")
+    compile files("libs/MysticalAgriculture-1.15.2-3.0.7.jar")
 
     //Mystical Agradditions
-    compileOnly files("libs/MysticalAgradditions-1.15.2-3.0.0.jar")
-    runtimeOnly files("libs/MysticalAgradditions-1.15.2-3.0.0.jar")
+    compile files("libs/MysticalAgradditions-1.15.2-3.0.1.jar")
 
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")

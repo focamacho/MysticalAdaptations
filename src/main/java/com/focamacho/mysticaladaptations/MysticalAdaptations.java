@@ -1,8 +1,13 @@
 package com.focamacho.mysticaladaptations;
 
+import com.focamacho.mysticaladaptations.config.ConfigHolder;
+import com.focamacho.mysticaladaptations.config.ConfigMysticalAdaptations;
 import com.focamacho.mysticaladaptations.handlers.TooltipHandler;
 import com.focamacho.mysticaladaptations.init.ModAugments;
+import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
+import com.focamacho.mysticaladaptations.init.ModTileEntities;
+import com.focamacho.mysticaladaptations.item.extractor.SeedExtractorRecipeHandler;
 import com.focamacho.mysticaladaptations.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -13,7 +18,9 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -30,16 +37,20 @@ public class MysticalAdaptations {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public MysticalAdaptations() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigMysticalAdaptations.spec);
+        ConfigHolder.updateConfigs();
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new SeedExtractorRecipeHandler());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-
+        //SeedExtractorRecipeHandler.initRecipes();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -52,6 +63,15 @@ public class MysticalAdaptations {
 
     private void processIMC(final InterModProcessEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
+        final ModConfig config = event.getConfig();
+
+        if (config.getSpec() == ConfigMysticalAdaptations.spec) {
+            ConfigHolder.updateConfigs();
+        }
     }
 
     @SubscribeEvent
@@ -82,18 +102,21 @@ public class MysticalAdaptations {
         }
     };
 
-
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
 
         @SubscribeEvent
-        public void onTileEntitiesRegistry(RegistryEvent.Register<TileEntityType<?>> event) {
-
+        public void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
+            ModTileEntities.initTileEntities();
+            IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
+            ModTileEntities.allTileEntities.forEach(registry::register);
         }
 
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-
+            ModBlocks.initBlocks();
+            IForgeRegistry<Block> registry = event.getRegistry();
+            ModBlocks.allBlocks.forEach(registry::register);
         }
         
         @SubscribeEvent
@@ -103,4 +126,5 @@ public class MysticalAdaptations {
         	ModItems.allItems.forEach(registry::register);
         }
     }
+
 }

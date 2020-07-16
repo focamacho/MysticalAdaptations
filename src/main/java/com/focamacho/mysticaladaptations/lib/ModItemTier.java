@@ -1,6 +1,7 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.mysticalagradditions.item.ModItems;
+import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.IItemProvider;
@@ -9,7 +10,7 @@ import net.minecraft.util.LazyValue;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
-    INSANIUM(6, -1, 32.0F, 24.0F, 0, () -> {
+    INSANIUM(6, -1, 32.0F, 24.0F, ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0, () -> {
         return Ingredient.fromItems(new IItemProvider[]{(IItemProvider) ModItems.INSANIUM_INGOT.get()});
     });
 
@@ -26,7 +27,7 @@ public enum ModItemTier implements IItemTier {
         this.efficiency = efficiency;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairMaterial = new LazyValue(repairMaterial);
+        this.repairMaterial = new LazyValue<>(repairMaterial);
     }
 
     public int getMaxUses() {
