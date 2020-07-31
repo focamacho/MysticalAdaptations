@@ -2,7 +2,8 @@ package com.focamacho.mysticaladaptations.augment;
 
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import de.teamlapen.vampirism.player.vampire.VampirePlayer;
+import com.focamacho.mysticaladaptations.compat.jei.CompatVampirism;
+import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -18,8 +19,7 @@ public class ThirstlessAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        VampirePlayer vampire = VampirePlayer.get(player);
-        vampire.drinkBlood(vampire.getBloodStats().getMaxBlood(), 0, false);
+        if(Utils.isVampirismLoaded) CompatVampirism.fillThirst(player);
     }
 
 }

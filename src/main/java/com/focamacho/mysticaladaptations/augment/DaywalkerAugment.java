@@ -2,10 +2,10 @@ package com.focamacho.mysticaladaptations.augment;
 
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import de.teamlapen.vampirism.core.ModEffects;
+import com.focamacho.mysticaladaptations.compat.jei.CompatVampirism;
+import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -19,9 +19,7 @@ public class DaywalkerAugment  extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        EffectInstance effect = new EffectInstance(ModEffects.sunscreen, 20, 5, false, false);
-        if(world.isRemote) effect.setPotionDurationMax(true);
-        player.addPotionEffect(effect);
+        if(Utils.isVampirismLoaded) CompatVampirism.applySunscreen(player, world);
     }
 
 }

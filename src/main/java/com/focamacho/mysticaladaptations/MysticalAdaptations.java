@@ -54,7 +54,7 @@ public class MysticalAdaptations {
 
     private void setup(final FMLCommonSetupEvent event) {
         //SeedExtractorRecipeHandler.initRecipes();
-        if(ModList.get().isLoaded("vampirism")) {
+        if(Utils.isVampirismLoaded) {
             if(!ConfigHolder.THIRSTLESS_AUGMENT) ModAugments.THIRSTLESS.setEnabled(false);
             if(!ConfigHolder.DAYWALKER_AUGMENT) ModAugments.DAYWALKER.setEnabled(false);
         }

@@ -8,7 +8,6 @@ import com.focamacho.mysticaladaptations.augment.HungerlessAugment;
 import com.focamacho.mysticaladaptations.augment.ThirstlessAugment;
 import com.focamacho.mysticaladaptations.augment.WoodcutterAugment;
 import com.focamacho.mysticaladaptations.util.Utils;
-import net.minecraftforge.fml.ModList;
 
 public class ModAugments {
 
@@ -34,7 +33,7 @@ public class ModAugments {
         registry.register(ATTACK_AOE_IV);
         registry.register(TILLING_AOE_V);
 
-        if(ModList.get().isLoaded("vampirism")) {
+        if(Utils.isVampirismLoaded) {
             DAYWALKER = new DaywalkerAugment(Utils.getRegistryName("daywalker"));
             THIRSTLESS = new ThirstlessAugment(Utils.getRegistryName("thirstless"));
 
