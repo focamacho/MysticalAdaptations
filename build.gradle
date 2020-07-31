@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 version = '1.2.2'
 group = 'com.focamacho.mysticaladaptations'
-archivesBaseName = 'mysticaladaptations'
+archivesBaseName = 'MysticalAdaptations-1.15.2'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
