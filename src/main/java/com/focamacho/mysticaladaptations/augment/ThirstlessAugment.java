@@ -2,7 +2,6 @@ package com.focamacho.mysticaladaptations.augment;
 
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import de.teamlapen.vampirism.api.VampirismAPI;
 import de.teamlapen.vampirism.player.vampire.VampirePlayer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
