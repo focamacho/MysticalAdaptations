@@ -20,6 +20,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -53,6 +54,10 @@ public class MysticalAdaptations {
 
     private void setup(final FMLCommonSetupEvent event) {
         //SeedExtractorRecipeHandler.initRecipes();
+        if(ModList.get().isLoaded("vampirism")) {
+            if(!ConfigHolder.THIRSTLESS_AUGMENT) ModAugments.THIRSTLESS.setEnabled(false);
+            if(!ConfigHolder.DAYWALKER_AUGMENT) ModAugments.DAYWALKER.setEnabled(false);
+        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -99,6 +104,11 @@ public class MysticalAdaptations {
             items.add(new ItemStack(ModAugments.HEALTH_BOOST_VI.getItem()));
             items.add(new ItemStack(ModAugments.ATTACK_AOE_IV.getItem()));
             items.add(new ItemStack(ModAugments.TILLING_AOE_V.getItem()));
+            
+            if(ModList.get().isLoaded("vampirism")) {
+                if(ConfigHolder.THIRSTLESS_AUGMENT) items.add(new ItemStack(ModAugments.THIRSTLESS.getItem()));
+                if(ConfigHolder.DAYWALKER_AUGMENT) items.add(new ItemStack(ModAugments.DAYWALKER.getItem()));
+            }
 
             super.fill(items);
         }

@@ -79,6 +79,10 @@ public class ConfigMysticalAdaptations {
     public static ConfigValue<Integer> INSANIUM_ARMOR_AUGMENTS;
     public static ConfigValue<Integer> INSANIUM_TOOLS_AUGMENTS;
 
+    //Vampirism Compat
+    public static ConfigValue<Boolean> THIRSTLESS_AUGMENT;
+    public static ConfigValue<Boolean> DAYWALKER_AUGMENT;
+
     //Additional Mechanics
     /*public static ConfigValue<Boolean> ENCHANTABLE_EXTRACTOR;
     public static ConfigValue<Boolean> EXPERIENCE_SEEDS_DROP;
@@ -169,6 +173,11 @@ public class ConfigMysticalAdaptations {
             ENCHANTABLE_INSANIUM_TOOLS = builder.comment("Set whether Insanium Tools can be enchanted using a enchantment table").define("enchantable_insanium_tools", false);
             INSANIUM_ARMOR_AUGMENTS = builder.comment("Set how many augments can be placed on the insanium armor").defineInRange("insanium_armor_augments", 2, 1, 2);
             INSANIUM_TOOLS_AUGMENTS = builder.comment("Set how many augments can be placed on the insanium tools").defineInRange("insanium_tools_augments", 2, 1, 2);
+            builder.pop();
+
+            builder.push("Vampirism Compat");
+            THIRSTLESS_AUGMENT = builder.comment("Enable the Thirstless Augment").define("thirstless_augment", true);
+            DAYWALKER_AUGMENT = builder.comment("Enable the Daywalker Augment").define("daywalker_augment", true);
             builder.pop();
 
             /*builder.push("Additional Mechanics");

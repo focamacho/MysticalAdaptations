@@ -12,14 +12,14 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.2.1'
+version = '1.2.2'
 group = 'com.focamacho.mysticaladaptations'
 archivesBaseName = 'mysticaladaptations'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: '20200514-1.15.1'
     runs {
         client {
             workingDirectory project.file('run')
@@ -55,6 +55,9 @@ repositories {
         name = "CurseMaven"
         url = "https://www.cursemaven.com"
     }
+    maven {
+        url = "https://maxanier.de/maven2"
+    }
 }
 
 dependencies {
@@ -68,6 +71,9 @@ dependencies {
 
     //Mystical Agradditions
     compile fg.deobf("curse.maven:mysticalagradditions:2969998")
+
+    //Vampirism
+    compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.15.2-1.6.1")
 
     // JEI
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")

@@ -27,8 +27,8 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceTileEntity {
         return (int) ((double) super.getBurnTime(stack) * 0.1D);
     }
 
-    protected int func_214005_h() {
-        return (int) ((double) super.func_214005_h() * 0.01D);
+    protected int getCookTime() {
+        return (int) ((double) super.getCookTime() * 0.01D);
     }
 
 }

@@ -3,9 +3,12 @@ package com.focamacho.mysticaladaptations.init;
 import com.blakebr0.mysticalagriculture.api.registry.IAugmentRegistry;
 import com.blakebr0.mysticalagriculture.api.tinkering.IAugment;
 import com.blakebr0.mysticalagriculture.augment.*;
+import com.focamacho.mysticaladaptations.augment.DaywalkerAugment;
 import com.focamacho.mysticaladaptations.augment.HungerlessAugment;
+import com.focamacho.mysticaladaptations.augment.ThirstlessAugment;
 import com.focamacho.mysticaladaptations.augment.WoodcutterAugment;
 import com.focamacho.mysticaladaptations.util.Utils;
+import net.minecraftforge.fml.ModList;
 
 public class ModAugments {
 
@@ -18,6 +21,9 @@ public class ModAugments {
     public static IAugment ATTACK_AOE_IV = new AttackAOEAugment(Utils.getRegistryName("attack_aoe_iv"), 6, 4);
     public static IAugment TILLING_AOE_V = new TillingAOEAugment(Utils.getRegistryName("tilling_aoe_v"), 6, 5);
 
+    public static IAugment DAYWALKER;
+    public static IAugment THIRSTLESS;
+
     public static void registerAugments(IAugmentRegistry registry) {
         registry.register(HUNGERLESS);
         registry.register(WOODCUTTER);
@@ -27,6 +33,14 @@ public class ModAugments {
         registry.register(HEALTH_BOOST_VI);
         registry.register(ATTACK_AOE_IV);
         registry.register(TILLING_AOE_V);
+
+        if(ModList.get().isLoaded("vampirism")) {
+            DAYWALKER = new DaywalkerAugment(Utils.getRegistryName("daywalker"));
+            THIRSTLESS = new ThirstlessAugment(Utils.getRegistryName("thirstless"));
+
+            registry.register(DAYWALKER);
+            registry.register(THIRSTLESS);
+        }
     }
 
 }

@@ -68,6 +68,9 @@ public class ConfigHolder {
     public static int INSANIUM_ARMOR_AUGMENTS;
     public static int INSANIUM_TOOLS_AUGMENTS;
 
+    public static boolean THIRSTLESS_AUGMENT;
+    public static boolean DAYWALKER_AUGMENT;
+
     public static void updateConfigs(){
         /*AIR = Arrays.asList(ConfigMysticalAdaptations.AIR.get().split(";"));
         EARTH = Arrays.asList(ConfigMysticalAdaptations.EARTH.get().split(";"));
@@ -124,6 +127,9 @@ public class ConfigHolder {
         ENCHANTABLE_INSANIUM_TOOLS = ConfigMysticalAdaptations.ENCHANTABLE_INSANIUM_TOOLS.get();
         INSANIUM_ARMOR_AUGMENTS = ConfigMysticalAdaptations.INSANIUM_ARMOR_AUGMENTS.get();
         INSANIUM_TOOLS_AUGMENTS = ConfigMysticalAdaptations.INSANIUM_TOOLS_AUGMENTS.get();
+
+        THIRSTLESS_AUGMENT = ConfigMysticalAdaptations.THIRSTLESS_AUGMENT.get();
+        DAYWALKER_AUGMENT = ConfigMysticalAdaptations.DAYWALKER_AUGMENT.get();
     }
 
     @SubscribeEvent
