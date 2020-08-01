@@ -8,9 +8,11 @@ import net.minecraft.world.World;
 
 public class CompatVampirism {
 
-    public static void fillThirst(PlayerEntity player) {
-        VampirePlayer vampire = VampirePlayer.get(player);
-        vampire.drinkBlood(vampire.getBloodStats().getMaxBlood(), 0, false);
+    public static void fillThirst(PlayerEntity player, World world) {
+        if(!world.isRemote) {
+            VampirePlayer vampire = VampirePlayer.get(player);
+            vampire.drinkBlood(vampire.getBloodStats().getMaxBlood(), 0, false);
+        }
     }
 
     public static void applySunscreen(PlayerEntity player, World world) {

@@ -19,7 +19,7 @@ public class ThirstlessAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if(Utils.isVampirismLoaded) CompatVampirism.fillThirst(player);
+        if(Utils.isVampirismLoaded) CompatVampirism.fillThirst(player, world);
     }
 
 }
