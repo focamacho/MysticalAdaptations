@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.2.2'
+version = '1.2.3'
 group = 'com.focamacho.mysticaladaptations'
 archivesBaseName = 'MysticalAdaptations-1.15.2'
 
