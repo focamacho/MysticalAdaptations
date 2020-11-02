@@ -12,14 +12,14 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.2.3'
+version = '1.0'
 group = 'com.focamacho.mysticaladaptations'
-archivesBaseName = 'MysticalAdaptations-1.15.2'
+archivesBaseName = 'MysticalAdaptations-1.16.3'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200514-1.15.1'
+    mappings channel: 'snapshot', version: '20200916-1.16.2'
     runs {
         client {
             workingDirectory project.file('run')
@@ -61,23 +61,19 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
+    minecraft 'net.minecraftforge:forge:1.16.3-34.1.0'
 
     // Cucumber
-    compile fg.deobf("curse.maven:cucumber:2986330")
+    compile fg.deobf("curse.maven:cucumber:3097622")
 
     //Mystical Agriculture
-    compile fg.deobf("curse.maven:mysticalagriculture:2990821")
+    compile fg.deobf("curse.maven:mysticalagriculture:3092018")
 
     //Mystical Agradditions
-    compile fg.deobf("curse.maven:mysticalagradditions:2969998")
+    compile fg.deobf("curse.maven:mysticalagradditions:3060161")
 
     //Vampirism
-    compile fg.deobf("de.teamlapen.vampirism:Vampirism:1.15.2-1.6.1")
-
-    // JEI
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
+    compile fg.deobf("curse.maven:vampirism:3089527")
 }
 
 def reobfFile = file("$buildDir/reobfJar/output.jar")

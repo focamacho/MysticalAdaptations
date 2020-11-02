@@ -1,6 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
-import com.blakebr0.mysticalagradditions.item.ModItems;
+import com.blakebr0.mysticalagradditions.init.ModItems;
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;

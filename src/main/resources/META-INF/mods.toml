@@ -1,6 +1,7 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[34,)"
 issueTrackerURL="https://github.com/Focamacho/MysticalAdaptations/issues"
+license="MIT-1.0"
 [[mods]]
 modId="mysticaladaptations"
 version="${file.jarVersion}"
@@ -14,12 +15,12 @@ Seed Extractors, Insanium Armor, Insanium Tools and more.
 [[dependencies.mysticaladaptations]]
     modId="mysticalagriculture"
     mandatory=true
-    versionRange="[3,]"
+    versionRange="[4,]"
     ordering="BEFORE"
     side="BOTH"
 [[dependencies.mysticaladaptations]]
     modId="mysticalagradditions"
     mandatory=true
-    versionRange="[3,]"
+    versionRange="[4,]"
     ordering="BEFORE"
     side="BOTH"

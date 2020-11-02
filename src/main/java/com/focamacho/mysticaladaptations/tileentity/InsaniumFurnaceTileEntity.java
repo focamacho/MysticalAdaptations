@@ -1,6 +1,6 @@
 package com.focamacho.mysticaladaptations.tileentity;
 
-import com.blakebr0.cucumber.lib.Localizable;
+import com.blakebr0.cucumber.util.Localizable;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;

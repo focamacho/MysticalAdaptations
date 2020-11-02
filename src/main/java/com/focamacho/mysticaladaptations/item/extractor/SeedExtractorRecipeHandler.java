@@ -45,7 +45,7 @@ public class SeedExtractorRecipeHandler {
                 Item seed = getItemFromEntity(ForgeRegistries.ENTITIES.getKey(event.getEntity().getType()), (SeedExtractorItem) player.getHeldItemMainhand().getItem());
                 if(seed != null) {
                     Entity entity = event.getEntity();
-                    event.getDrops().add(new ItemEntity(entity.world, entity.serverPosX, entity.serverPosY, entity.serverPosZ, new ItemStack(seed)));
+                    event.getDrops().add(new ItemEntity(entity.world, entity.getPosX(), entity.getPosY(), entity.getPosZ(), new ItemStack(seed)));
                 }
             }
         }
