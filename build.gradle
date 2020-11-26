@@ -14,12 +14,12 @@ apply plugin: 'maven-publish'
 
 version = '1.0'
 group = 'com.focamacho.mysticaladaptations'
-archivesBaseName = 'MysticalAdaptations-1.16.3'
+archivesBaseName = 'MysticalAdaptations-1.16.4'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200916-1.16.2'
+    mappings channel: 'snapshot', version: '20201028-1.16.3'
     runs {
         client {
             workingDirectory project.file('run')
@@ -61,19 +61,19 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
 
     // Cucumber
-    compile fg.deobf("curse.maven:cucumber:3097622")
+    compile fg.deobf("curse.maven:cucumber:3105891")
 
     //Mystical Agriculture
-    compile fg.deobf("curse.maven:mysticalagriculture:3092018")
+    compile fg.deobf("curse.maven:mysticalagriculture:3113053")
 
     //Mystical Agradditions
-    compile fg.deobf("curse.maven:mysticalagradditions:3060161")
+    compile fg.deobf("curse.maven:mysticalagradditions:3123630")
 
     //Vampirism
-    compile fg.deobf("curse.maven:vampirism:3089527")
+    compile fg.deobf("curse.maven:vampirism:3114070")
 }
 
 def reobfFile = file("$buildDir/reobfJar/output.jar")
