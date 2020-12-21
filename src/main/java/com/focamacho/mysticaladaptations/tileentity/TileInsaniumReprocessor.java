@@ -28,9 +28,6 @@ public class TileInsaniumReprocessor extends TileEssenceReprocessor {
 	private int fuelLeft;
 	private int fuelItemValue;
 
-	private int packetCount;
-	private boolean packet;
-
 	@Override
 	public NBTTagCompound writeCustomNBT(NBTTagCompound tag) {
 		tag.setInteger("Progress", this.progress);

@@ -16,14 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class ExtractorItemStacks {
-
-	public static List<ItemStack> getItemStacksFromType(Type type) {
-		List<ItemStack> allItems = new ArrayList<ItemStack>();
-		for(SeedExtractorRecipe recipe : SeedExtractorRecipes.allRecipes) {
-			if(type.equals(recipe.getType())) return getItemStacks(recipe);
-		}
-		return allItems;
-	}
 	
 	public static List<ItemStack> getItemStacks(SeedExtractorRecipe recipe){
 		List<ItemStack> allItems = new ArrayList<ItemStack>();

@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class RecipesConfig {
 	
 	public static Configuration config;
-	public static RecipesConfig instance;
 		
 	public static String[] abyssalnite_seeds;
 	public static String[] adamantine_seeds;

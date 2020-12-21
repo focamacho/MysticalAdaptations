@@ -36,8 +36,6 @@ public class CompatJEI implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {  
 		List<ExtractorRecipe> extractorRecipies = new LinkedList<ExtractorRecipe>();
-        IJeiHelpers helpers = registry.getJeiHelpers();
-        IRecipeTransferRegistry transfer = registry.getRecipeTransferRegistry();
         if(ModConfig.JEI_COMPAT && ModConfig.ENABLE_SEED_EXTRACTORS) {
             registry.addRecipeCatalyst(new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
             registry.addRecipeCatalyst(new ItemStack(ModItems.PRUDENTIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
