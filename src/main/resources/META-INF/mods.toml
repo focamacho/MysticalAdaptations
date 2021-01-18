@@ -4,14 +4,12 @@ issueTrackerURL="https://github.com/Focamacho/MysticalAdaptations/issues"
 license="MIT-1.0"
 [[mods]]
 modId="mysticaladaptations"
-version="${file.jarVersion}"
+version="1.16.4-1.1"
 displayName="Mystical Adaptations"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/mystical-adaptations"
 credits="BlakeBr0 for Mystical Agriculture"
 authors="Focamacho"
-description='''
-Seed Extractors, Insanium Armor, Insanium Tools and more.
-'''
+description='''Seed Extractors, Insanium Armor, Insanium Tools and more.'''
 [[dependencies.mysticaladaptations]]
     modId="mysticalagriculture"
     mandatory=true
