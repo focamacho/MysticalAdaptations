@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ExtractorRecipe extends BlankRecipeWrapper {
 
-	private final List<ItemStack> inputs = new ArrayList<ItemStack>();
+	private final List<ItemStack> inputs = new ArrayList<>();
 	private ItemStack tool;
 	private final ItemStack output;
 	

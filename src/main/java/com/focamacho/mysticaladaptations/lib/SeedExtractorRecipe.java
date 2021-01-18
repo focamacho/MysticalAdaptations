@@ -29,6 +29,7 @@ public class SeedExtractorRecipe {
 		this.seed = new ItemStack(seed.getSeed(), 1);
 		this.tier = seed.getTier();
 		this.type = seed;
+		if(type.isEnabled()) SeedExtractorRecipes.allRecipes.add(this);
 	}
 	
 	public SeedExtractorRecipe(String[] config, ItemStack seed, int tier) {
@@ -37,6 +38,7 @@ public class SeedExtractorRecipe {
 		this.entityList = getEntitiesFromConfig(config);
 		this.seed = seed;
 		this.tier = tier;
+		SeedExtractorRecipes.allRecipes.add(this);
 	}
 	
 	private static List<ItemStack> getItemsFromConfig(String[] config) {

@@ -54,12 +54,17 @@ public class RegistryHandler {
 		ModConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations.cfg"));
 		RecipesConfig.init(new File(event.getModConfigurationDirectory(), "mysticaladaptations_recipes.cfg"));
 		MinecraftForge.EVENT_BUS.register(new ModConfig());
-		if(ModCheck.MYSTICAL_AGRADDITIONS && (ModConfig.INSANIUM_ARMOR || ModConfig.INSANIUM_TOOLS)) MinecraftForge.EVENT_BUS.register(new CraftingHandler());
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) ModEntities.init();
-		if(ModCheck.CRAFTTWEAKER) CompatCT.preInit();
-		if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
-			CompatTConstruct.init();
+
+		if(ModCheck.MYSTICAL_AGRADDITIONS) {
+			if(ModConfig.INSANIUM_ARMOR || ModConfig.INSANIUM_TOOLS) {
+				MinecraftForge.EVENT_BUS.register(new CraftingHandler());
+			}
+			if(ModConfig.INSANIUM_TOOLS) ModEntities.init();
+			if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
+				CompatTConstruct.init();
+			}
 		}
+		if(ModCheck.CRAFTTWEAKER) CompatCT.preInit();
 	}
 	
 	public static void initRegistries() {
@@ -70,13 +75,15 @@ public class RegistryHandler {
 		
 		if(ModConfig.ENABLE_SEED_EXTRACTORS) SeedExtractorRecipes.init();
 		if(ModConfig.MOB_SEED_DROP) MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS) MinecraftForge.EVENT_BUS.register(new TooltipsHandler());
-		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_ARMOR) MinecraftForge.EVENT_BUS.register(new InsaniumArmor.AbilityHandler());
-		if(ModCheck.CRAFTTWEAKER) CompatCT.init();
-		
-		if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
-			CompatTConstruct.initRecipes();
+		if(ModCheck.MYSTICAL_AGRADDITIONS) {
+			if(ModConfig.INSANIUM_TOOLS) MinecraftForge.EVENT_BUS.register(new TooltipsHandler());
+			if(ModConfig.INSANIUM_ARMOR) MinecraftForge.EVENT_BUS.register(new InsaniumArmor.AbilityHandler());
+			if(ModCheck.TCONSTRUCT && ModConfig.TINKERS_INSANIUM) {
+				CompatTConstruct.initRecipes();
+			}
 		}
+
+		if(ModCheck.CRAFTTWEAKER) CompatCT.init();
 	}
 	
 	public static void postInitRegistries() {

@@ -8,6 +8,7 @@ import com.blakebr0.mysticalagriculture.items.armor.ArmorType;
 import com.blakebr0.mysticalagriculture.items.tools.ToolType;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.util.ModCheck;
+import com.focamacho.mysticaladaptations.util.compat.mysticalagradditions.MysticalAgradditionsReferences;
 import com.google.common.collect.Lists;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -20,10 +21,6 @@ import java.util.List;
 
 public class ModRecipes {
 
-	public static final ItemStack insaniumEssence = new ItemStack(com.blakebr0.mysticalagradditions.items.ModItems.itemInsanium, 1, 0);
-	public static final ItemStack insaniumIngot = new ItemStack(com.blakebr0.mysticalagradditions.items.ModItems.itemInsanium, 1, 2);
-	public static final ItemStack insaniumBlock = new ItemStack(com.blakebr0.mysticalagradditions.blocks.ModBlocks.blockStorage, 1, 0);
-	
 	public static void addShapedRecipe(ItemStack output, Object... input){
 		RecipeHelper.addShapedRecipe(output, input);
 	}
@@ -35,7 +32,7 @@ public class ModRecipes {
 				"EPE",
 				'A', new ItemStack(output.getItem(), 1, OreDictionary.WILDCARD_VALUE),
 				'C', input,
-				'E', insaniumEssence,
+				'E', MysticalAgradditionsReferences.insaniumEssence,
 				'P', ItemCrafting.itemProsperityShard);
 	}
 	
@@ -45,10 +42,10 @@ public class ModRecipes {
 	
 	public static void initRecipes() {
 		if(ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_ARMOR) {
-			addShapedRecipe(new ItemStack(ModItems.INSANIUM_HELMET), "ICI", "I I", "   ", 'I', insaniumIngot, 'C', ModItems.GEAR_ARMOR);
-			addShapedRecipe(new ItemStack(ModItems.INSANIUM_CHESTPLATE), "I I", "ICI", "III", 'I', insaniumIngot, 'C', ModItems.GEAR_ARMOR);
-			addShapedRecipe(new ItemStack(ModItems.INSANIUM_LEGGINGS), "ICI", "I I", "I I", 'I', insaniumIngot, 'C', ModItems.GEAR_ARMOR);
-			addShapedRecipe(new ItemStack(ModItems.INSANIUM_BOOTS), "I I", "I C", "   ", 'I', insaniumIngot, 'C', ModItems.GEAR_ARMOR);
+			addShapedRecipe(new ItemStack(ModItems.INSANIUM_HELMET), "ICI", "I I", "   ", 'I', MysticalAgradditionsReferences.insaniumIngot, 'C', ModItems.GEAR_ARMOR);
+			addShapedRecipe(new ItemStack(ModItems.INSANIUM_CHESTPLATE), "I I", "ICI", "III", 'I', MysticalAgradditionsReferences.insaniumIngot, 'C', ModItems.GEAR_ARMOR);
+			addShapedRecipe(new ItemStack(ModItems.INSANIUM_LEGGINGS), "ICI", "I I", "I I", 'I', MysticalAgradditionsReferences.insaniumIngot, 'C', ModItems.GEAR_ARMOR);
+			addShapedRecipe(new ItemStack(ModItems.INSANIUM_BOOTS), "I I", "I C", "   ", 'I', MysticalAgradditionsReferences.insaniumIngot, 'C', ModItems.GEAR_ARMOR);
 			
 			addUpgradeRecipe(new ItemStack(ModItems.INSANIUM_HELMET), ItemCharm.itemCharmNightvision, ArmorType.NIGHT_VISION.getIndex());
 			addUpgradeRecipe(new ItemStack(ModItems.INSANIUM_HELMET), ItemCharm.itemCharmAbsorption, ArmorType.ABSORPTION.getIndex());
@@ -130,7 +127,7 @@ public class ModRecipes {
 		    for(IRecipe recipe : recipes) {
 		    	if(recipe.getRegistryName() != null && recipe.getRegistryName().toString().equalsIgnoreCase("mysticalagriculture:core/ultimate_furnace") && recipe.getRecipeOutput().getItem().equals(new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.blockUltimateFurnace).getItem())) {
 		    		recipeRegistry.remove(recipe.getRegistryName());
-		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.blockUltimateFurnace), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', insaniumBlock, 'F', new ItemStack(ModBlocks.INSANIUM_FURNACE_BLOCK));
+		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.blockUltimateFurnace), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', MysticalAgradditionsReferences.insaniumBlock, 'F', new ItemStack(ModBlocks.INSANIUM_FURNACE_BLOCK));
 		    	}
 		    }
 		}
@@ -139,7 +136,7 @@ public class ModRecipes {
 		    for(IRecipe recipe : recipes) {
 		    	if(recipe.getRegistryName() != null && recipe.getRegistryName().toString().equalsIgnoreCase("mysticalagriculture:ultimate_reprocessor") && recipe.getRecipeOutput().getItem().equals(new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.ULTIMATE_REPROCESSOR).getItem())) {
 		    		recipeRegistry.remove(recipe.getRegistryName());
-		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.ULTIMATE_REPROCESSOR), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', insaniumBlock, 'F', new ItemStack(ModBlocks.INSANIUM_REPROCESSOR_BLOCK));
+		    		RecipeHelper.addShapedRecipe(recipe.getRegistryName(), new ItemStack(com.blakebr0.mysticalagriculture.blocks.ModBlocks.ULTIMATE_REPROCESSOR), "WSW", "IFI", "WIW", 'W', new ItemStack(Items.SKULL, 1, 1), 'S', Items.NETHER_STAR, 'I', MysticalAgradditionsReferences.insaniumBlock, 'F', new ItemStack(ModBlocks.INSANIUM_REPROCESSOR_BLOCK));
 		    	}
 		    }
 		}

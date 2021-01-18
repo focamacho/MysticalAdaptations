@@ -1,9 +1,9 @@
 package com.focamacho.mysticaladaptations.lib;
 
-import com.blakebr0.mysticalagradditions.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.util.ModCheck;
+import com.focamacho.mysticaladaptations.util.compat.mysticalagradditions.MysticalAgradditionsReferences;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -328,178 +328,19 @@ public class SeedExtractorRecipes {
 		spider_seeds = new SeedExtractorRecipe(RecipesConfig.spider_seeds, Type.SPIDER);
 		wither_skeleton_seeds = new SeedExtractorRecipe(RecipesConfig.wither_skeleton_seeds, Type.WITHER_SKELETON);
 		zombie_seeds = new SeedExtractorRecipe(RecipesConfig.zombie_seeds, Type.ZOMBIE);
-		allRecipes.add(water_seeds);
-		allRecipes.add(rubber_seeds);
-		allRecipes.add(wood_seeds);
-		allRecipes.add(copper_seeds);
-		allRecipes.add(tin_seeds);
-		allRecipes.add(platinum_seeds);
-		allRecipes.add(aluminum_brass_seeds);
-		allRecipes.add(aluminum_seeds);
-		allRecipes.add(alumite_seeds);
-		allRecipes.add(ardite_seeds);
-		allRecipes.add(black_quartz_seeds);
-		allRecipes.add(boron_seeds);
-		allRecipes.add(brass_seeds);
-		allRecipes.add(bronze_seeds);
-		allRecipes.add(chrome_seeds);
-		allRecipes.add(coal_seeds);
-		allRecipes.add(cobalt_seeds);
-		allRecipes.add(conductive_iron_seeds);
-		allRecipes.add(constantan_seeds);
-		allRecipes.add(dark_steel_seeds);
-		allRecipes.add(diamond_seeds);
-		allRecipes.add(draconium_seeds);
-		allRecipes.add(dirt_seeds);
-		allRecipes.add(electrical_steel_seeds);
-		allRecipes.add(electrotine_seeds);
-		allRecipes.add(electrum_seeds);
-		allRecipes.add(emerald_seeds);
-		allRecipes.add(end_steel_seeds);
-		allRecipes.add(enderium_seeds);
-		allRecipes.add(energetic_alloy_seeds);
-		allRecipes.add(experience_seeds);
-		allRecipes.add(glowstone_ingot_seeds);
-		allRecipes.add(glowstone_seeds);
-		allRecipes.add(gold_seeds);
-		allRecipes.add(grains_of_infinity_seeds);
-		allRecipes.add(invar_seeds);
-		allRecipes.add(iridium_seeds);
-		allRecipes.add(iron_seeds);
-		allRecipes.add(knightslime_seeds);
-		allRecipes.add(lapis_lazuli_seeds);
-		allRecipes.add(lead_seeds);
-		allRecipes.add(limestone_seeds);
-		allRecipes.add(lithium_seeds);
-		allRecipes.add(lumium_seeds);
-		allRecipes.add(magnesium_seeds);
-		allRecipes.add(manyullyn_seeds);
-		allRecipes.add(marble_seeds);
-		allRecipes.add(mithril_seeds);
-		allRecipes.add(nether_quartz_seeds);
-		allRecipes.add(nickel_seeds);
-		allRecipes.add(obsidian_seeds);
-		allRecipes.add(osmium_seeds);
-		allRecipes.add(peridot_seeds);
-		allRecipes.add(pulsating_iron_seeds);
-		allRecipes.add(redstone_alloy_seeds);
-		allRecipes.add(redstone_seeds);
-		allRecipes.add(refined_obsidian_seeds);
-		allRecipes.add(ruby_seeds);
-		allRecipes.add(saltpeter_seeds);
-		allRecipes.add(sapphire_seeds);
-		allRecipes.add(signalum_seeds);
-		allRecipes.add(silver_seeds);
-		allRecipes.add(slate_seeds);
-		allRecipes.add(slime_seeds);
-		allRecipes.add(soularium_seeds);
-		allRecipes.add(steel_seeds);
-		allRecipes.add(thorium_seeds);
-		allRecipes.add(titanium_seeds);
-		allRecipes.add(tungsten_seeds);
-		allRecipes.add(uranium_seeds);
-		allRecipes.add(vibrant_alloy_seeds);
-		allRecipes.add(zinc_seeds);
-		allRecipes.add(abyssalnite_seeds);
-		allRecipes.add(adamantine_seeds);
-		allRecipes.add(apatite_seeds);
-		allRecipes.add(aquarium_seeds);
-		allRecipes.add(basalt_seeds);
-		allRecipes.add(cold_iron_seeds);
-		allRecipes.add(compressed_iron_seeds);
-		allRecipes.add(coralium_seeds);
-		allRecipes.add(dawnstone_seeds);
-		allRecipes.add(desh_seeds);
-		allRecipes.add(dreadium_seeds);
-		allRecipes.add(end_seeds);
-		allRecipes.add(fiery_ingot_seeds);
-		allRecipes.add(fluxed_electrum_seeds);
-		allRecipes.add(jade_seeds);
-		allRecipes.add(knightmetal_seeds);
-		allRecipes.add(nether_seeds);
-		allRecipes.add(octine_seeds);
-		allRecipes.add(slimy_bone_seeds);
-		allRecipes.add(star_steel_seeds);
-		allRecipes.add(steeleaf_seeds);
-		allRecipes.add(syrmorite_seeds);
-		allRecipes.add(thaumium_seeds);
-		allRecipes.add(tritanium_seeds);
-		allRecipes.add(valonite_seeds);
-		allRecipes.add(void_metal_seeds);
-		allRecipes.add(ice_seeds);
-		allRecipes.add(amber_seeds);
-		allRecipes.add(certus_quartz_seeds);
-		allRecipes.add(dark_gem_seeds);
-		allRecipes.add(elementium_seeds);
-		allRecipes.add(ender_amethyst_seeds);
-		allRecipes.add(ender_biotite_seeds);
-		allRecipes.add(fluix_seeds);
-		allRecipes.add(ironwood_seeds);
-		allRecipes.add(malachite_seeds);
-		allRecipes.add(manasteel_seeds);
-		allRecipes.add(menril_seeds);
-		allRecipes.add(meteoric_iron_seeds);
-		allRecipes.add(quartz_enriched_iron_seeds);
-		allRecipes.add(rock_crystal_seeds);
-		allRecipes.add(sky_stone_seeds);
-		allRecipes.add(tanzanite_seeds);
-		allRecipes.add(terrasteel_seeds);
-		allRecipes.add(topaz_seeds);
-		allRecipes.add(blue_topaz_seeds);
-		allRecipes.add(chimerite_seeds);
-		allRecipes.add(graphite_seeds);
-		allRecipes.add(hop_graphite_seeds);
-		allRecipes.add(moonstone_seeds);
-		allRecipes.add(sunstone_seeds);
-		allRecipes.add(vinteum_seeds);
-		allRecipes.add(yellorium_seeds);
-		allRecipes.add(mystical_flower_seeds);
-		allRecipes.add(nature_seeds);
-		allRecipes.add(stone_seeds);
-		allRecipes.add(sulfur_seeds);
-		allRecipes.add(fire_seeds);
-		allRecipes.add(aquamarine_seeds);
-		allRecipes.add(dilithium_seeds);
-		allRecipes.add(iridium_ore_seeds);
-		allRecipes.add(starmetal_seeds);
-		allRecipes.add(uranium_238_seeds);
-		allRecipes.add(quicksilver_seeds);
-		allRecipes.add(dye_seeds);
-		allRecipes.add(silicon_seeds);
-		allRecipes.add(basalz_seeds);
-		allRecipes.add(blaze_seeds);
-		allRecipes.add(blitz_seeds);
-		allRecipes.add(blizz_seeds);
-		allRecipes.add(chicken_seeds);
-		allRecipes.add(cow_seeds);
-		allRecipes.add(creeper_seeds);
-		allRecipes.add(enderman_seeds);
-		allRecipes.add(ghast_seeds);
-		allRecipes.add(guardian_seeds);
-		allRecipes.add(pig_seeds);
-		allRecipes.add(rabbit_seeds);
-		allRecipes.add(sheep_seeds);
-		allRecipes.add(skeleton_seeds);
-		allRecipes.add(spider_seeds);
-		allRecipes.add(wither_skeleton_seeds);
-		allRecipes.add(zombie_seeds);
 		
 		if(ModCheck.MYSTICAL_AGRADDITIONS) {
-			if(CropType.Type.NETHER_STAR.isEnabled()) {
-				nether_star_seeds = new SeedExtractorRecipe(RecipesConfig.nether_star_seeds, new ItemStack(CropType.Type.NETHER_STAR.getSeed()), 6);
-				allRecipes.add(nether_star_seeds);
+			if(MysticalAgradditionsReferences.netherStar) {
+				nether_star_seeds = new SeedExtractorRecipe(RecipesConfig.nether_star_seeds, new ItemStack(MysticalAgradditionsReferences.netherStarSeed), 6);
 			}
-			if(CropType.Type.AWAKENED_DRACONIUM.isEnabled()) {
-				awakened_draconium_seeds = new SeedExtractorRecipe(RecipesConfig.awakened_draconium_seeds, new ItemStack(CropType.Type.AWAKENED_DRACONIUM.getSeed()), 6);
-				allRecipes.add(awakened_draconium_seeds);
+			if(MysticalAgradditionsReferences.awakenedDraconium) {
+				awakened_draconium_seeds = new SeedExtractorRecipe(RecipesConfig.awakened_draconium_seeds, new ItemStack(MysticalAgradditionsReferences.awakenedDraconiumSeed), 6);
 			}
-			if(CropType.Type.DRAGON_EGG.isEnabled()) {
-				dragon_egg_seeds = new SeedExtractorRecipe(RecipesConfig.dragon_egg_seeds, new ItemStack(CropType.Type.DRAGON_EGG.getSeed()), 6);
-				allRecipes.add(dragon_egg_seeds);
+			if(MysticalAgradditionsReferences.dragonEgg) {
+				dragon_egg_seeds = new SeedExtractorRecipe(RecipesConfig.dragon_egg_seeds, new ItemStack(MysticalAgradditionsReferences.dragonEggSeed), 6);
 			}
-			if(CropType.Type.NEUTRONIUM.isEnabled()) {
-				neutronium_seeds = new SeedExtractorRecipe(RecipesConfig.neutronium_seeds, new ItemStack(CropType.Type.NEUTRONIUM.getSeed()), 6);
-				allRecipes.add(neutronium_seeds);
+			if(MysticalAgradditionsReferences.neutronium) {
+				neutronium_seeds = new SeedExtractorRecipe(RecipesConfig.neutronium_seeds, new ItemStack(MysticalAgradditionsReferences.neutroniumSeed), 6);
 			}
 		}
 	}

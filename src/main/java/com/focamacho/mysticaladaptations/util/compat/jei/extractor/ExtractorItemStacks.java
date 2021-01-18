@@ -15,7 +15,7 @@ import java.util.List;
 public class ExtractorItemStacks {
 	
 	public static List<ItemStack> getItemStacks(SeedExtractorRecipe recipe){
-		List<ItemStack> allItems = new ArrayList<ItemStack>();
+		List<ItemStack> allItems = new ArrayList<>();
 		List<ItemStack> itemsList = recipe.getItemsList();
 		List<Block> blocksList = recipe.getBlocksList();
 		List<ResourceLocation> entitiesList = recipe.getEntitiesList();
