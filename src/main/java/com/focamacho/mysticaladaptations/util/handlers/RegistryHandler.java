@@ -1,7 +1,5 @@
 package com.focamacho.mysticaladaptations.util.handlers;
 
-import java.io.File;
-
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
@@ -14,7 +12,6 @@ import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.crafttweaker.CompatCT;
 import com.focamacho.mysticaladaptations.util.compat.tconstruct.CompatTConstruct;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -24,6 +21,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.io.File;
 
 @EventBusSubscriber
 public class RegistryHandler {

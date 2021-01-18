@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;

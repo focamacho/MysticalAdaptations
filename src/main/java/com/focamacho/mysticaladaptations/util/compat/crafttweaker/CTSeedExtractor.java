@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.util.compat.crafttweaker;
 
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
-
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;

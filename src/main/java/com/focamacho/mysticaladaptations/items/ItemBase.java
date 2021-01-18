@@ -1,17 +1,15 @@
 package com.focamacho.mysticaladaptations.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemBase extends Item {
 

@@ -1,23 +1,22 @@
 package com.focamacho.mysticaladaptations.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.focamacho.mysticaladaptations.blocks.BlockBase;
 import com.focamacho.mysticaladaptations.blocks.BlockBaseSlime;
 import com.focamacho.mysticaladaptations.blocks.BlockInsaniumFurnace;
 import com.focamacho.mysticaladaptations.blocks.BlockInsaniumReprocessor;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.util.ModCheck;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ModBlocks {
 
-	public static final List<Block> BLOCKS = new ArrayList<Block>();
+	public static final List<Block> BLOCKS = new ArrayList<>();
 	
 	public static Block SILICON_BLOCK;
 	public static Block HOP_GRAPHITE_BLOCK;

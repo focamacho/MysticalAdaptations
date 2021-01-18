@@ -5,7 +5,6 @@ import com.focamacho.mysticaladaptations.tileentity.TileInsaniumFurnace;
 import com.focamacho.mysticaladaptations.tileentity.TileInsaniumReprocessor;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModTileEntities {

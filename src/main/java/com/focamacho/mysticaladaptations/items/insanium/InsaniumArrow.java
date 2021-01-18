@@ -1,14 +1,10 @@
 package com.focamacho.mysticaladaptations.items.insanium;
-import java.util.List;
-
-import javax.annotation.Nullable;
 
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.entities.EntityInsaniumArrow;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +13,9 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class InsaniumArrow extends ItemArrow {
 	

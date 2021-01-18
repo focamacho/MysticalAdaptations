@@ -1,10 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -14,13 +10,16 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SeedExtractorRecipe {
 
-	private List<ItemStack> itemList;
-	private List<Block> blockList;
-	private List<ResourceLocation> entityList;
-	private ItemStack seed;
-	private Integer tier;
+	private final List<ItemStack> itemList;
+	private final List<Block> blockList;
+	private final List<ResourceLocation> entityList;
+	private final ItemStack seed;
+	private final Integer tier;
 	private Type type;
 	
 	public SeedExtractorRecipe(String[] config, Type seed) {

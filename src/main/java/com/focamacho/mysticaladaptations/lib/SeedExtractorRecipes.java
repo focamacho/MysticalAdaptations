@@ -1,14 +1,13 @@
 package com.focamacho.mysticaladaptations.lib;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.blakebr0.mysticalagradditions.lib.CropType;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.RecipesConfig;
 import com.focamacho.mysticaladaptations.util.ModCheck;
-
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SeedExtractorRecipes {
 
@@ -171,7 +170,7 @@ public class SeedExtractorRecipes {
 	public static SeedExtractorRecipe spider_seeds;
 	public static SeedExtractorRecipe wither_skeleton_seeds;
 	public static SeedExtractorRecipe zombie_seeds;
-	public static List<SeedExtractorRecipe> allRecipes = new ArrayList<SeedExtractorRecipe>();
+	public static List<SeedExtractorRecipe> allRecipes = new ArrayList<>();
 	
 	public static void init() {
 		water_seeds = new SeedExtractorRecipe(RecipesConfig.water_seeds, Type.WATER);
@@ -486,14 +485,22 @@ public class SeedExtractorRecipes {
 		allRecipes.add(zombie_seeds);
 		
 		if(ModCheck.MYSTICAL_AGRADDITIONS) {
-			nether_star_seeds = new SeedExtractorRecipe(RecipesConfig.nether_star_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:nether_star_seeds")), 6);
-			awakened_draconium_seeds = new SeedExtractorRecipe(RecipesConfig.awakened_draconium_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:awakened_draconium_seeds")), 6);
-			dragon_egg_seeds = new SeedExtractorRecipe(RecipesConfig.dragon_egg_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:dragon_egg_seeds")), 6);
-			neutronium_seeds = new SeedExtractorRecipe(RecipesConfig.neutronium_seeds, new ItemStack(Item.getByNameOrId("mysticalagradditions:neutronium_seeds")), 6);
-			allRecipes.add(nether_star_seeds);
-			allRecipes.add(awakened_draconium_seeds);
-			allRecipes.add(dragon_egg_seeds);
-			allRecipes.add(neutronium_seeds);
+			if(CropType.Type.NETHER_STAR.isEnabled()) {
+				nether_star_seeds = new SeedExtractorRecipe(RecipesConfig.nether_star_seeds, new ItemStack(CropType.Type.NETHER_STAR.getSeed()), 6);
+				allRecipes.add(nether_star_seeds);
+			}
+			if(CropType.Type.AWAKENED_DRACONIUM.isEnabled()) {
+				awakened_draconium_seeds = new SeedExtractorRecipe(RecipesConfig.awakened_draconium_seeds, new ItemStack(CropType.Type.AWAKENED_DRACONIUM.getSeed()), 6);
+				allRecipes.add(awakened_draconium_seeds);
+			}
+			if(CropType.Type.DRAGON_EGG.isEnabled()) {
+				dragon_egg_seeds = new SeedExtractorRecipe(RecipesConfig.dragon_egg_seeds, new ItemStack(CropType.Type.DRAGON_EGG.getSeed()), 6);
+				allRecipes.add(dragon_egg_seeds);
+			}
+			if(CropType.Type.NEUTRONIUM.isEnabled()) {
+				neutronium_seeds = new SeedExtractorRecipe(RecipesConfig.neutronium_seeds, new ItemStack(CropType.Type.NEUTRONIUM.getSeed()), 6);
+				allRecipes.add(neutronium_seeds);
+			}
 		}
 	}
 }

@@ -1,13 +1,9 @@
 package com.focamacho.mysticaladaptations.items.insanium;
 
-import java.util.List;
-import java.util.Random;
-
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
@@ -29,6 +25,9 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.Random;
 
 public class InsaniumWateringCan extends Item {
 		

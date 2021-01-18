@@ -1,38 +1,23 @@
 package com.focamacho.mysticaladaptations.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.lib.ModToolMaterials;
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.items.ItemBase;
 import com.focamacho.mysticaladaptations.items.SeedExtractor;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumApple;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumArmor;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumArrow;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumAxe;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumBow;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumFishingRod;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumHoe;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumPaxel;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumPickaxe;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumScythe;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumShears;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumShovel;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumSickle;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumSword;
-import com.focamacho.mysticaladaptations.items.insanium.InsaniumWateringCan;
+import com.focamacho.mysticaladaptations.items.insanium.*;
 import com.focamacho.mysticaladaptations.lib.ModToolMaterial;
 import com.focamacho.mysticaladaptations.util.ModCheck;
-
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ModItems {
 
-	public static final List<Item> ITEMS = new ArrayList<Item>();
+	public static final List<Item> ITEMS = new ArrayList<>();
 	
 	//Seed Extractors
 	public static Item INFERIUM_SEED_EXTRACTOR;
@@ -77,11 +62,11 @@ public class ModItems {
 	public static void init() {
 		//Seed Extractors
 		if(ModConfig.ENABLE_SEED_EXTRACTORS) {
-			INFERIUM_SEED_EXTRACTOR = new SeedExtractor("inferium_seed_extractor", ModToolMaterials.INFERIUM, ModConfig.INFERIUM_DURABILITY, 1);
-			PRUDENTIUM_SEED_EXTRACTOR = new SeedExtractor("prudentium_seed_extractor", ModToolMaterials.PRUDENTIUM, ModConfig.PRUDENTIUM_DURABILITY, 2);
-			INTERMEDIUM_SEED_EXTRACTOR = new SeedExtractor("intermedium_seed_extractor", ModToolMaterials.INTERMEDIUM, ModConfig.INTERMEDIUM_DURABILITY, 3);
-			SUPERIUM_SEED_EXTRACTOR = new SeedExtractor("superium_seed_extractor", ModToolMaterials.SUPERIUM, ModConfig.SUPERIUM_DURABILITY, 4);
-			SUPREMIUM_SEED_EXTRACTOR = new SeedExtractor("supremium_seed_extractor", ModToolMaterials.SUPREMIUM, ModConfig.SUPREMIUM_DURABILITY, 5);
+			INFERIUM_SEED_EXTRACTOR = new SeedExtractor("inferium_seed_extractor", ModToolMaterials.INFERIUM, ModConfig.INFERIUM_DURABILITY);
+			PRUDENTIUM_SEED_EXTRACTOR = new SeedExtractor("prudentium_seed_extractor", ModToolMaterials.PRUDENTIUM, ModConfig.PRUDENTIUM_DURABILITY);
+			INTERMEDIUM_SEED_EXTRACTOR = new SeedExtractor("intermedium_seed_extractor", ModToolMaterials.INTERMEDIUM, ModConfig.INTERMEDIUM_DURABILITY);
+			SUPERIUM_SEED_EXTRACTOR = new SeedExtractor("superium_seed_extractor", ModToolMaterials.SUPERIUM, ModConfig.SUPERIUM_DURABILITY);
+			SUPREMIUM_SEED_EXTRACTOR = new SeedExtractor("supremium_seed_extractor", ModToolMaterials.SUPREMIUM, ModConfig.SUPREMIUM_DURABILITY);
 			
 			ITEMS.add(INFERIUM_SEED_EXTRACTOR);
 			ITEMS.add(PRUDENTIUM_SEED_EXTRACTOR);
@@ -90,7 +75,7 @@ public class ModItems {
 			ITEMS.add(SUPREMIUM_SEED_EXTRACTOR);
 			
 			if(ModCheck.MYSTICAL_AGRADDITIONS) {
-				INSANIUM_SEED_EXTRACTOR = new SeedExtractor("insanium_seed_extractor", ModToolMaterial.INSANIUM, ModConfig.INSANIUM_DURABILITY, 6);
+				INSANIUM_SEED_EXTRACTOR = new SeedExtractor("insanium_seed_extractor", ModToolMaterial.INSANIUM, ModConfig.INSANIUM_DURABILITY);
 				ITEMS.add(INSANIUM_SEED_EXTRACTOR);
 			}
 		}

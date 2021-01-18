@@ -4,7 +4,6 @@ import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.entities.EntityInsaniumArrow;
 import com.focamacho.mysticaladaptations.entities.RenderInsaniumArrow;
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;

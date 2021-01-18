@@ -1,12 +1,6 @@
 package com.focamacho.mysticaladaptations.util.compat.jei.extractor;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
-import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,6 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExtractorItemStacks {
 	

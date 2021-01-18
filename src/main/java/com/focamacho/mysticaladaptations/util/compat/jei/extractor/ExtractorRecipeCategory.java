@@ -1,18 +1,17 @@
 package com.focamacho.mysticaladaptations.util.compat.jei.extractor;
 
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentTranslation;
 
-public class ExtractorRecipeCategory extends BlankRecipeCategory<IRecipeWrapper> {
+public class ExtractorRecipeCategory implements IRecipeCategory<IRecipeWrapper> {
 
 	public static final String ID = "mysticaladaptations:extractor_jei";
 	protected static final int inputSlot = 0;
@@ -33,7 +32,7 @@ public class ExtractorRecipeCategory extends BlankRecipeCategory<IRecipeWrapper>
 
 	@Override
 	public String getTitle() {
-		return I18n.translateToLocal("jei.mysticaladaptations.extractor");
+		return new TextComponentTranslation("jei.mysticaladaptations.extractor").getFormattedText();
 	}
 
 	@Override
@@ -45,7 +44,7 @@ public class ExtractorRecipeCategory extends BlankRecipeCategory<IRecipeWrapper>
 	public IDrawable getBackground() {
 		return background;
 	}
-	
+
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();

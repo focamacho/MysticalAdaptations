@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.blocks;
 
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

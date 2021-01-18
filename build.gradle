@@ -1,73 +1,92 @@
 buildscript {
     repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
-version = "1.8.4"
-group = "com.focamacho.mysticaladaptations" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.8.5"
+group = "com.focamacho.mysticaladaptations"
 archivesBaseName = "MysticalAdaptations-1.12.2"
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    version = "1.12.2-14.23.5.2768"
-    runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    mappings channel: 'snapshot', version: '20171003-1.12'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
 }
 
 repositories {
-  maven {
-    // location of the maven that hosts JEI files
-    name = "Progwml6 maven"
-    url = "http://dvs1.progwml6.com/files/maven"
-  }
-  maven {
-    // location of a maven mirror for JEI files, as a fallback
-    name = "ModMaven"
-    url = "modmaven.k-4u.nl"
-  }
+    maven {
+        name = "Progwml6 maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name = "ModMaven"
+        url = "modmaven.k-4u.nl"
+    }
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 
 dependencies {
-  // compile against the JEI API but do not include it at runtime
-  deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
-  // at runtime, use the full JEI jar
-  runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
+
+    //Cucumber
+    compile("curse.maven:cucumber-272335:2645867")
+
+    //Mystical Agriculture
+    compile("curse.maven:mysticalagriculture-246640:2704562")
+
+    //Mystical Agradditions
+    compile("curse.maven:mysticalagradditions-256247:2704832")
+
+    //JEI
+    compile("curse.maven:jei-238222:3043174")
+
+    //Mantle
+    compile("curse.maven:mantle-74924:2713386")
+
+    //Tinkers' Construct
+    compile("curse.maven:tconstruct-74072:2902483")
+
+    //CraftTweaker
+    compile("curse.maven:crafttweaker-239197:3170823")
 }
 
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "mysticaladaptations",
+                "Specification-Vendor": "mysticaladaptations",
+                "Specification-Version": "1",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor" :"mysticaladaptations",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
     }
 }
+
+jar.finalizedBy('reobfJar')

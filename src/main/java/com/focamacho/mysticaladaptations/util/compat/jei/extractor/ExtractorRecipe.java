@@ -1,20 +1,20 @@
 package com.focamacho.mysticaladaptations.util.compat.jei.extractor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
-
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ExtractorRecipe extends BlankRecipeWrapper {
 
-	private List<ItemStack> inputs = new ArrayList<ItemStack>();
+	private final List<ItemStack> inputs = new ArrayList<ItemStack>();
 	private ItemStack tool;
-	private ItemStack output;
+	private final ItemStack output;
 	
 	public ExtractorRecipe(ItemStack seed, ItemStack item, int tier) {
 		output = seed;
@@ -49,8 +49,8 @@ public class ExtractorRecipe extends BlankRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInputs(ItemStack.class, inputs);
-		ingredients.setOutput(ItemStack.class, output);
+		ingredients.setInputs(VanillaTypes.ITEM, inputs);
+		ingredients.setOutput(VanillaTypes.ITEM, output);
 	}
 
 }

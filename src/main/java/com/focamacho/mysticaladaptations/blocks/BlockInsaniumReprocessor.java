@@ -5,7 +5,6 @@ import com.blakebr0.mysticalagriculture.blocks.reprocessor.BlockEssenceReprocess
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileEssenceReprocessor;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.tileentity.TileInsaniumReprocessor;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

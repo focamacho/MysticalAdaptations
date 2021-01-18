@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.util.VanillaPacketDispatcher;
 import com.blakebr0.mysticalagriculture.crafting.ReprocessorManager;
 import com.blakebr0.mysticalagriculture.tileentity.reprocessor.TileEssenceReprocessor;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ItemStackHelper;

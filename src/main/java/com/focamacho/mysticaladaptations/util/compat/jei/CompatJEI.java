@@ -1,8 +1,5 @@
 package com.focamacho.mysticaladaptations.util.compat.jei;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import com.blakebr0.mysticalagriculture.compat.jei.reprocessor.ReprocessorCategory;
 import com.blakebr0.mysticalagriculture.lib.CropType.Type;
 import com.focamacho.mysticaladaptations.config.ModConfig;
@@ -14,15 +11,17 @@ import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorItemStacks;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorRecipe;
 import com.focamacho.mysticaladaptations.util.compat.jei.extractor.ExtractorRecipeCategory;
-
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
-import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.util.text.TextComponentTranslation;
+
+import java.util.LinkedList;
+import java.util.List;
 
 @JEIPlugin
 public class CompatJEI implements IModPlugin {
@@ -35,7 +34,7 @@ public class CompatJEI implements IModPlugin {
 	
     @Override
     public void register(IModRegistry registry) {  
-		List<ExtractorRecipe> extractorRecipies = new LinkedList<ExtractorRecipe>();
+		List<ExtractorRecipe> extractorRecipies = new LinkedList<>();
         if(ModConfig.JEI_COMPAT && ModConfig.ENABLE_SEED_EXTRACTORS) {
             registry.addRecipeCatalyst(new ItemStack(ModItems.INFERIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
             registry.addRecipeCatalyst(new ItemStack(ModItems.PRUDENTIUM_SEED_EXTRACTOR), ExtractorRecipeCategory.ID);
@@ -55,7 +54,7 @@ public class CompatJEI implements IModPlugin {
             }
             
 	        if(ModConfig.EXPERIENCE_SEEDS_DROP) {
-	        	registry.addDescription(new ItemStack(Type.EXPERIENCE.getSeed()), I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop") + " " + (ModConfig.EXTRACTOR_ANY_TIER ? "1" : Type.EXPERIENCE.getTier()) + " " + (!ModConfig.EXTRACTOR_LOWER_TIER ? "." : I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop_higher")) + "\n\n" + I18n.translateToLocal("jei.mysticaladaptations.experience_seeds_drop_chance") + " " + ModConfig.EXPERIENCE_SEEDS_DROP_CHANCE + "%");
+	        	registry.addIngredientInfo(new ItemStack(Type.EXPERIENCE.getSeed()), VanillaTypes.ITEM, new TextComponentTranslation("jei.mysticaladaptations.experience_seeds_drop").getFormattedText() + " " + (ModConfig.EXTRACTOR_ANY_TIER ? "1" : Type.EXPERIENCE.getTier()) + " " + (!ModConfig.EXTRACTOR_LOWER_TIER ? "." : new TextComponentTranslation("jei.mysticaladaptations.experience_seeds_drop_higher").getFormattedText()) + "\n\n" + new TextComponentTranslation("jei.mysticaladaptations.experience_seeds_drop_chance").getFormattedText() + " " + ModConfig.EXPERIENCE_SEEDS_DROP_CHANCE + "%");
 	        }
 	        
 	        registry.addRecipes(extractorRecipies, ExtractorRecipeCategory.ID);

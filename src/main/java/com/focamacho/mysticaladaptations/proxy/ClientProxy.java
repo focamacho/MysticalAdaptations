@@ -4,7 +4,6 @@ import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModEntities;
 import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.compat.tconstruct.CompatTConstruct;
-
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;

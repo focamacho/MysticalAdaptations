@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.entities;
 
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

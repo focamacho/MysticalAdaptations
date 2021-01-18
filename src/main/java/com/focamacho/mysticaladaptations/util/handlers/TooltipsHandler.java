@@ -2,7 +2,6 @@ package com.focamacho.mysticaladaptations.util.handlers;
 
 import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.items.ModItems;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;

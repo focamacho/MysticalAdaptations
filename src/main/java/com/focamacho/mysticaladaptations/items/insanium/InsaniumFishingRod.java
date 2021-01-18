@@ -1,13 +1,8 @@
 package com.focamacho.mysticaladaptations.items.insanium;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +20,9 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class InsaniumFishingRod extends ItemFishingRod {
 	

@@ -1,13 +1,12 @@
 package com.focamacho.mysticaladaptations.util.compat.crafttweaker;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipe;
 import com.focamacho.mysticaladaptations.lib.SeedExtractorRecipes;
-
 import crafttweaker.CraftTweakerAPI;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CompatCT {
 

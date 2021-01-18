@@ -1,8 +1,5 @@
 package com.focamacho.mysticaladaptations.items.insanium;
 
-import java.util.HashSet;
-import java.util.List;
-
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.lib.Colors;
 import com.blakebr0.cucumber.util.ToolTools;
@@ -12,7 +9,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -32,6 +28,9 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.HashSet;
+import java.util.List;
 
 public class InsaniumPaxel extends ItemTool {
 

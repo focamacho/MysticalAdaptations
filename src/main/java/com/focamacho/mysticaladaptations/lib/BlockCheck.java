@@ -1,14 +1,14 @@
 package com.focamacho.mysticaladaptations.lib;
 
-import java.util.List;
-
 import com.focamacho.mysticaladaptations.config.ModConfig;
+import com.focamacho.mysticaladaptations.items.SeedExtractor;
 import com.focamacho.mysticaladaptations.util.ModCheck;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.List;
 
 public class BlockCheck {
 
@@ -27,20 +27,18 @@ public class BlockCheck {
 	}
 	
 	public static boolean checkTier(int tier, ItemStack extractor) {
+		if(!(extractor.getItem() instanceof SeedExtractor)) return false;
 		if(!ModConfig.EXTRACTOR_ANY_TIER) {
 			if(ModConfig.EXTRACTOR_LOWER_TIER) {
-				if(extractor.getTagCompound().getInteger("tier") >= tier) return true;
-				else return false;
+				return ((SeedExtractor) extractor.getItem()).getExtractorTier() >= tier;
 			} else {
-				if(extractor.getTagCompound().getInteger("tier") == tier) return true;
-				else return false;
+				return ((SeedExtractor) extractor.getItem()).getExtractorTier() == tier;
 			}
 		} else return true;
 	}
 	
 	public static boolean checkRecipe(SeedExtractorRecipe recipe, ItemStack extractor, ItemStack blockItem, Block block) {
-		if(checkBlock(blockItem, block, recipe.getItemsList(), recipe.getBlocksList()) && checkTier(recipe.getTier(), extractor)) return true;
-		else return false;
+		return checkBlock(blockItem, block, recipe.getItemsList(), recipe.getBlocksList()) && checkTier(recipe.getTier(), extractor);
 	}
 	
 	public static boolean checkBlock(ItemStack blockItem, Block block, List<ItemStack> itemList, List<Block> blockList) {

@@ -2,7 +2,6 @@ package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.cucumber.helper.ResourceHelper;
 import com.focamacho.mysticaladaptations.util.Reference;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -19,12 +18,10 @@ public class FluidRender {
 		Block block = fluid.getBlock();
 		Item item = Item.getItemFromBlock(block);
 		FluidStateMapper mapper = new FluidStateMapper(fluid);
-		
-		if (item != null) {
-			ModelLoader.registerItemVariants(item);
-			ModelLoader.setCustomMeshDefinition(item, mapper);
-		}
-		
+
+		ModelLoader.registerItemVariants(item);
+		ModelLoader.setCustomMeshDefinition(item, mapper);
+
 		ModelLoader.setCustomStateMapper(block, mapper);
 	}
 

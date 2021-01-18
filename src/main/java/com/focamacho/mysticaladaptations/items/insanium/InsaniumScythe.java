@@ -1,9 +1,5 @@
 package com.focamacho.mysticaladaptations.items.insanium;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import com.blakebr0.cucumber.helper.CropHelper;
 import com.blakebr0.cucumber.helper.NBTHelper;
 import com.blakebr0.cucumber.item.ItemBase;
@@ -14,7 +10,6 @@ import com.blakebr0.mysticalagriculture.lib.Tooltips;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.google.common.collect.Multimap;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.state.IBlockState;
@@ -31,17 +26,16 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class InsaniumScythe extends ItemBase {
 

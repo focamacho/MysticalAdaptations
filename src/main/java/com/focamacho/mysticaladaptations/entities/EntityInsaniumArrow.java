@@ -1,16 +1,15 @@
 package com.focamacho.mysticaladaptations.entities;
 
-import javax.annotation.Nonnull;
-
 import com.blakebr0.cucumber.util.Utils;
 import com.focamacho.mysticaladaptations.init.ModItems;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+
+import javax.annotation.Nonnull;
 
 public class EntityInsaniumArrow extends EntityArrow {
 

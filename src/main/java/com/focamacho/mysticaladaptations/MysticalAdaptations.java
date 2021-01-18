@@ -1,13 +1,10 @@
 package com.focamacho.mysticaladaptations;
 
-import java.io.File;
-
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.proxy.CommonProxy;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.handlers.RegistryHandler;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -20,6 +17,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.io.File;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPENDENCIES)
 public class MysticalAdaptations {

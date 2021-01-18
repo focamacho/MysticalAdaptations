@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.util.compat.tconstruct;
 
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
-
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
