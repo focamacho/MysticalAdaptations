@@ -1,7 +1,7 @@
 package com.focamacho.mysticaladaptations.block;
 
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import com.focamacho.mysticaladaptations.tileentity.InsaniumFurnaceTileEntity;
+import com.focamacho.mysticaladaptations.tiles.InsaniumFurnaceTileEntity;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -2,7 +2,7 @@ package com.focamacho.mysticaladaptations.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
-import com.focamacho.mysticaladaptations.tileentity.InsaniumReprocessorTileEntity;
+import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;

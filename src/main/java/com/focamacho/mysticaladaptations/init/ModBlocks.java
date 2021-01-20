@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ModBlocks {
 
-    public static List<Block> allBlocks = new ArrayList<Block>();
+    public static List<Block> allBlocks = new ArrayList<>();
 
     public static Block INSANIUM_FURNACE = new InsaniumFurnaceBlock();
     public static Block INSANIUM_REPROCESSOR = new InsaniumReprocessorBlock();

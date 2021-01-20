@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.tileentity;
+package com.focamacho.mysticaladaptations.tiles;
 
 import com.blakebr0.cucumber.crafting.ISpecialRecipe;
 import com.blakebr0.cucumber.helper.StackHelper;

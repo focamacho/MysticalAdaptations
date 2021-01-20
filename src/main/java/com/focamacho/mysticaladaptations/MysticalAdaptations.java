@@ -2,13 +2,13 @@ package com.focamacho.mysticaladaptations;
 
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import com.focamacho.mysticaladaptations.config.ConfigMysticalAdaptations;
+import com.focamacho.mysticaladaptations.handlers.MobDropsHandler;
 import com.focamacho.mysticaladaptations.handlers.TooltipHandler;
 import com.focamacho.mysticaladaptations.init.ModAugments;
 import com.focamacho.mysticaladaptations.init.ModBlocks;
 import com.focamacho.mysticaladaptations.init.ModItems;
-import com.focamacho.mysticaladaptations.item.extractor.SeedExtractorRecipeHandler;
-import com.focamacho.mysticaladaptations.tileentity.InsaniumFurnaceTileEntity;
-import com.focamacho.mysticaladaptations.tileentity.InsaniumReprocessorTileEntity;
+import com.focamacho.mysticaladaptations.tiles.InsaniumFurnaceTileEntity;
+import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.block.Block;
@@ -49,14 +49,14 @@ public class MysticalAdaptations {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(new SeedExtractorRecipeHandler());
+        MinecraftForge.EVENT_BUS.register(new MobDropsHandler());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         //SeedExtractorRecipeHandler.initRecipes();
         if(Utils.isVampirismLoaded) {
-            if(!ConfigHolder.THIRSTLESS_AUGMENT) ModAugments.THIRSTLESS.setEnabled(false);
-            if(!ConfigHolder.DAYWALKER_AUGMENT) ModAugments.DAYWALKER.setEnabled(false);
+            if(!ConfigHolder.thirstlessAugment) ModAugments.THIRSTLESS.setEnabled(false);
+            if(!ConfigHolder.daywalkerAugment) ModAugments.DAYWALKER.setEnabled(false);
         }
     }
 
@@ -106,8 +106,8 @@ public class MysticalAdaptations {
             items.add(new ItemStack(ModAugments.TILLING_AOE_V.getItem()));
             
             if(ModList.get().isLoaded("vampirism")) {
-                if(ConfigHolder.THIRSTLESS_AUGMENT) items.add(new ItemStack(ModAugments.THIRSTLESS.getItem()));
-                if(ConfigHolder.DAYWALKER_AUGMENT) items.add(new ItemStack(ModAugments.DAYWALKER.getItem()));
+                if(ConfigHolder.thirstlessAugment) items.add(new ItemStack(ModAugments.THIRSTLESS.getItem()));
+                if(ConfigHolder.daywalkerAugment) items.add(new ItemStack(ModAugments.DAYWALKER.getItem()));
             }
 
             super.fill(items);

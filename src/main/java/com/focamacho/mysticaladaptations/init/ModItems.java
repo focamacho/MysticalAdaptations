@@ -21,27 +21,19 @@ public class ModItems {
 
 	public static List<Item> allItems = new ArrayList<Item>();
 
-	public static Item INSANIUM_SWORD = new EssenceSwordItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_SHOVEL = new EssenceShovelItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_AXE = new EssenceAxeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_HOE = new EssenceHoeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_STAFF = new EssenceStaffItem(6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
-	public static Item INSANIUM_PAXEL = new EssencePaxelItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_TOOLS_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_TOOLS ? 30 : 0; }};
+	public static Item INSANIUM_SWORD = new EssenceSwordItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_PICKAXE = new EssencePickaxeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_SHOVEL = new EssenceShovelItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_AXE = new EssenceAxeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_HOE = new EssenceHoeItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_STAFF = new EssenceStaffItem(6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
+	public static Item INSANIUM_PAXEL = new EssencePaxelItem(ModItemTier.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumTools ? 30 : 0; }};
 	public static Item INSANIUM_WATERING_CAN = new EssenceWateringCanItem(13, 0.5, Utils.getColorFromTier(6), p -> p.group(MysticalAdaptations.creativeTab));
 
-	public static Item INSANIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_ARMOR_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_ARMOR ? 30 : 0; }};
-	public static Item INSANIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_ARMOR_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_ARMOR ? 30 : 0; }};
-	public static Item INSANIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_ARMOR_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_ARMOR ? 30 : 0; }};
-	public static Item INSANIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.INSANIUM_ARMOR_AUGMENTS; }@Override public int getItemEnchantability() { return ConfigHolder.ENCHANTABLE_INSANIUM_ARMOR ? 30 : 0; }};
-
-	/*public static Item INFERIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 1);
-	public static Item PRUDENTIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 2);
-	public static Item TERTIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 3);
-	public static Item IMPERIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 4);
-	public static Item SUPREMIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 5);
-	public static Item INSANIUM_EXTRACTOR = new SeedExtractorItem(new Item.Properties().group(MysticalAdaptations.creativeTab).maxStackSize(1), 6);
-	 */
+	public static Item INSANIUM_HELMET = new EssenceHelmetItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumArmor ? 30 : 0; }};
+	public static Item INSANIUM_CHESTPLATE = new EssenceChestplateItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumArmor ? 30 : 0; }};
+	public static Item INSANIUM_LEGGINGS = new EssenceLeggingsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumArmor ? 30 : 0; }};
+	public static Item INSANIUM_BOOTS = new EssenceBootsItem(ModArmorMaterial.INSANIUM, 6, 1, p -> p.group(MysticalAdaptations.creativeTab)){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }@Override public int getItemEnchantability() { return ConfigHolder.enchantableInsaniumArmor ? 30 : 0; }};
 
 	public static void initItems() {
 		INSANIUM_SWORD.setRegistryName(Utils.getRegistryName("insanium_sword"));
@@ -57,15 +49,6 @@ public class ModItems {
 		INSANIUM_BOOTS.setRegistryName(Utils.getRegistryName("insanium_boots"));
 		INSANIUM_PAXEL.setRegistryName(Utils.getRegistryName("insanium_paxel"));
 
-		/*
-		INFERIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("inferium_extractor"));
-		PRUDENTIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("prudentium_extractor"));
-		TERTIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("tertium_extractor"));
-		IMPERIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("imperium_extractor"));
-		SUPREMIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("supremium_extractor"));
-		INSANIUM_EXTRACTOR.setRegistryName(Utils.getRegistryName("insanium_extractor"));
-		 */
-
 		allItems.add(INSANIUM_SWORD);
 		allItems.add(INSANIUM_PICKAXE);
 		allItems.add(INSANIUM_SHOVEL);
@@ -78,15 +61,6 @@ public class ModItems {
 		allItems.add(INSANIUM_LEGGINGS);
 		allItems.add(INSANIUM_BOOTS);
 		allItems.add(INSANIUM_PAXEL);
-
-		/*
-		allItems.add(INFERIUM_EXTRACTOR);
-		allItems.add(PRUDENTIUM_EXTRACTOR);
-		allItems.add(TERTIUM_EXTRACTOR);
-		allItems.add(IMPERIUM_EXTRACTOR);
-		allItems.add(SUPREMIUM_EXTRACTOR);
-		allItems.add(INSANIUM_EXTRACTOR);
-		*/
 	}
 
 }

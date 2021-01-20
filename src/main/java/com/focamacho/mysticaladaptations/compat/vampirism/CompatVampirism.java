@@ -1,4 +1,4 @@
-package com.focamacho.mysticaladaptations.compat.jei;
+package com.focamacho.mysticaladaptations.compat.vampirism;
 
 import de.teamlapen.vampirism.core.ModEffects;
 import de.teamlapen.vampirism.player.vampire.VampirePlayer;
