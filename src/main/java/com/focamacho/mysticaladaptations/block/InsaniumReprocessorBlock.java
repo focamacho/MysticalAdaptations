@@ -1,6 +1,7 @@
 package com.focamacho.mysticaladaptations.block;
 
 import com.blakebr0.cucumber.block.BaseTileEntityBlock;
+import com.blakebr0.cucumber.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import net.minecraft.block.Block;
@@ -8,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
@@ -89,9 +91,13 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     @OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-        tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(1).build());
-        tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(38).build());
-        tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(40000).build());
+        if(Screen.hasShiftDown()) {
+            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(1).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(38).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(40000).build());
+        } else {
+            tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
+        }
     }
 
 }
