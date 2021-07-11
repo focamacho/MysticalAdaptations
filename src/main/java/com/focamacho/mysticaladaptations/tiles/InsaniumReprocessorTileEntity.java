@@ -66,7 +66,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
         }
 
         @Override
-        public int size() {
+        public int getCount() {
             return 6;
         }
     };
@@ -83,8 +83,8 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     }
 
     @Override
-    public void read(BlockState state, CompoundNBT tag) {
-        super.read(state, tag);
+    public void load(BlockState state, CompoundNBT tag) {
+        super.load(state, tag);
         this.progress = tag.getInt("Progress");
         this.fuel = tag.getInt("Fuel");
         this.fuelLeft = tag.getInt("FuelLeft");
@@ -92,8 +92,8 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     }
 
     @Override
-    public CompoundNBT write(CompoundNBT tag) {
-        tag = super.write(tag);
+    public CompoundNBT save(CompoundNBT tag) {
+        tag = super.save(tag);
         tag.putInt("Progress", this.progress);
         tag.putInt("Fuel", this.fuel);
         tag.putInt("FuelLeft", this.fuelLeft);
@@ -104,8 +104,8 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     @Override
     public void tick() {
-        World world = this.getWorld();
-        if (world == null || world.isRemote())
+        World world = this.getLevel();
+        if (world == null || world.isClientSide())
             return;
 
         boolean mark = false;
@@ -137,12 +137,12 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
             if (!input.isEmpty()) {
                 if (this.recipe == null || !this.recipe.matches(this.inventory)) {
-                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipe(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
+                    IReprocessorRecipe recipe = world.getRecipeManager().getRecipeFor(RecipeTypes.REPROCESSOR, this.inventory.toIInventory(), world).orElse(null);
                     this.recipe = recipe instanceof ISpecialRecipe ? (ISpecialRecipe) recipe : null;
                 }
 
                 if (this.recipe != null) {
-                    ItemStack recipeOutput = this.recipe.getRecipeOutput();
+                    ItemStack recipeOutput = this.recipe.getResultItem();
                     if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                         this.progress++;
                         this.fuel -= this.getFuelUsage();
@@ -172,7 +172,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
         }
 
         if (mark)
-            this.markDirty();
+            this.setChanged();
     }
 
     @Override
@@ -187,7 +187,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
-        if (!this.removed && side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (!this.remove && side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             if (side == Direction.UP) {
                 return this.handlers[0].cast();
             } else if (side == Direction.DOWN) {

@@ -27,9 +27,9 @@ public class WoodcutterAugment extends Augment {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
-        World world = player.getEntityWorld();
+        World world = player.getCommandSenderWorld();
         BlockRayTraceResult trace = BlockHelper.rayTraceBlocks(world, player);
-        int side = trace.getFace().ordinal();
+        int side = trace.getDirection().ordinal();
         return !this.harvest(stack, world, pos, side, player);
     }
 
@@ -46,12 +46,12 @@ public class WoodcutterAugment extends Augment {
         if(woodcutter) {
             do {
                 toHarvest.add(blockPos);
-                blockPos = blockPos.up();
+                blockPos = blockPos.above();
             } while (isWood(world.getBlockState(blockPos).getBlock()));
         } else toHarvest.add(pos);
 
         BlockState state = world.getBlockState(pos);
-        float hardness = state.getBlockHardness(world, pos);
+        float hardness = state.getDestroySpeed(world, pos);
         if (!this.tryHarvest(world, pos, false, stack, player)) {
             return false;
         } else {
@@ -72,13 +72,13 @@ public class WoodcutterAugment extends Augment {
 
     private boolean tryHarvest(World world, BlockPos pos, boolean extra, ItemStack stack, PlayerEntity player) {
         BlockState state = world.getBlockState(pos);
-        float hardness = state.getBlockHardness(world, pos);
+        float hardness = state.getDestroySpeed(world, pos);
         Item item = stack.getItem();
         boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || item.canHarvestBlock(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
         return hardness < 0.0F || extra && !harvest ? false : BlockHelper.breakBlocksAOE(stack, world, player, pos);
     }
 
     private boolean isWood(Block block) {
-        return BlockTags.getCollection().get(new ResourceLocation("minecraft:logs")).contains(block);
+        return BlockTags.getAllTags().getTag(new ResourceLocation("minecraft:logs")).contains(block);
     }
 }

@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
     INSANIUM(6, -1, 32.0F, 24.0F, ConfigHolder.enchantableInsaniumTools ? 30 : 0, () -> {
-        return Ingredient.fromItems(ModItems.INSANIUM_INGOT.get());
+        return Ingredient.of(ModItems.INSANIUM_INGOT.get());
     });
 
     private final int harvestLevel;
@@ -29,27 +29,27 @@ public enum ModItemTier implements IItemTier {
         this.repairMaterial = new LazyValue<>(repairMaterial);
     }
 
-    public int getMaxUses() {
+    public int getUses() {
         return this.maxUses;
     }
 
-    public float getEfficiency() {
+    public float getSpeed() {
         return this.efficiency;
     }
 
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
-    public int getHarvestLevel() {
+    public int getLevel() {
         return this.harvestLevel;
     }
 
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
-    public Ingredient getRepairMaterial() {
-        return (Ingredient)this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return (Ingredient)this.repairMaterial.get();
     }
 }

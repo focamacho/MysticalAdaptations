@@ -89,12 +89,12 @@ public class MysticalAdaptations {
     public static final ItemGroup creativeTab = new ItemGroup(Reference.MOD_ID) {
 
 		@Override
-		public ItemStack createIcon() {
+		public ItemStack makeIcon() {
 			return new ItemStack(ModItems.INSANIUM_SWORD);
 		}
 
         @Override
-        public void fill(NonNullList<ItemStack> items) {
+        public void fillItemList(NonNullList<ItemStack> items) {
             //Add Augments to Mystical Adaptations creative tab
             items.add(new ItemStack(ModAugments.HUNGERLESS.getItem()));
             items.add(new ItemStack(ModAugments.WOODCUTTER.getItem()));
@@ -110,7 +110,7 @@ public class MysticalAdaptations {
                 if(ConfigHolder.daywalkerAugment) items.add(new ItemStack(ModAugments.DAYWALKER.getItem()));
             }
 
-            super.fill(items);
+            super.fillItemList(items);
         }
     };
 
@@ -122,8 +122,8 @@ public class MysticalAdaptations {
 
         @SubscribeEvent
         public static void onTileEntitiesRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
-            INSANIUM_FURNACE = TileEntityType.Builder.create(InsaniumFurnaceTileEntity::new, ModBlocks.INSANIUM_FURNACE).build(null);
-            INSANIUM_REPROCESSOR = TileEntityType.Builder.create(InsaniumReprocessorTileEntity::new, ModBlocks.INSANIUM_REPROCESSOR).build(null);
+            INSANIUM_FURNACE = TileEntityType.Builder.of(InsaniumFurnaceTileEntity::new, ModBlocks.INSANIUM_FURNACE).build(null);
+            INSANIUM_REPROCESSOR = TileEntityType.Builder.of(InsaniumReprocessorTileEntity::new, ModBlocks.INSANIUM_REPROCESSOR).build(null);
 
             INSANIUM_FURNACE.setRegistryName(Utils.getRegistryName("insanium_furnace_tile"));
             INSANIUM_REPROCESSOR.setRegistryName(Utils.getRegistryName("insanium_reprocessor_tile"));

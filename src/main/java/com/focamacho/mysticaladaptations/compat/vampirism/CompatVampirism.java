@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class CompatVampirism {
 
     public static void fillThirst(PlayerEntity player, World world) {
-        if(!world.isRemote) {
+        if(!world.isClientSide) {
             VampirePlayer vampire = VampirePlayer.get(player);
             vampire.drinkBlood(vampire.getBloodStats().getMaxBlood(), 0, false);
         }
@@ -17,8 +17,8 @@ public class CompatVampirism {
 
     public static void applySunscreen(PlayerEntity player, World world) {
         EffectInstance effect = new EffectInstance(ModEffects.sunscreen, 20, 5, false, false);
-        if(world.isRemote) effect.setPotionDurationMax(true);
-        player.addPotionEffect(effect);
+        if(world.isClientSide) effect.setNoCounter(true);
+        player.addEffect(effect);
     }
 
 }

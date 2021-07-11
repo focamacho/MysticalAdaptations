@@ -30,11 +30,11 @@ import java.util.List;
 
 public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
 
-    private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    private static final DirectionProperty FACING = HorizontalBlock.FACING;
 
     public InsaniumReprocessorBlock() {
-        super(Material.IRON, SoundType.METAL, 3.5F, 3.5F);
-        this.setDefaultState(this.getStateContainer().getBaseState().with(FACING, Direction.NORTH));
+        super(Material.METAL, SoundType.METAL, 3.5F, 3.5F);
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
@@ -43,11 +43,11 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
-        if (!world.isRemote()) {
-            TileEntity tile = world.getTileEntity(pos);
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+        if (!world.isClientSide()) {
+            TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof InsaniumReprocessorTileEntity) {
-                player.openContainer((INamedContainerProvider) tile);
+                player.openMenu((INamedContainerProvider) tile);
             }
         }
 
@@ -55,40 +55,40 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     }
 
     @Override
-    public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+    public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            TileEntity tile = world.getTileEntity(pos);
+            TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof InsaniumReprocessorTileEntity) {
                 InsaniumReprocessorTileEntity furnace = (InsaniumReprocessorTileEntity) tile;
-                InventoryHelper.dropItems(world, pos, furnace.getInventory().getStacks());
+                InventoryHelper.dropContents(world, pos, furnace.getInventory().getStacks());
             }
         }
 
-        super.onReplaced(state, world, pos, newState, isMoving);
+        super.onRemove(state, world, pos, newState, isMoving);
     }
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
     public BlockState rotate(BlockState state, Rotation rot) {
-        return state.with(FACING, rot.rotate(state.get(FACING)));
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     @Override
     public BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.toRotation(state.get(FACING)));
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(1).build());
         tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(38).build());
         tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(40000).build());

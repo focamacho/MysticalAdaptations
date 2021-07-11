@@ -9,17 +9,15 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
-version = '1.1.1'
+version = '1.2.0'
 group = 'com.focamacho.mysticaladaptations'
-archivesBaseName = 'MysticalAdaptations-1.16.4'
+archivesBaseName = 'MysticalAdaptations-1.16.5'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20201028-1.16.3'
+    mappings channel: "official", version: "1.16.5"
     runs {
         client {
             workingDirectory project.file('run')
@@ -37,59 +35,30 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'mysticaladaptations', '--all', '--output', file('src/generated/resources/')
         }
     }
 }
 
 repositories {
     maven {
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
-    maven {
         name = "CurseMaven"
         url = "https://www.cursemaven.com"
-    }
-    maven {
-        url = "https://maxanier.de/maven2"
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 
     //Cucumber Library
-    compile fg.deobf("curse.maven:cucumber-272335:3105891")
+    compile fg.deobf("curse.maven:cucumber-272335:3349690")
 
     //Mystical Agriculture
-    compile fg.deobf("curse.maven:mysticalagriculture-246640:3152061")
+    compile fg.deobf("curse.maven:mysticalagriculture-246640:3359339")
 
     //Mystical Agradditions
-    compile fg.deobf("curse.maven:mysticalagradditions-256247:3156602")
+    compile fg.deobf("curse.maven:mysticalagradditions-256247:3250486")
 
     //Vampirism
-    compile fg.deobf("curse.maven:vampirism-233029:3167572")
-}
-
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact reobfArtifact
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
+    compile fg.deobf("curse.maven:vampirism-233029:3360347")
 }

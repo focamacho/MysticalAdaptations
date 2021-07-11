@@ -17,6 +17,6 @@ public class HungerlessAugment extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        player.getFoodStats().setFoodLevel(20);
+        player.getFoodData().setFoodLevel(20);
     }
 }

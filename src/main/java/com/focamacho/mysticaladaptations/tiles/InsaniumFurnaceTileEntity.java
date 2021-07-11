@@ -20,15 +20,15 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceTileEntity {
     }
 
     protected Container createMenu(int id, PlayerInventory player) {
-        return new FurnaceContainer(id, player, this, this.furnaceData);
+        return new FurnaceContainer(id, player, this, this.dataAccess);
     }
 
-    protected int getBurnTime(ItemStack stack) {
-        return (int) ((double) super.getBurnTime(stack) * 0.1D);
+    protected int getBurnDuration(ItemStack stack) {
+        return (int) ((double) super.getBurnDuration(stack) * 0.1D);
     }
 
-    protected int getCookTime() {
-        return (int) ((double) super.getCookTime() * 0.01D);
+    protected int getTotalCookTime() {
+        return (int) ((double) super.getTotalCookTime() * 0.01D);
     }
 
 }

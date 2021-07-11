@@ -24,13 +24,13 @@ public class MobDropsHandler {
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        World world = entity.getEntityWorld();
+        World world = entity.getCommandSenderWorld();
         Collection<ItemEntity> drops = event.getDrops();
-        Entity attacker = event.getSource().getTrueSource();
+        Entity attacker = event.getSource().getEntity();
 
         if (attacker instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) attacker;
-            Item item = player.getHeldItemMainhand().getItem();
+            Item item = player.getMainHandItem().getItem();
 
             if (item instanceof ITinkerable) {
                 ITinkerable tinkerable = (ITinkerable) item;
@@ -42,7 +42,7 @@ public class MobDropsHandler {
                     ItemStack stack = getEssenceAmount(ConfigHolder.witherInsanium, 1, 3);
 
                     if (!stack.isEmpty()) {
-                        drops.add(new ItemEntity(world, entity.getPosX(), entity.getPosY(), entity.getPosZ(), stack));
+                        drops.add(new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), stack));
                     }
                 }
 
@@ -51,7 +51,7 @@ public class MobDropsHandler {
                     ItemStack stack = getEssenceAmount(ConfigHolder.dragonInsanium, 2, 4);
 
                     if (!stack.isEmpty()) {
-                        drops.add(new ItemEntity(world, entity.getPosX(), entity.getPosY(), entity.getPosZ(), stack));
+                        drops.add(new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), stack));
                     }
                 }
             }

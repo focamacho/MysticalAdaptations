@@ -16,7 +16,7 @@ public class TooltipHandler {
     //Replace Tier 6 tooltips with a colored one
     @SubscribeEvent
     public void tooltipEvent(ItemTooltipEvent event){
-        if(event.getItemStack().getItem().getGroup() == MysticalAdaptations.creativeTab || event.getItemStack().getItem().getGroup() == MysticalAgriculture.ITEM_GROUP) {
+        if(event.getItemStack().getItem().getItemCategory() == MysticalAdaptations.creativeTab || event.getItemStack().getItem().getItemCategory() == MysticalAgriculture.ITEM_GROUP) {
             int index = -1;
             for(ITextComponent text : event.getToolTip()){
                 if(text.equals(ModTooltips.getTooltipForTier(6))){

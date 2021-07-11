@@ -16,8 +16,8 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
-    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, ConfigHolder.enchantableInsaniumArmor ? 30 : 0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3.5F, 0.0F, () -> {
-        return Ingredient.fromItems(ModItems.INSANIUM_INGOT.get());
+    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, ConfigHolder.enchantableInsaniumArmor ? 30 : 0, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.0F, () -> {
+        return Ingredient.of(ModItems.INSANIUM_INGOT.get());
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
@@ -42,28 +42,28 @@ public enum ModArmorMaterial implements IArmorMaterial {
     }
 
     @Override
-    public int getDurability(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(EquipmentSlotType slot) {
         return MAX_DAMAGE_ARRAY[slot.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slot) {
+    public int getDefenseForSlot(EquipmentSlotType slot) {
         return this.damageReductionAmountArray[slot.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
-    public SoundEvent getSoundEvent() {
+    public SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
     @Override
-    public Ingredient getRepairMaterial() {
-        return this.repairMaterial.getValue();
+    public Ingredient getRepairIngredient() {
+        return this.repairMaterial.get();
     }
 
     @OnlyIn(Dist.CLIENT)
