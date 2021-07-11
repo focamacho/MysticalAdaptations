@@ -48,7 +48,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.17'
 
     //Cucumber Library
     compile fg.deobf("curse.maven:cucumber-272335:3349690")
