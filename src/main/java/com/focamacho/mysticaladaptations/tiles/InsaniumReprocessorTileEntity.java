@@ -8,8 +8,8 @@ import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
 import com.blakebr0.mysticalagriculture.api.crafting.IReprocessorRecipe;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.container.ReprocessorContainer;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
+import com.focamacho.mysticaladaptations.container.InsaniumReprocessorContainer;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -171,7 +171,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     @Override
     public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
-        return ReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
+        return InsaniumReprocessorContainer.create(id, playerInventory, this::isUsableByPlayer, this.inventory, this.getBlockPos());
     }
 
     @Override
@@ -209,6 +209,10 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     public int getFuelItemValue() {
         return this.fuelItemValue;
+    }
+
+    public int getOperationTime() {
+        return operationTime;
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

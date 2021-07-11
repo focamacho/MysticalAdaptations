@@ -60,6 +60,7 @@ public class MysticalAdaptations {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(new TooltipHandler());
+        ModRegistry.registerClient();
     }
 
     @SubscribeEvent

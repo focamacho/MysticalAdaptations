@@ -12,6 +12,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -23,11 +24,15 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.NetworkHooks;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
@@ -49,7 +54,7 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
         if (!world.isClientSide()) {
             TileEntity tile = world.getBlockEntity(pos);
             if (tile instanceof InsaniumReprocessorTileEntity) {
-                player.openMenu((INamedContainerProvider) tile);
+                NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider) tile, pos);
             }
         }
 
@@ -92,9 +97,9 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(1).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(38).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(40000).build());
+            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(new StringTextComponent(NumberFormat.getInstance().format(1)).withStyle(TextFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(new StringTextComponent(NumberFormat.getInstance().format(2880)).withStyle(TextFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(new StringTextComponent(NumberFormat.getInstance().format(860000)).withStyle(TextFormatting.DARK_PURPLE)).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }
