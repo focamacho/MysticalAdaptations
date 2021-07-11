@@ -3,29 +3,24 @@ package com.focamacho.mysticaladaptations.init;
 import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.block.InsaniumFurnaceBlock;
 import com.focamacho.mysticaladaptations.block.InsaniumReprocessorBlock;
-import com.focamacho.mysticaladaptations.util.Utils;
+import com.focamacho.mysticaladaptations.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBlocks {
 
-    public static List<Block> allBlocks = new ArrayList<>();
+    static final DeferredRegister<Block> blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
-    public static Block INSANIUM_FURNACE = new InsaniumFurnaceBlock();
-    public static Block INSANIUM_REPROCESSOR = new InsaniumReprocessorBlock();
+    public static RegistryObject<Block> INSANIUM_FURNACE = blocks.register("insanium_furnace", InsaniumFurnaceBlock::new);
+    public static RegistryObject<Block> INSANIUM_REPROCESSOR = blocks.register("insanium_reprocessor", InsaniumReprocessorBlock::new);
 
-    public static void initBlocks() {
-        INSANIUM_FURNACE.setRegistryName(Utils.getRegistryName("insanium_furnace"));
-        INSANIUM_REPROCESSOR.setRegistryName(Utils.getRegistryName("insanium_reprocessor"));
-
-        allBlocks.add(INSANIUM_FURNACE);
-        allBlocks.add(INSANIUM_REPROCESSOR);
-
-        ModItems.allItems.add(new BlockItem(INSANIUM_FURNACE, new Item.Properties().tab(MysticalAdaptations.creativeTab)).setRegistryName(Utils.getRegistryName("insanium_furnace")));
-        ModItems.allItems.add(new BlockItem(INSANIUM_REPROCESSOR, new Item.Properties().tab(MysticalAdaptations.creativeTab)).setRegistryName(Utils.getRegistryName("insanium_reprocessor")));
+    static {
+        ModItems.items.register("insanium_furnace", () -> new BlockItem(INSANIUM_FURNACE.get(), new Item.Properties().tab(MysticalAdaptations.creativeTab)));
+        ModItems.items.register("insanium_reprocessor", () -> new BlockItem(INSANIUM_REPROCESSOR.get(), new Item.Properties().tab(MysticalAdaptations.creativeTab)));
     }
+
 }
