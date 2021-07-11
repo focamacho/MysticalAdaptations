@@ -45,9 +45,7 @@ public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
     }
 
     @Override
-    public void setPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
-
-    }
+    public void setPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {}
 
     @Override
     public void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
@@ -57,10 +55,9 @@ public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
                 InsaniumFurnaceTileEntity furnace = (InsaniumFurnaceTileEntity) tile;
                 InventoryHelper.dropContents(world, pos, furnace);
             }
-
-            if (state.hasTileEntity())
-                world.removeBlockEntity(pos);
         }
+
+        super.onRemove(state, world, pos, newState, isMoving);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -76,4 +73,5 @@ public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
     }
+
 }
