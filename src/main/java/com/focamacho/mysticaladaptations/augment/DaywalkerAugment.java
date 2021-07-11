@@ -19,7 +19,7 @@ public class DaywalkerAugment  extends Augment {
 
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        if(Utils.isVampirismLoaded) CompatVampirism.applySunscreen(player, world);
+        CompatVampirism.applySunscreen(player, world);
     }
 
 }
