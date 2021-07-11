@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.tiles;
 
 import com.blakebr0.cucumber.util.Localizable;
-import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;

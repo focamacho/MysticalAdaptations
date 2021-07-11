@@ -3,7 +3,6 @@ package com.focamacho.mysticaladaptations.augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import com.focamacho.mysticaladaptations.compat.vampirism.CompatVampirism;
-import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

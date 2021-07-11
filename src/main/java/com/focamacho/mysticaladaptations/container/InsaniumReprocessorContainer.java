@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
-import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.focamacho.mysticaladaptations.init.ModContainers;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import net.minecraft.entity.player.PlayerEntity;

@@ -22,8 +22,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
 
     public InsaniumFurnaceBlock() {
