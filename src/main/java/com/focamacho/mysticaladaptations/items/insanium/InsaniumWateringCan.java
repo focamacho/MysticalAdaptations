@@ -100,7 +100,7 @@ public class InsaniumWateringCan extends Item {
     	    if (!world.isRemote) {
     	    	this.water = false;
     	    	int chance = Utils.randInt(1, 100);
-    	    	int bonus = 4 * stack.getMetadata();
+    	    	int bonus = 4 * 5;
     	        if (chance <= (40 + bonus)) {
     	        	for (BlockPos aoePos : blocks) {
     	        		Block plant = world.getBlockState(aoePos).getBlock();      		
