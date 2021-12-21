@@ -70,7 +70,7 @@ public class ModConfig {
 		
 		category = "Principal";
 		config.addCustomCategoryComment(category, "Enable/Disable Principal Mechanics");
-		ENABLE_SEED_EXTRACTORS = config.getBoolean("ENABLE_SEED_EXTRACTOR", category, true, "Enable Seed Extractors");
+		ENABLE_SEED_EXTRACTORS = config.getBoolean("ENABLE_SEED_EXTRACTOR", category, false, "Enable Seed Extractors");
 		
 		category = "Seed Extractor Durability";
 		config.addCustomCategoryComment(category, "Set the durability of the Seed Extractors");
@@ -86,9 +86,9 @@ public class ModConfig {
 		MOB_SEED_DROP = config.getBoolean("MOB_SEED_DROP", category, true, "Kill a mob using a Seed Extractor to get its seed.");
 		EXTRACTOR_LOWER_TIER = config.getBoolean("EXTRACTOR_LOWER_TIER", category, true, "Seed Extractor of larger tiers can pick lower tier seeds.");
 		EXTRACTOR_ANY_TIER = config.getBoolean("EXTRACTOR_ANY_TIER", category, false, "Seed extractors can collect any seed, regardless of the tier.");
-		REMOVE_SEED_RECIPES = config.getBoolean("REMOVE_SEED_RECIPES", category, true, "Remove all default crafting table non-mob seeds recipes. Example: Copper Seeds, Iron Seeds, Aluminum Seeds...");
-		REMOVE_MOBS_SEED_RECIPES = config.getBoolean("REMOVE_MOBS_SEED_RECIPES", category, true, "Remove all default crafting table mobs seeds recipes. Example: Pig Seeds, Cow Seeds, Skeleton Seeds...");
-		REMOVE_AGRADDITIONS_RECIPES = config.getBoolean("REMOVE_AGRADDITIONS_RECIPES", category, true, "Remove all default crafting table seed recipes from the mod Mystical Agradditions. Example: Netherstar Seeds, Dragon Egg Seeds...");
+		REMOVE_SEED_RECIPES = config.getBoolean("REMOVE_SEED_RECIPES", category, false, "Remove all default crafting table non-mob seeds recipes. Example: Copper Seeds, Iron Seeds, Aluminum Seeds...");
+		REMOVE_MOBS_SEED_RECIPES = config.getBoolean("REMOVE_MOBS_SEED_RECIPES", category, false, "Remove all default crafting table mobs seeds recipes. Example: Pig Seeds, Cow Seeds, Skeleton Seeds...");
+		REMOVE_AGRADDITIONS_RECIPES = config.getBoolean("REMOVE_AGRADDITIONS_RECIPES", category, false, "Remove all default crafting table seed recipes from the mod Mystical Agradditions. Example: Netherstar Seeds, Dragon Egg Seeds...");
 		JEI_COMPAT = config.getBoolean("JEI_COMPAT", category, true, "Enable/Disable JEI Seed Extractor Compat.");
 		EXPERIENCE_SEEDS_DROP = config.getBoolean("EXPERIENCE_SEEDS_DROP", category, true, "If true, mobs will have a configurable chance of dropping a Experience Seeds when killed using a Seed Extractor.");
 		EXPERIENCE_SEEDS_DROP_CHANCE = config.getInt("EXPERIENCE_SEEDS_DROP_CHANCE", category, 10, 1, 100, "Set Experience Seeds drop chance.");
