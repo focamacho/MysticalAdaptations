@@ -97,9 +97,9 @@ public class ModConfig {
 		
 		category = "Blocks";
 		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
-		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
-		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", true).getBoolean();
-		HOP_GRAPHITE_BLOCK = config.get(category, "HOP_GRAPHITE_BLOCK", true).getBoolean();
+		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", false).getBoolean();
+		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", false).getBoolean();
+		HOP_GRAPHITE_BLOCK = config.get(category, "HOP_GRAPHITE_BLOCK", false).getBoolean();
 		
 		category = "Mystical Agradditions";
 		config.addCustomCategoryComment(category, "Cool things for Mystical Agradditions");
