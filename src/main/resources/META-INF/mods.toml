@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[35,)"
+loaderVersion="[39,)"
 issueTrackerURL="https://github.com/Focamacho/MysticalAdaptations/issues"
 license="MIT-1.0"
 [[mods]]
 modId="mysticaladaptations"
-version="1.16.5-1.2.1"
+version="1.18.1-1.0"
 displayName="Mystical Adaptations"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/mystical-adaptations"
 credits="BlakeBr0 for Mystical Agriculture"

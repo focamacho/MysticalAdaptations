@@ -4,30 +4,31 @@ import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
 import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.init.ModContainerTypes;
 import com.focamacho.mysticaladaptations.init.ModContainers;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
 
 import java.util.function.Function;
 
-public class InsaniumReprocessorContainer extends Container {
+public class InsaniumReprocessorContainer extends AbstractContainerMenu {
 
-    private final Function<PlayerEntity, Boolean> isUsableByPlayer;
+    private final Function<Player, Boolean> isUsableByPlayer;
     private final BlockPos pos;
 
-    private InsaniumReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, p -> false, (new InsaniumReprocessorTileEntity()).getInventory(), pos);
+    private InsaniumReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
+        this(type, id, playerInventory, p -> false, InsaniumReprocessorTileEntity.createInventoryHandler(null), pos);
     }
 
-    private InsaniumReprocessorContainer(ContainerType<?> type, int id, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+    private InsaniumReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
         super(type, id);
         this.isUsableByPlayer = isUsableByPlayer;
         this.pos = pos;
@@ -48,17 +49,17 @@ public class InsaniumReprocessorContainer extends Container {
     }
 
     @Override
-    public boolean stillValid(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return this.isUsableByPlayer.apply(player);
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index) {
-        ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(index);
+    public ItemStack quickMoveStack(Player player, int index) {
+        var itemstack = ItemStack.EMPTY;
+        var slot = this.slots.get(index);
 
-        if (slot != null && slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
+        if (slot.hasItem()) {
+            var itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
 
             if (index == 2) {
@@ -72,7 +73,7 @@ public class InsaniumReprocessorContainer extends Container {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (ForgeHooks.getBurnTime(itemstack1) > 0) {
+                } else if (ForgeHooks.getBurnTime(itemstack1, null) > 0) {
                     if (!this.moveItemStackTo(itemstack1, 1, 2, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -107,11 +108,11 @@ public class InsaniumReprocessorContainer extends Container {
         return this.pos;
     }
 
-    public static InsaniumReprocessorContainer create(int windowId, PlayerInventory playerInventory, PacketBuffer buffer) {
+    public static InsaniumReprocessorContainer create(int windowId, Inventory playerInventory, FriendlyByteBuf buffer) {
         return new InsaniumReprocessorContainer(ModContainers.INSANIUM_REPROCESSOR.get(), windowId, playerInventory, buffer.readBlockPos());
     }
 
-    public static InsaniumReprocessorContainer create(int windowId, PlayerInventory playerInventory, Function<PlayerEntity, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
+    public static InsaniumReprocessorContainer create(int windowId, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
         return new InsaniumReprocessorContainer(ModContainers.INSANIUM_REPROCESSOR.get(), windowId, playerInventory, isUsableByPlayer, inventory, pos);
     }
 }

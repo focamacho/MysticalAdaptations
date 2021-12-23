@@ -5,36 +5,47 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.2.1'
-group = 'com.focamacho.mysticaladaptations'
-archivesBaseName = 'MysticalAdaptations-1.16.5'
+version = '1.0'
+group = 'com.focamacho'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java {
+    archivesBaseName = 'MysticalAdaptations-1.18.1'
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
 
 minecraft {
-    mappings channel: "official", version: "1.16.5"
+    mappings channel: "official", version: "1.18.1"
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
     runs {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         data {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             args '--mod', 'mysticaladaptations', '--all', '--output', file('src/generated/resources/')
         }
     }
@@ -45,20 +56,24 @@ repositories {
         name = "CurseMaven"
         url = "https://www.cursemaven.com"
     }
+    maven {
+        url = "https://maxanier.de/maven2"
+    }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.17'
+    minecraft 'net.minecraftforge:forge:1.18.1-39.0.6'
 
     //Cucumber Library
-    compile fg.deobf("curse.maven:cucumber-272335:3349690")
+    implementation fg.deobf("curse.maven:cucumber-272335:3561215")
 
     //Mystical Agriculture
-    compile fg.deobf("curse.maven:mysticalagriculture-246640:3359339")
+    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3568309")
 
     //Mystical Agradditions
-    compile fg.deobf("curse.maven:mysticalagradditions-256247:3250486")
+    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3573596")
 
     //Vampirism
-    compile fg.deobf("curse.maven:vampirism-233029:3360347")
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0-alpha+20211220-2153') { transitive = false;}
+    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0-alpha+20211220-2153') { transitive = false; }
 }

@@ -3,20 +3,18 @@ package com.focamacho.mysticaladaptations.container;
 import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 
 public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumReprocessorContainer> {
 
     private static final ResourceLocation BACKGROUND = new ResourceLocation(MysticalAgriculture.MOD_ID, "textures/gui/reprocessor.png");
     private InsaniumReprocessorTileEntity tile;
 
-    public InsaniumReprocessorScreen(InsaniumReprocessorContainer container, PlayerInventory inv, ITextComponent title) {
+    public InsaniumReprocessorScreen(InsaniumReprocessorContainer container, Inventory inv, Component title) {
         super(container, inv, title, BACKGROUND, 176, 194);
     }
 
@@ -28,21 +26,22 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
     }
 
     @Override
-    protected void renderLabels(MatrixStack stack, int mouseX, int mouseY) {
-        String title = this.getTitle().getString();
+    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+        var title = this.getTitle().getString();
+
         this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        String inventory = this.inventory.getDisplayName().getString();
-        this.font.draw(stack, inventory, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
-    protected void renderBg(MatrixStack stack, float partialTicks, int mouseX, int mouseY) {
-        super.renderBg(stack, partialTicks, mouseX, mouseY);
+    protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
+        this.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
         int i1 = this.getEnergyBarScaled(78);
+
         this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
         if (this.getFuelItemValue() > 0) {
@@ -57,31 +56,31 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
     }
 
     @Override
-    protected void renderTooltip(MatrixStack stack, int mouseX, int mouseY) {
+    protected void renderTooltip(PoseStack stack, int mouseX, int mouseY) {
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
         super.renderTooltip(stack, mouseX, mouseY);
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
-            StringTextComponent text = new StringTextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
+            var text = new TextComponent(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            StringTextComponent text = new StringTextComponent(number(this.getFuelLeft()) + " FE");
+            var text = new TextComponent(number(this.getFuelLeft()) + " FE");
             this.renderTooltip(stack, text, mouseX, mouseY);
         }
     }
 
     private InsaniumReprocessorTileEntity getTileEntity() {
-        ClientWorld world = this.getMinecraft().level;
+        var level = this.getMinecraft().level;
 
-        if (world != null) {
-            TileEntity tile = world.getBlockEntity(this.getMenu().getPos());
+        if (level != null) {
+            var tile = level.getBlockEntity(this.getMenu().getPos());
 
-            if (tile instanceof InsaniumReprocessorTileEntity) {
-                return (InsaniumReprocessorTileEntity) tile;
+            if (tile instanceof InsaniumReprocessorTileEntity reprocessor) {
+                return reprocessor;
             }
         }
 
@@ -99,7 +98,7 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
         if (this.tile == null)
             return 0;
 
-        return this.tile.getOperationTime();
+        return InsaniumReprocessorTileEntity.getOperationTime();
     }
 
     public int getFuelLeft() {

@@ -9,15 +9,16 @@ import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.init.ModRegistry;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.Utils;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -56,7 +57,7 @@ public class MysticalAdaptations {
     }
 
     @SubscribeEvent
-    public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
+    public static void onModConfigEvent(final ModConfigEvent event) {
         final ModConfig config = event.getConfig();
 
         if (config.getSpec() == ConfigMysticalAdaptations.spec) {
@@ -64,7 +65,7 @@ public class MysticalAdaptations {
         }
     }
     
-    public static final ItemGroup creativeTab = new ItemGroup(Reference.MOD_ID) {
+    public static final CreativeModeTab creativeTab = new CreativeModeTab(Reference.MOD_ID) {
 
 		@Override
 		public ItemStack makeIcon() {

@@ -2,13 +2,13 @@ package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.mysticalagradditions.init.ModItems;
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum ModItemTier implements IItemTier {
+public enum ModItemTier implements Tier {
     INSANIUM(6, -1, 32.0F, 24.0F, ConfigHolder.enchantableInsaniumTools ? 30 : 0, () -> {
         return Ingredient.of(ModItems.INSANIUM_INGOT.get());
     });
@@ -18,7 +18,7 @@ public enum ModItemTier implements IItemTier {
     private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     ModItemTier(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
@@ -26,7 +26,7 @@ public enum ModItemTier implements IItemTier {
         this.efficiency = efficiency;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairMaterial = new LazyValue<>(repairMaterial);
+        this.repairMaterial = new LazyLoadedValue<>(repairMaterial);
     }
 
     public int getUses() {

@@ -13,10 +13,10 @@ import com.focamacho.mysticaladaptations.lib.ModArmorMaterial;
 import com.focamacho.mysticaladaptations.lib.ModItemTier;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.Utils;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
 

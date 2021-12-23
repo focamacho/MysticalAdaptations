@@ -4,6 +4,7 @@ import com.focamacho.mysticaladaptations.util.Reference;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ConfigHolder {
@@ -36,7 +37,7 @@ public class ConfigHolder {
     }
 
     @SubscribeEvent
-    public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
+    public static void onModConfigEvent(final ModConfigEvent event) {
         final ModConfig config = event.getConfig();
 
         if (config.getSpec() == ConfigMysticalAdaptations.spec) {

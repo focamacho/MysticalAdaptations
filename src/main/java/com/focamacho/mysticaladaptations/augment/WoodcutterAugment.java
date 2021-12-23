@@ -3,16 +3,15 @@ package com.focamacho.mysticaladaptations.augment;
 import com.blakebr0.cucumber.helper.BlockHelper;
 import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -30,12 +29,12 @@ public class WoodcutterAugment extends Augment {
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player) {
-        World world = player.getCommandSenderWorld();
+    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
+        Level world = player.getCommandSenderWorld();
         return !this.harvest(stack, world, pos, player);
     }
 
-    private boolean harvest(ItemStack stack, World world, BlockPos pos, PlayerEntity player) {
+    private boolean harvest(ItemStack stack, Level world, BlockPos pos, Player player) {
         boolean woodcutter = !player.isCrouching();
 
         BlockPos blockPos = pos;
@@ -53,8 +52,7 @@ public class WoodcutterAugment extends Augment {
         if (!this.tryHarvest(world, pos, false, stack, player)) {
             return false;
         } else {
-            Block block = state.getBlock();
-            if (woodcutter && hardness >= 0.2F && block.getHarvestTool(state) == null || stack.getToolTypes().stream().anyMatch((t) -> block.isToolEffective(state, t))) {
+            if (woodcutter && hardness >= 0.2F && stack.isCorrectToolForDrops(state)) {
                 toHarvest.forEach((woodPos) -> {
                     if(woodPos != pos){
                         this.tryHarvest(world, woodPos, true, stack, player);
@@ -66,11 +64,11 @@ public class WoodcutterAugment extends Augment {
         }
     }
 
-    private boolean tryHarvest(World world, BlockPos pos, boolean extra, ItemStack stack, PlayerEntity player) {
+    private boolean tryHarvest(Level world, BlockPos pos, boolean extra, ItemStack stack, Player player) {
         BlockState state = world.getBlockState(pos);
         float hardness = state.getDestroySpeed(world, pos);
         Item item = stack.getItem();
-        boolean harvest = (ForgeHooks.canHarvestBlock(state, player, world, pos) || item.canHarvestBlock(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
+        boolean harvest = (state.canHarvestBlock(world, pos, player) || item.isCorrectToolForDrops(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
         return !(hardness < 0.0F) && (!extra || harvest) && BlockHelper.breakBlocksAOE(stack, world, player, pos);
     }
 

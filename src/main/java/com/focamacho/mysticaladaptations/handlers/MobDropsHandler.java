@@ -5,15 +5,15 @@ import com.blakebr0.mysticalagradditions.init.ModItems;
 import com.blakebr0.mysticalagriculture.api.tinkering.ITinkerable;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.boss.WitherEntity;
-import net.minecraft.entity.boss.dragon.EnderDragonEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -24,21 +24,19 @@ public class MobDropsHandler {
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        World world = entity.getCommandSenderWorld();
+        Level world = entity.getCommandSenderWorld();
         Collection<ItemEntity> drops = event.getDrops();
         Entity attacker = event.getSource().getEntity();
 
-        if (attacker instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) attacker;
+        if (attacker instanceof Player player) {
             Item item = player.getMainHandItem().getItem();
 
-            if (item instanceof ITinkerable) {
-                ITinkerable tinkerable = (ITinkerable) item;
+            if (item instanceof ITinkerable tinkerable) {
 
                 if(tinkerable.getTinkerableTier() != 6) return;
 
                 boolean witherDropsEssence = ModConfigs.WITHER_DROPS_ESSENCE.get();
-                if (witherDropsEssence && entity instanceof WitherEntity) {
+                if (witherDropsEssence && entity instanceof WitherBoss) {
                     ItemStack stack = getEssenceAmount(ConfigHolder.witherInsanium, 1, 3);
 
                     if (!stack.isEmpty()) {
@@ -47,7 +45,7 @@ public class MobDropsHandler {
                 }
 
                 boolean dragonDropsEssence = ModConfigs.DRAGON_DROPS_ESSENCE.get();
-                if (dragonDropsEssence && entity instanceof EnderDragonEntity) {
+                if (dragonDropsEssence && entity instanceof EnderDragon) {
                     ItemStack stack = getEssenceAmount(ConfigHolder.dragonInsanium, 2, 4);
 
                     if (!stack.isEmpty()) {
