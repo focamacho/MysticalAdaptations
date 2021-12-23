@@ -4,7 +4,6 @@ import com.blakebr0.cucumber.block.BaseTileEntityBlock;
 import com.blakebr0.cucumber.lib.Tooltips;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
-import com.focamacho.mysticaladaptations.tiles.InsaniumFurnaceTileEntity;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
