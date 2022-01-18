@@ -69,7 +69,7 @@ public class RegistryHandler {
 	
 	public static void initRegistries() {
 		//OreDictionary
-		if(ModConfig.NETHERSTAR_BLOCK) OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
+		if(ModConfig.NETHERSTARS_BLOCK) OreDictionary.registerOre("blockNetherStar", ModBlocks.NETHERSTAR_BLOCK);
 		if(ModConfig.SILICON_BLOCK) OreDictionary.registerOre("blockSilicon", ModBlocks.SILICON_BLOCK);
 		if(ModConfig.HOP_GRAPHITE_BLOCK) OreDictionary.registerOre("blockHOPGraphite", ModBlocks.HOP_GRAPHITE_BLOCK);
 		

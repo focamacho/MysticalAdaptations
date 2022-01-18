@@ -40,7 +40,7 @@ public class ModBlocks {
 			ModItems.ITEMS.add(new ItemBlock(HOP_GRAPHITE_BLOCK).setRegistryName(HOP_GRAPHITE_BLOCK.getRegistryName()));
 		}
 		
-		if(ModConfig.NETHERSTAR_BLOCK) {
+		if(ModConfig.NETHERSTARS_BLOCK) {
 			NETHERSTAR_BLOCK = new BlockBase("netherstar_block", Material.IRON, SoundType.METAL, 5, 30);
 			BLOCKS.add(NETHERSTAR_BLOCK);
 			ModItems.ITEMS.add(new ItemBlock(NETHERSTAR_BLOCK).setRegistryName(NETHERSTAR_BLOCK.getRegistryName()));

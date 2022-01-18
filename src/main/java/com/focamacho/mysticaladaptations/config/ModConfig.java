@@ -32,7 +32,7 @@ public class ModConfig {
 	public static boolean EXPERIENCE_SEEDS_DROP_DURABILITY;
 	public static boolean ENCHANTABLE_EXTRACTOR;
 	
-	public static boolean NETHERSTAR_BLOCK;
+	public static boolean NETHERSTARS_BLOCK;
 	public static boolean SILICON_BLOCK;
 	public static boolean HOP_GRAPHITE_BLOCK;
 	
@@ -97,7 +97,7 @@ public class ModConfig {
 		
 		category = "Blocks";
 		config.addCustomCategoryComment(category, "Enable/Disable Blocks");
-		NETHERSTAR_BLOCK = config.get(category, "NETHERSTAR_BLOCK", false).getBoolean();
+		NETHERSTARS_BLOCK = config.get(category, "NETHERSTAR_BLOCK", true).getBoolean();
 		SILICON_BLOCK = config.get(category, "SILICON_BLOCK", false).getBoolean();
 		HOP_GRAPHITE_BLOCK = config.get(category, "HOP_GRAPHITE_BLOCK", false).getBoolean();
 		
