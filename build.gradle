@@ -10,7 +10,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0'
+version = '1.1'
 group = 'com.focamacho'
 
 java {
@@ -62,16 +62,16 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.0.6'
+    minecraft 'net.minecraftforge:forge:1.18.1-39.1.0'
 
     //Cucumber Library
-    implementation fg.deobf("curse.maven:cucumber-272335:3561215")
+    implementation fg.deobf("curse.maven:cucumber-272335:3623830")
 
     //Mystical Agriculture
-    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3568309")
+    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3645812")
 
     //Mystical Agradditions
-    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3573596")
+    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3676021")
 
     //Vampirism
     compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0-alpha+20211220-2153') { transitive = false;}

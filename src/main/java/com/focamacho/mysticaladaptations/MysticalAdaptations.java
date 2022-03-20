@@ -1,5 +1,7 @@
 package com.focamacho.mysticaladaptations;
 
+import com.blakebr0.mysticalagriculture.item.tool.EssenceBowItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceCrossbowItem;
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import com.focamacho.mysticaladaptations.config.ConfigMysticalAdaptations;
 import com.focamacho.mysticaladaptations.handlers.MobDropsHandler;
@@ -9,7 +11,9 @@ import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.init.ModRegistry;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.Utils;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.NonNullList;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -54,6 +58,15 @@ public class MysticalAdaptations {
     private void doClientStuff(final FMLClientSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(new TooltipHandler());
         ModRegistry.registerClient();
+
+        event.enqueueWork(() -> {
+            ItemProperties.register(ModItems.INSANIUM_BOW.get(), new ResourceLocation("pull"), EssenceBowItem.getPullPropertyGetter());
+            ItemProperties.register(ModItems.INSANIUM_BOW.get(), new ResourceLocation("pulling"), EssenceBowItem.getPullingPropertyGetter());
+            ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("pull"), EssenceCrossbowItem.getPullPropertyGetter());
+            ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("pulling"), EssenceCrossbowItem.getPullingPropertyGetter());
+            ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("charged"), EssenceCrossbowItem.getChargedPropertyGetter());
+            ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("firework"), EssenceCrossbowItem.getFireworkPropertyGetter());
+        });
     }
 
     @SubscribeEvent
