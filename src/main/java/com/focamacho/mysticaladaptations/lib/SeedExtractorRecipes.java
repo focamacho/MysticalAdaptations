@@ -173,6 +173,7 @@ public class SeedExtractorRecipes {
 	public static List<SeedExtractorRecipe> allRecipes = new ArrayList<>();
 	
 	public static void init() {
+		rubber_seeds = new SeedExtractorRecipe(RecipesConfig.rubber_seeds, Type.RUBBER);
 		water_seeds = new SeedExtractorRecipe(RecipesConfig.water_seeds, Type.WATER);
 		wood_seeds = new SeedExtractorRecipe(RecipesConfig.wood_seeds, Type.WOOD);
 		copper_seeds = new SeedExtractorRecipe(RecipesConfig.copper_seeds, Type.COPPER);
@@ -305,7 +306,6 @@ public class SeedExtractorRecipes {
 		aquamarine_seeds = new SeedExtractorRecipe(RecipesConfig.aquamarine_seeds, Type.AQUAMARINE);
 		dilithium_seeds = new SeedExtractorRecipe(RecipesConfig.dilithium_seeds, Type.DILITHIUM);
 		iridium_ore_seeds = new SeedExtractorRecipe(RecipesConfig.iridium_ore_seeds, Type.IRIDIUM_ORE);
-		rubber_seeds = new SeedExtractorRecipe(RecipesConfig.rubber_seeds, Type.RUBBER);
 		starmetal_seeds = new SeedExtractorRecipe(RecipesConfig.starmetal_seeds, Type.STARMETAL);
 		uranium_238_seeds = new SeedExtractorRecipe(RecipesConfig.uranium_238_seeds, Type.URANIUM_238);
 		quicksilver_seeds = new SeedExtractorRecipe(RecipesConfig.quicksilver_seeds, Type.QUICKSILVER);
