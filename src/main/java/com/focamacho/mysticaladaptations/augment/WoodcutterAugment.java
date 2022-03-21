@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -74,6 +75,6 @@ public class WoodcutterAugment extends Augment {
 
     private boolean isWood(Block block) {
         //Tag minecraft:logs never will be null
-        return Objects.requireNonNull(BlockTags.getAllTags().getTag(new ResourceLocation("minecraft", "logs"))).contains(block);
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).getTag(BlockTags.LOGS).contains(block);
     }
 }

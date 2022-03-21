@@ -10,16 +10,16 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.1'
+version = '1.1.1'
 group = 'com.focamacho'
 
 java {
-    archivesBaseName = 'MysticalAdaptations-1.18.1'
+    archivesBaseName = 'MysticalAdaptations-1.18.2'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
-    mappings channel: "official", version: "1.18.1"
+    mappings channel: "official", version: "1.18.2"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -62,18 +62,18 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.1.0'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.0.19'
 
     //Cucumber Library
-    implementation fg.deobf("curse.maven:cucumber-272335:3623830")
+    implementation fg.deobf("curse.maven:cucumber-272335:3686400")
 
     //Mystical Agriculture
-    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3645812")
+    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3686412")
 
     //Mystical Agradditions
-    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3676021")
+    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3686417")
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0-alpha+20211220-2153') { transitive = false;}
-    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0-alpha+20211220-2153') { transitive = false; }
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0') { transitive = false;}
+    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.18.1-1.8.0') { transitive = false; }
 }
