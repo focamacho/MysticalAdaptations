@@ -3,6 +3,7 @@ package com.focamacho.mysticaladaptations;
 import com.focamacho.mysticaladaptations.config.ModConfig;
 import com.focamacho.mysticaladaptations.init.ModItems;
 import com.focamacho.mysticaladaptations.proxy.CommonProxy;
+import com.focamacho.mysticaladaptations.util.ModCheck;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.handlers.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
@@ -51,7 +52,9 @@ public class MysticalAdaptations {
 	public static final CreativeTabs tabMysticalAdaptations = new CreativeTabs("tab.mysticaladaptations.name") {		
 		@Override
 		public ItemStack getTabIconItem() {
-			return ModConfig.ENABLE_SEED_EXTRACTORS ? new ItemStack(ModItems.SUPREMIUM_SEED_EXTRACTOR) : new ItemStack(Items.WOODEN_HOE);
+			return ModConfig.ENABLE_SEED_EXTRACTORS ? new ItemStack(ModItems.SUPREMIUM_SEED_EXTRACTOR) :
+					ModCheck.MYSTICAL_AGRADDITIONS && ModConfig.INSANIUM_TOOLS ? new ItemStack(ModItems.INSANIUM_SWORD) :
+							new ItemStack(Items.WOODEN_HOE);
 		}
 		
 		@SideOnly(Side.CLIENT)
