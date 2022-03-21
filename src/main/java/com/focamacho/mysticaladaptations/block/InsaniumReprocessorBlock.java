@@ -97,9 +97,9 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.REPROCESSOR_SPEED.args(new StringTextComponent(NumberFormat.getInstance().format(1)).withStyle(TextFormatting.DARK_PURPLE)).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_RATE.args(new StringTextComponent(NumberFormat.getInstance().format(2880)).withStyle(TextFormatting.DARK_PURPLE)).build());
-            tooltip.add(ModTooltips.REPROCESSOR_FUEL_CAPACITY.args(new StringTextComponent(NumberFormat.getInstance().format(860000)).withStyle(TextFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(new StringTextComponent(NumberFormat.getInstance().format(1)).withStyle(TextFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(new StringTextComponent(NumberFormat.getInstance().format(2880)).withStyle(TextFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(new StringTextComponent(NumberFormat.getInstance().format(860000)).withStyle(TextFormatting.DARK_PURPLE)).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

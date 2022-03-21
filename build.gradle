@@ -5,12 +5,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.2.1'
+version = '1.2.2'
 group = 'com.focamacho.mysticaladaptations'
 archivesBaseName = 'MysticalAdaptations-1.16.5'
 
@@ -48,17 +48,17 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.17'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.20'
 
     //Cucumber Library
-    compile fg.deobf("curse.maven:cucumber-272335:3349690")
+    implementation fg.deobf("curse.maven:cucumber-272335:3507886")
 
     //Mystical Agriculture
-    compile fg.deobf("curse.maven:mysticalagriculture-246640:3359339")
+    implementation fg.deobf("curse.maven:mysticalagriculture-246640:3562127")
 
     //Mystical Agradditions
-    compile fg.deobf("curse.maven:mysticalagradditions-256247:3250486")
+    implementation fg.deobf("curse.maven:mysticalagradditions-256247:3548286")
 
     //Vampirism
-    compile fg.deobf("curse.maven:vampirism-233029:3360347")
+    implementation fg.deobf("curse.maven:vampirism-233029:3360347")
 }
