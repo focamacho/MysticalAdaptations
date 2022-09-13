@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -10,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.1.1'
+version = '1.1.2'
 group = 'com.focamacho'
 
 java {
@@ -19,7 +18,7 @@ java {
 }
 
 minecraft {
-    mappings channel: "official", version: "1.18.2"
+    mappings channel: 'official', version: '1.18.2'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
