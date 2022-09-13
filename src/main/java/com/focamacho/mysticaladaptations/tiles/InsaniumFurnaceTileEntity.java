@@ -24,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
 
     // Insanium Furnace Values
-    private static final double burnTimeMultiplier = 0.01D;
+    private static final double burnTimeMultiplier = 0.1D;
     private static final double cookTimeMultiplier = 0.01D;
 
     public InsaniumFurnaceTileEntity(BlockPos pos, BlockState state) {
