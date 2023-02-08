@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " E ",
+    "IFI",
+    " B "
+  ],
+  "key": {
+    "E": {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    "I": {
+      "item": "mysticalagradditions:insanium_ingot"
+    },
+    "F": {
+      "item": "mysticalagriculture:supremium_reprocessor"
+    },
+    "B": {
+      "item": "mysticalagradditions:insanium_block"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_reprocessor"
+  }
+}

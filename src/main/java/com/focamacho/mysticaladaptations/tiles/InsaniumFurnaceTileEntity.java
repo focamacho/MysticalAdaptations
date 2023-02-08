@@ -56,11 +56,15 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
         }
 
         if (slot == 0 && !flag) {
-            this.cookingTotalTime = (int) (getTotalCookTime(level, this.recipeType, this) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
+            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
             this.cookingProgress = 0;
             this.setChanged();
         }
 
+    }
+
+    private static int getTotalCookTime(Level p_222693_, AbstractFurnaceBlockEntity p_222694_) {
+        return p_222694_.quickCheck.getRecipeFor(p_222694_, p_222693_).map(AbstractCookingRecipe::getCookingTime).orElse(200);
     }
 
     protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
@@ -117,21 +121,21 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
 
         var stack = tile.items.get(1);
         if (tile.isLit() || !stack.isEmpty() && !tile.items.get(0).isEmpty()) {
-            Recipe<?> recipe = level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)tile.recipeType, tile, level).orElse(null);
+            Recipe<?> recipe = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, tile, level).orElse(null);
             int i = tile.getMaxStackSize();
             if (!tile.isLit() && tile.canBurn(recipe, tile.items, i)) {
                 tile.litTime = tile.getBurnDuration(stack);
                 tile.litDuration = tile.litTime;
                 if (tile.isLit()) {
                     flag1 = true;
-                    if (stack.hasContainerItem())
-                        tile.items.set(1, stack.getContainerItem());
+                    if (stack.hasCraftingRemainingItem())
+                        tile.items.set(1, stack.getCraftingRemainingItem());
                     else
                     if (!stack.isEmpty()) {
                         stack.shrink(1);
 
                         if (stack.isEmpty()) {
-                            tile.items.set(1, stack.getContainerItem());
+                            tile.items.set(1, stack.getCraftingRemainingItem());
                         }
                     }
                 }
@@ -141,7 +145,7 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
                 ++tile.cookingProgress;
                 if (tile.cookingProgress == tile.cookingTotalTime) {
                     tile.cookingProgress = 0;
-                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile.recipeType, tile) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
+                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
                     if (tile.burn(recipe, tile.items, i)) {
                         tile.setRecipeUsed(recipe);
                     }

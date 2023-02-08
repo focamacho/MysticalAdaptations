@@ -6,8 +6,8 @@ import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+//import net.minecraft.network.chat.TextComponent;
+//import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -24,7 +24,8 @@ public class TooltipHandler {
                 }
             }
             if(index != -1){
-                event.getToolTip().set(index, new TextComponent(ChatFormatting.GRAY + new TranslatableComponent("tooltip.mysticalagriculture.tier").getString() + Utils.getColorFromTier(6) + "6"));
+//                event.getToolTip().set(index, new TextComponent(ChatFormatting.GRAY + new TranslatableComponent("tooltip.mysticalagriculture.tier").getString() + Utils.getColorFromTier(6) + "6"));
+                event.getToolTip().set(index, Component.literal(ChatFormatting.GRAY + Component.translatable("tooltip.mysticalagriculture.tier").getString() + Utils.getColorFromTier(6) + "6"));
             }
         }
     }

@@ -5,7 +5,8 @@ import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
 import com.blakebr0.cucumber.tileentity.BaseInventoryTileEntity;
 import com.blakebr0.cucumber.util.Localizable;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+//import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
 import com.blakebr0.mysticalagriculture.crafting.recipe.ReprocessorRecipe;
 import com.focamacho.mysticaladaptations.container.InsaniumReprocessorContainer;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
@@ -143,7 +144,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
             if (!input.isEmpty()) {
                 if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-                    var recipe = level.getRecipeManager().getRecipeFor(RecipeTypes.REPROCESSOR, tile.inventory.toIInventory(), level).orElse(null);
+                    var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.REPROCESSOR.get(), tile.inventory.toIInventory(), level).orElse(null);
                     tile.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
                 }
 
