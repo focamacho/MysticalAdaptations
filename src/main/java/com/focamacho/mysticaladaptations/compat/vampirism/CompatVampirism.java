@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.compat.vampirism;
 
 import de.teamlapen.vampirism.core.ModEffects;
-//import de.teamlapen.vampirism.player.vampire.VampirePlayer;
 import de.teamlapen.vampirism.entity.player.vampire.VampirePlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;

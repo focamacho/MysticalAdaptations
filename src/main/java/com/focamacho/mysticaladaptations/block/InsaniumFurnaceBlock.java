@@ -70,11 +70,9 @@ public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         double cookingSpeedDifference = 200D * 0.01D;
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-//        Component cookingSpeed = new TextComponent(String.valueOf((int) cookingSpeedValue)).append("%");
         Component cookingSpeed = Component.literal(String.valueOf((int) cookingSpeedValue)).append("%");
         double burnTimeDifference = (1600D * 0.1D) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-//        Component fuelEfficiency = new TextComponent(String.valueOf((int) burnTimeValue)).append("%");
         Component fuelEfficiency = Component.literal(String.valueOf((int) burnTimeValue)).append("%");
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());
