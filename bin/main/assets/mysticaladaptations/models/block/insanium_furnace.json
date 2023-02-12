@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "mysticaladaptations:blocks/insanium_furnace_top",
-    "front": "mysticaladaptations:blocks/insanium_furnace_front",
-    "side": "mysticaladaptations:blocks/insanium_furnace_side"
-  }
-}

@@ -1,7 +1,0 @@
-Java Launcher: C:\Program Files\Eclipse Adoptium\jdk-17.0.4.8-hotspot\bin\java.exe
-Arguments: '--inJar, D:\Projects\MysticalAdaptations\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.4\forge-1.19.2-43.2.4-injected.jar, --outJar, D:\Projects\MysticalAdaptations\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.4_mapped_official_1.19.2\forge-1.19.2-43.2.4_mapped_official_1.19.2.jar, --logFile, accesstransform.log, --atFile, D:\Projects\MysticalAdaptations\src\main\resources\META-INF\accesstransformer.cfg, --atFile, D:\Projects\MysticalAdaptations\build\_atJar_4\parent_at.cfg'
-Classpath:
- - C:\Users\yassi\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
-Working directory: D:\Projects\MysticalAdaptations\build\_atJar_4
-Main class: net.minecraftforge.accesstransformer.TransformerProcessor
-====================================

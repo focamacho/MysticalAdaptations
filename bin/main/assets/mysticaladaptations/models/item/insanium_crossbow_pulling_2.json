@@ -1,6 +1,0 @@
-{
-  "parent": "mysticaladaptations:item/insanium_crossbow",
-  "textures": {
-    "layer0": "mysticaladaptations:items/insanium_crossbow_pulling_2"
-  }
-}
