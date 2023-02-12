@@ -10,7 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+//import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -59,7 +59,7 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
         if (!world.isClientSide()) {
             BlockEntity tile = world.getBlockEntity(pos);
             if (tile instanceof InsaniumReprocessorTileEntity) {
-                NetworkHooks.openGui((ServerPlayer) player, (MenuProvider) tile, pos);
+                NetworkHooks.openScreen((ServerPlayer) player, (MenuProvider) tile, pos);
             }
         }
 
@@ -102,9 +102,12 @@ public class InsaniumReprocessorBlock extends BaseTileEntityBlock {
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(ModTooltips.MACHINE_SPEED.args(new TextComponent(NumberFormat.getInstance().format(1)).withStyle(ChatFormatting.DARK_PURPLE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(new TextComponent(NumberFormat.getInstance().format(2880)).withStyle(ChatFormatting.DARK_PURPLE)).build());
-            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(new TextComponent(NumberFormat.getInstance().format(860000)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+//            tooltip.add(ModTooltips.MACHINE_SPEED.args(new TextComponent(NumberFormat.getInstance().format(1)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_SPEED.args(Component.literal(NumberFormat.getInstance().format(1)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+//            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(new TextComponent(NumberFormat.getInstance().format(2880)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_RATE.args(Component.literal(NumberFormat.getInstance().format(2880)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+//            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(new TextComponent(NumberFormat.getInstance().format(860000)).withStyle(ChatFormatting.DARK_PURPLE)).build());
+            tooltip.add(ModTooltips.MACHINE_FUEL_CAPACITY.args(Component.literal(NumberFormat.getInstance().format(860000)).withStyle(ChatFormatting.DARK_PURPLE)).build());
         } else {
             tooltip.add(Tooltips.HOLD_SHIFT_FOR_INFO.build());
         }

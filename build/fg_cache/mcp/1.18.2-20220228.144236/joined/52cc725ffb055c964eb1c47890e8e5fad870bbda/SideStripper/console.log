@@ -1,0 +1,9 @@
+JVM:         C:\Program Files\Eclipse Adoptium\jdk-17.0.4.8-hotspot\bin\java.exe
+JVM Args:    
+Run Args:    "--strip", "--input", "D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\AccessTransformer\output.jar", "--output", "D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\SideStripper\output.jar", "--data", "D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\SideStripper\string_data.sas"
+Classpath:   C:\Users\yassi\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\mergetool\1.1.5\mergetool-1.1.5-fatjar.jar
+Working Dir: D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\SideStripper
+Main Class:  net.minecraftforge.mergetool.ConsoleMerger
+Input:  D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\AccessTransformer\output.jar
+Output: D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\SideStripper\output.jar
+Data:   D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\SideStripper\string_data.sas

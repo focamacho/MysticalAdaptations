@@ -1,0 +1,16 @@
+JVM:         C:\Program Files\Eclipse Adoptium\jdk-17.0.4.8-hotspot\bin\java.exe
+JVM Args:    
+Run Args:    "--task", "MERGE_MAPPING", "--left", "config/joined.tsrg", "--right", "D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\downloadClientMappings\client_mappings.txt", "--right-names", "right,left", "--classes", "--output", "D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\mergeMappings\output.jar"
+Classpath:   C:\Users\yassi\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\installertools\1.2.0\installertools-1.2.0-fatjar.jar
+Working Dir: D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\mergeMappings
+Main Class:  net.minecraftforge.installertools.ConsoleTool
+Task: MERGE_MAPPING
+Left:    config\joined.tsrg
+         null
+Right:   D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\downloadClientMappings\client_mappings.txt
+         right,left
+Classes: true
+Fields:  false
+Methods: false
+Params:  false
+Output:  D:\Projects\MysticalAdaptations\build\fg_cache\mcp\1.18.2-20220228.144236\joined\52cc725ffb055c964eb1c47890e8e5fad870bbda\mergeMappings\output.jar

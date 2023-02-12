@@ -14,7 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModContainers {
 
-    static final DeferredRegister<MenuType<?>> containers = DeferredRegister.create(ForgeRegistries.CONTAINERS, Reference.MOD_ID);
+    static final DeferredRegister<MenuType<?>> containers = DeferredRegister.create(ForgeRegistries.MENU_TYPES, Reference.MOD_ID);
     public static RegistryObject<MenuType<InsaniumReprocessorContainer>> INSANIUM_REPROCESSOR = containers.register("insanium_reprocessor", () -> IForgeMenuType.create(InsaniumReprocessorContainer::create));
 
     @OnlyIn(Dist.CLIENT)

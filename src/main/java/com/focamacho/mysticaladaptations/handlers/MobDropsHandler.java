@@ -23,7 +23,7 @@ public class MobDropsHandler {
 
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
-        LivingEntity entity = event.getEntityLiving();
+        LivingEntity entity = event.getEntity();
         Level world = entity.getCommandSenderWorld();
         Collection<ItemEntity> drops = event.getDrops();
         Entity attacker = event.getSource().getEntity();

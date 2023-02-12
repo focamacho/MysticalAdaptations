@@ -1,0 +1,25 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "FGF",
+    "ISI",
+    "FGF"
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagradditions:insanium_ingot"
+    },
+    "I": {
+      "item": "mysticalagradditions:insanium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:supremium_watering_can"
+    },
+    "F": {
+      "item": "mysticalagriculture:mystical_fertilizer"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_watering_can"
+  }
+}

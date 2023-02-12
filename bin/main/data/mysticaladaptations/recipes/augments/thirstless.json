@@ -1,0 +1,41 @@
+{
+  "type": "mysticalagriculture:infusion",
+  "conditions": [
+    {
+      "type": "mysticalagriculture:augment_enabled",
+      "augment": "mysticaladaptations:thirstless"
+    }
+  ],
+  "input": {
+    "item": "mysticalagriculture:unattuned_augment"
+  },
+  "ingredients": [
+    {
+      "item": "vampirism:pure_blood_4"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "mysticalagradditions:insanium_essence"
+    }
+  ],
+  "result": {
+    "item": "mysticalagriculture:thirstless_augment"
+  }
+}

@@ -3,7 +3,9 @@ package com.focamacho.mysticaladaptations.container;
 import com.blakebr0.cucumber.helper.RecipeHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.slot.BaseItemStackHandlerSlot;
-import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+//import com.blakebr0.mysticalagriculture.api.crafting.RecipeTypes;
+import com.blakebr0.mysticalagriculture.init.ModRecipeTypes;
+import com.blakebr0.mysticalagriculture.util.RecipeIngredientCache;
 import com.focamacho.mysticaladaptations.init.ModContainers;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
 import net.minecraft.core.BlockPos;
@@ -68,7 +70,7 @@ public class InsaniumReprocessorContainer extends AbstractContainerMenu {
 
                 slot.onQuickCraft(itemstack1, itemstack);
             } else if (index != 1 && index != 0) {
-                if (RecipeHelper.getRecipes(RecipeTypes.REPROCESSOR).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
+                if (RecipeHelper.getRecipes(ModRecipeTypes.REPROCESSOR.get()).values().stream().anyMatch(r -> r.getIngredients().get(0).test(itemstack1))) {
                     if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
