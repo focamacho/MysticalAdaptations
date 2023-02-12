@@ -10,16 +10,16 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply from: 'https://raw.githubusercontent.com/SizableShrimp/ForgeUpdatesRemapper/main/remapper.gradle'
 
-version = '1.1.2'
+version = '1.19.3-1.0'
 group = 'com.focamacho'
 
 java {
-    archivesBaseName = 'MysticalAdaptations-1.19.2'
+    archivesBaseName = 'MysticalAdaptations'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: '1.19.3'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -62,18 +62,32 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.4'
+    minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
 
     //Cucumber Library
-    implementation fg.deobf("curse.maven:cucumber-272335:4381000")
+    implementation fg.deobf("curse.maven:cucumber-272335:4381028")
 
     //Mystical Agriculture
-    implementation fg.deobf("curse.maven:mysticalagriculture-246640:4382137")
+    implementation fg.deobf("curse.maven:mysticalagriculture-246640:4382194")
 
     //Mystical Agradditions
-    implementation fg.deobf("curse.maven:mysticalagradditions-256247:4174081")
+    implementation fg.deobf("curse.maven:mysticalagradditions-256247:4284325")
 
     //Vampirism
     compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.2-1.9.1') { transitive = false;}
     runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.2-1.9.1') { transitive = false; }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "Mystical Adaptations",
+                "Specification-Vendor"    : "focamacho",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.version,
+                "Implementation-Vendor"   : "focamacho",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
 }
