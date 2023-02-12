@@ -5,7 +5,6 @@ import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import com.focamacho.mysticaladaptations.tiles.InsaniumFurnaceTileEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-//import net.minecraft.network.chat.TextComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,8 +24,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
 public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
 
