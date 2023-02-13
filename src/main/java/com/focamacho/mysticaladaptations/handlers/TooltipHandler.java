@@ -20,8 +20,6 @@ public class TooltipHandler {
         if(rl == null) return;
         String modid = rl.getNamespace();
 
-        System.out.println("modid = " + modid);
-
         if(modid.equals(Reference.MOD_ID) || modid.equals(MysticalAgriculture.MOD_ID)) {
             int index = -1;
             for(Component text : event.getToolTip()){
