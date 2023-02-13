@@ -32,7 +32,7 @@ public class ModItems {
 	public static RegistryObject<Item> INSANIUM_PAXEL = items.register("insanium_paxel", () -> new EssencePaxelItem(ModItemTier.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
 	public static RegistryObject<Item> INSANIUM_BOW = items.register("insanium_bow", () -> new EssenceBowItem(ModItemTier.INSANIUM, 6, 1, 2.0f){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
 	public static RegistryObject<Item> INSANIUM_CROSSBOW = items.register("insanium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.INSANIUM, 6, 1, 2.0f){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
-	public static RegistryObject<Item> INSANIUM_WATERING_CAN = items.register("insanium_watering_can", () -> new EssenceWateringCanItem(13, 0.5, Utils.getColorFromTier(6)));
+	public static RegistryObject<Item> INSANIUM_WATERING_CAN = items.register("insanium_watering_can", () -> new EssenceWateringCanItem(15, 0.5, Utils.getColorFromTier(6)));
 
 	public static RegistryObject<Item> INSANIUM_HELMET = items.register("insanium_helmet", () -> new EssenceHelmetItem(ModArmorMaterial.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }});
 	public static RegistryObject<Item> INSANIUM_CHESTPLATE = items.register("insanium_chestplate", () -> new EssenceChestplateItem(ModArmorMaterial.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }});
