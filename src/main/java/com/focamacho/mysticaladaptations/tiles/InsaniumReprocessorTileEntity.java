@@ -23,11 +23,10 @@ import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
@@ -90,11 +89,11 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
         if (!this.isRemoved()) {
-            if (cap == CapabilityEnergy.ENERGY) {
-                return CapabilityEnergy.ENERGY.orEmpty(cap, this.energyCapability);
+            if (cap == ForgeCapabilities.ENERGY) {
+                return ForgeCapabilities.ENERGY.orEmpty(cap, this.energyCapability);
             }
 
-            if (side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if (side != null && cap == ForgeCapabilities.ITEM_HANDLER) {
                 if (side == Direction.UP) {
                     return this.inventoryCapabilities[0].cast();
                 } else if (side == Direction.DOWN) {
@@ -119,7 +118,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
                 if (tile.fuelItemValue > 0) {
                     tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.extractItemSuper(1, 1, false);
+                    tile.inventory.extractItem(1, 1, false);
 
                     mark = true;
                 }
@@ -154,7 +153,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
                         tile.energy.extractEnergy(fuelUsage, false);
 
                         if (tile.progress >= operationTime) {
-                            tile.inventory.extractItemSuper(0, 1, false);
+                            tile.inventory.extractItem(0, 1, false);
 
                             var result = StackHelper.combineStacks(output, recipeOutput);
                             tile.inventory.setStackInSlot(2, result);
@@ -186,7 +185,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     }
 
     public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = new BaseItemStackHandler(3, onContentsChanged);
+        var inventory = BaseItemStackHandler.create(3, onContentsChanged);
 
         inventory.setOutputSlots(2);
 
