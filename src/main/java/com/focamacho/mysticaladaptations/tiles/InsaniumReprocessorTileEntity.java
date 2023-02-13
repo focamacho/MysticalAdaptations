@@ -1,5 +1,6 @@
 package com.focamacho.mysticaladaptations.tiles;
 
+import com.blakebr0.cucumber.energy.BaseEnergyStorage;
 import com.blakebr0.cucumber.helper.StackHelper;
 import com.blakebr0.cucumber.inventory.BaseItemStackHandler;
 import com.blakebr0.cucumber.inventory.SidedItemStackHandlerWrapper;
@@ -33,24 +34,22 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     private static final int FUEL_TICK_MULTIPLIER = 20;
     private final BaseItemStackHandler inventory;
-    private final EnergyStorage energy;
+    private final BaseEnergyStorage energy;
     private final LazyOptional<IItemHandlerModifiable>[] inventoryCapabilities;
     private final LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(this::getEnergy);
     private ReprocessorRecipe recipe;
     private int progress;
     private int fuelLeft;
     private int fuelItemValue;
-    private int oldEnergy;
 
     //Insanium Reprocessor Values
-    private static final int operationTime = 1;
-    private static final int fuelUsage = 2880;
-    private static final int fuelCapacity = 860000;
+    private static final int fuelUsage = 11520;
+    private static final int fuelCapacity = 2560000;
 
     public InsaniumReprocessorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INSANIUM_REPROCESSOR.get(), pos, state);
         this.inventory = createInventoryHandler(null);
-        this.energy = new EnergyStorage(fuelCapacity);
+        this.energy = new BaseEnergyStorage(fuelCapacity, this::markDirtyAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH}, this::canInsertStackSided, null);
     }
 
@@ -113,70 +112,65 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
         if (tile.energy.getEnergyStored() < tile.energy.getMaxEnergyStored()) {
             var fuel = tile.inventory.getStackInSlot(1);
 
-            if (tile.fuelLeft <= 0 && !fuel.isEmpty()) {
-                tile.fuelItemValue = ForgeHooks.getBurnTime(fuel, null);
+            for(int i = 0; i < 4; i++) {
+                if (tile.fuelLeft <= 0 && !fuel.isEmpty()) {
+                    tile.fuelItemValue = ForgeHooks.getBurnTime(fuel, null);
 
-                if (tile.fuelItemValue > 0) {
-                    tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
-                    tile.inventory.extractItem(1, 1, false);
-
-                    mark = true;
-                }
-            }
-
-            if (tile.fuelLeft > 0) {
-                var fuelPerTick = Math.min(Math.min(tile.fuelLeft, fuelUsage * 2), tile.energy.getMaxEnergyStored() - tile.energy.getEnergyStored());
-
-                tile.fuelLeft -= tile.energy.receiveEnergy(fuelPerTick, false);
-
-                if (tile.fuelLeft <= 0)
-                    tile.fuelItemValue = 0;
-
-                mark = true;
-            }
-        }
-
-        if (tile.energy.getEnergyStored() >= fuelUsage) {
-            var input = tile.inventory.getStackInSlot(0);
-            var output = tile.inventory.getStackInSlot(2);
-
-            if (!input.isEmpty()) {
-                if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
-                    var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.REPROCESSOR.get(), tile.inventory.toIInventory(), level).orElse(null);
-                    tile.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
-                }
-
-                if (tile.recipe != null) {
-                    var recipeOutput = tile.recipe.assemble(tile.inventory);
-                    if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
-                        tile.progress++;
-                        tile.energy.extractEnergy(fuelUsage, false);
-
-                        if (tile.progress >= operationTime) {
-                            tile.inventory.extractItem(0, 1, false);
-
-                            var result = StackHelper.combineStacks(output, recipeOutput);
-                            tile.inventory.setStackInSlot(2, result);
-
-                            tile.progress = 0;
-                        }
+                    if (tile.fuelItemValue > 0) {
+                        tile.fuelLeft = tile.fuelItemValue *= FUEL_TICK_MULTIPLIER;
+                        tile.inventory.setStackInSlot(1, StackHelper.shrink(tile.inventory.getStackInSlot(1), 1, false));
 
                         mark = true;
                     }
                 }
-            } else {
-                if (tile.progress > 0) {
-                    tile.progress = 0;
-                    tile.recipe = null;
+
+                if (tile.fuelLeft > 0) {
+                    var fuelPerTick = Math.min(Math.min(tile.fuelLeft, fuelUsage * 2), tile.energy.getMaxEnergyStored() - tile.energy.getEnergyStored());
+
+                    tile.fuelLeft -= tile.energy.receiveEnergy(fuelPerTick, false);
+
+                    if (tile.fuelLeft <= 0)
+                        tile.fuelItemValue = 0;
+
                     mark = true;
                 }
             }
         }
 
-        if (tile.oldEnergy != tile.energy.getEnergyStored()) {
-            tile.oldEnergy = tile.energy.getEnergyStored();
+        if (tile.energy.getEnergyStored() >= fuelUsage) {
+            for(int i = 0; i < Math.min(tile.energy.getEnergyStored() / fuelUsage, 4); i++) {
+                var input = tile.inventory.getStackInSlot(0);
+                var output = tile.inventory.getStackInSlot(2);
 
-            mark = true;
+                if (!input.isEmpty()) {
+                    if (tile.recipe == null || !tile.recipe.matches(tile.inventory)) {
+                        var recipe = level.getRecipeManager().getRecipeFor(ModRecipeTypes.REPROCESSOR.get(), tile.inventory.toIInventory(), level).orElse(null);
+                        tile.recipe = recipe instanceof ReprocessorRecipe ? (ReprocessorRecipe) recipe : null;
+                    }
+
+                    if (tile.recipe != null) {
+                        var recipeOutput = tile.recipe.assemble(tile.inventory);
+                        if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
+                            tile.progress = 0;
+                            tile.energy.extractEnergy(fuelUsage, false);
+
+                            tile.inventory.setStackInSlot(0, StackHelper.shrink(tile.inventory.getStackInSlot(0), 1, false));
+
+                            var result = StackHelper.combineStacks(output, recipeOutput);
+                            tile.inventory.setStackInSlot(2, result);
+
+                            mark = true;
+                        }
+                    } else break;
+                } else {
+                    if(tile.recipe != null) {
+                        tile.recipe = null;
+                        mark = true;
+                    }
+
+                    break;
+                }
+            }
         }
 
         if (mark) {
@@ -206,10 +200,6 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     public int getFuelItemValue() {
         return this.fuelItemValue;
-    }
-
-    public static int getOperationTime() {
-        return operationTime;
     }
 
     private boolean canInsertStackSided(int slot, ItemStack stack, Direction direction) {

@@ -20,29 +20,29 @@ import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
 
     // Insanium Furnace Values
-    private static final double burnTimeMultiplier = 0.1D;
-    private static final double cookTimeMultiplier = 0.01D;
+    private static final double burnTimeMultiplier = 0.05D;
 
     public InsaniumFurnaceTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INSANIUM_FURNACE.get(), pos, state, RecipeType.SMELTING);
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected @NotNull Component getDefaultName() {
         return Localizable.of("container.mysticaladaptations.insanium_furnace").build();
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory player) {
+    protected @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory player) {
         return new FurnaceMenu(id, player, this, this.dataAccess);
     }
 
     @Override
-    protected int getBurnDuration(ItemStack stack) {
+    protected int getBurnDuration(@NotNull ItemStack stack) {
         return (int) (super.getBurnDuration(stack) * InsaniumFurnaceTileEntity.burnTimeMultiplier);
     }
 
@@ -56,15 +56,11 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
         }
 
         if (slot == 0 && !flag) {
-            this.cookingTotalTime = (int) (getTotalCookTime(level, this) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
+            this.cookingTotalTime = 0;
             this.cookingProgress = 0;
             this.setChanged();
         }
 
-    }
-
-    private static int getTotalCookTime(Level p_222693_, AbstractFurnaceBlockEntity p_222694_) {
-        return p_222694_.quickCheck.getRecipeFor(p_222694_, p_222693_).map(AbstractCookingRecipe::getCookingTime).orElse(200);
     }
 
     protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
@@ -141,15 +137,15 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
                 }
             }
 
-            if (tile.isLit() && tile.canBurn(recipe, tile.items, i)) {
-                ++tile.cookingProgress;
-                if (tile.cookingProgress == tile.cookingTotalTime) {
-                    tile.cookingProgress = 0;
-                    tile.cookingTotalTime = (int) (getTotalCookTime(level, tile) * InsaniumFurnaceTileEntity.cookTimeMultiplier);
-                    if (tile.burn(recipe, tile.items, i)) {
-                        tile.setRecipeUsed(recipe);
-                    }
-
+            if (tile.isLit()) {
+                for(int j = 0; j < 4; j++) {
+                    if (tile.canBurn(recipe, tile.items, i)) {
+                        tile.cookingProgress = 0;
+                        tile.cookingTotalTime = 0;
+                        if (tile.burn(recipe, tile.items, i)) {
+                            tile.setRecipeUsed(recipe);
+                        }
+                    } else break;
                 }
             } else {
                 tile.cookingProgress = 0;

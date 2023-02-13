@@ -93,13 +93,6 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
         return this.tile.getProgress();
     }
 
-    public int getOperationTime() {
-        if (this.tile == null)
-            return 0;
-
-        return InsaniumReprocessorTileEntity.getOperationTime();
-    }
-
     public int getFuelLeft() {
         if (this.tile == null)
             return 0;
@@ -129,9 +122,7 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
     }
 
     public int getProgressScaled(int pixels) {
-        int i = this.getProgress();
-        int j = this.getOperationTime();
-        return j != 0 && i != 0 ? i * pixels / j : 0;
+        return pixels;
     }
 
     public int getEnergyBarScaled(int pixels) {
