@@ -10,8 +10,6 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 public class ConfigHolder {
 
     //Mystical Agradditions
-    public static boolean enchantableInsaniumArmor;
-    public static boolean enchantableInsaniumTools;
     public static int insaniumArmorAugments;
     public static int insaniumToolsAugments;
 
@@ -24,8 +22,6 @@ public class ConfigHolder {
     public static boolean dragonInsanium;
 
     public static void updateConfigs(){
-        enchantableInsaniumArmor = ConfigMysticalAdaptations.enchantableInsaniumArmor.get();
-        enchantableInsaniumTools = ConfigMysticalAdaptations.enchantableInsaniumTools.get();
         insaniumArmorAugments = ConfigMysticalAdaptations.insaniumArmorAugments.get();
         insaniumToolsAugments = ConfigMysticalAdaptations.insaniumToolsAugments.get();
 

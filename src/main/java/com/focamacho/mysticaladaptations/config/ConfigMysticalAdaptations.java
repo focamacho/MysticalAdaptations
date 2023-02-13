@@ -10,8 +10,6 @@ public class ConfigMysticalAdaptations {
     public static final ForgeConfigSpec spec = BUILDER.build();
 
     //Mystical Agradditions
-    public static ConfigValue<Boolean> enchantableInsaniumArmor;
-    public static ConfigValue<Boolean> enchantableInsaniumTools;
     public static ConfigValue<Integer> insaniumArmorAugments;
     public static ConfigValue<Integer> insaniumToolsAugments;
 
@@ -26,8 +24,6 @@ public class ConfigMysticalAdaptations {
     public static class General {
         public General(final ForgeConfigSpec.Builder builder) {
             builder.push("Mystical Agradditions");
-            enchantableInsaniumArmor = builder.comment("Set whether Insanium Armor can be enchanted using a enchantment table").define("enchantable_insanium_armor", false);
-            enchantableInsaniumTools = builder.comment("Set whether Insanium Tools can be enchanted using a enchantment table").define("enchantable_insanium_tools", false);
             insaniumArmorAugments = builder.comment("Set how many augments can be placed on the insanium armor").defineInRange("insanium_armor_augments", 2, 1, 2);
             insaniumToolsAugments = builder.comment("Set how many augments can be placed on the insanium tools").defineInRange("insanium_tools_augments", 2, 1, 2);
             builder.pop();
