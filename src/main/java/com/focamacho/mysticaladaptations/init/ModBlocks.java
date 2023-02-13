@@ -19,8 +19,8 @@ public class ModBlocks {
     public static RegistryObject<Block> INSANIUM_REPROCESSOR = blocks.register("insanium_reprocessor", InsaniumReprocessorBlock::new);
 
     static {
-        ModItems.items.register("insanium_furnace", () -> new BlockItem(INSANIUM_FURNACE.get(), new Item.Properties().tab(MysticalAdaptations.creativeTab)));
-        ModItems.items.register("insanium_reprocessor", () -> new BlockItem(INSANIUM_REPROCESSOR.get(), new Item.Properties().tab(MysticalAdaptations.creativeTab)));
+        ModItems.items.register("insanium_furnace", () -> new BlockItem(INSANIUM_FURNACE.get(), new Item.Properties()));
+        ModItems.items.register("insanium_reprocessor", () -> new BlockItem(INSANIUM_REPROCESSOR.get(), new Item.Properties()));
     }
 
 }
