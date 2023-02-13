@@ -1,6 +1,6 @@
 {
    "parent": "item/handheld",
    "textures": {
-       "layer0": "mysticaladaptations:items/imperium_extractor"
+       "layer0": "mysticaladaptations:item/imperium_extractor"
    }
 }

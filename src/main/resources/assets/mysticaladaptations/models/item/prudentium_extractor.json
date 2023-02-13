@@ -1,6 +1,6 @@
 {
    "parent": "item/handheld",
    "textures": {
-       "layer0": "mysticaladaptations:items/prudentium_extractor"
+       "layer0": "mysticaladaptations:item/prudentium_extractor"
    }
 }

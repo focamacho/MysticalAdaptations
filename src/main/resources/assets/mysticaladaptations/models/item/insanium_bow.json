@@ -1,7 +1,7 @@
 {
   "parent": "mysticalagriculture:item/supremium_bow",
   "textures": {
-    "layer0": "mysticaladaptations:items/insanium_bow"
+    "layer0": "mysticaladaptations:item/insanium_bow"
   },
   "overrides": [
     {

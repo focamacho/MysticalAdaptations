@@ -1,6 +1,6 @@
 {
    "parent": "item/handheld",
    "textures": {
-       "layer0": "mysticaladaptations:items/inferium_extractor"
+       "layer0": "mysticaladaptations:item/inferium_extractor"
    }
 }

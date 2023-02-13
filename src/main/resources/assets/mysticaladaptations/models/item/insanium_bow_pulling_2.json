@@ -1,6 +1,6 @@
 {
   "parent": "mysticaladaptations:item/insanium_bow",
   "textures": {
-    "layer0": "mysticaladaptations:items/insanium_bow_pulling_2"
+    "layer0": "mysticaladaptations:item/insanium_bow_pulling_2"
   }
 }

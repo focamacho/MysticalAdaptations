@@ -1,7 +1,7 @@
 {
   "parent": "mysticalagriculture:item/supremium_crossbow",
   "textures": {
-    "layer0": "mysticaladaptations:items/insanium_crossbow_standby"
+    "layer0": "mysticaladaptations:item/insanium_crossbow_standby"
   },
   "overrides": [
     {
