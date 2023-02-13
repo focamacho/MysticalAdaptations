@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements ArmorMaterial {
 
-    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, ConfigHolder.enchantableInsaniumArmor ? 30 : 0, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.0F, () -> {
+    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, 0, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.0F, () -> {
         return Ingredient.of(ModItems.INSANIUM_INGOT.get());
     });
 

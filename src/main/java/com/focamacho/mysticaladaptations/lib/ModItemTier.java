@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum ModItemTier implements Tier {
-    INSANIUM(6, -1, 32.0F, 24.0F, ConfigHolder.enchantableInsaniumTools ? 30 : 0, () -> {
+    INSANIUM(6, -1, 32.0F, 24.0F, 0, () -> {
         return Ingredient.of(ModItems.INSANIUM_INGOT.get());
     });
 
