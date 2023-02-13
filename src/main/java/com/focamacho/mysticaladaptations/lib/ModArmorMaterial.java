@@ -16,9 +16,7 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements ArmorMaterial {
 
-    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{5, 9, 10, 6}, 0, SoundEvents.ARMOR_EQUIP_GOLD, 3.5F, 0.0F, () -> {
-        return Ingredient.of(ModItems.INSANIUM_INGOT.get());
-    });
+    INSANIUM(Utils.getRegistryName("insanium").toString(), 400, new int[]{8, 12, 14, 10}, 24, SoundEvents.ARMOR_EQUIP_GOLD, 4.0F, 0.2F, () -> Ingredient.of(ModItems.INSANIUM_INGOT.get()));
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
     private final String name;
