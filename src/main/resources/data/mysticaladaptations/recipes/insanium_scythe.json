@@ -1,0 +1,22 @@
+{
+  "type": "cucumber:shaped_transfer_damage",
+  "pattern": [
+    " G ",
+    "ISI",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "mysticalagradditions:insanium_gemstone"
+    },
+    "I": {
+      "item": "mysticalagradditions:insanium_ingot"
+    },
+    "S": {
+      "item": "mysticalagriculture:awakened_supremium_scythe"
+    }
+  },
+  "result": {
+    "item": "mysticaladaptations:insanium_scythe"
+  }
+}

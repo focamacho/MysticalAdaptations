@@ -2,6 +2,7 @@ package com.focamacho.mysticaladaptations.init;
 
 import com.blakebr0.mysticalagradditions.item.EssencePaxelItem;
 import com.blakebr0.mysticalagriculture.item.EssenceWateringCanItem;
+import com.blakebr0.mysticalagriculture.item.MachineUpgradeItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceBootsItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceChestplateItem;
 import com.blakebr0.mysticalagriculture.item.armor.EssenceHelmetItem;
@@ -33,6 +34,10 @@ public class ModItems {
 	public static RegistryObject<Item> INSANIUM_BOW = items.register("insanium_bow", () -> new EssenceBowItem(ModItemTier.INSANIUM, 6, 1, 2.0f){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
 	public static RegistryObject<Item> INSANIUM_CROSSBOW = items.register("insanium_crossbow", () -> new EssenceCrossbowItem(ModItemTier.INSANIUM, 6, 1, 2.0f){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
 	public static RegistryObject<Item> INSANIUM_WATERING_CAN = items.register("insanium_watering_can", () -> new EssenceWateringCanItem(15, 0.5, Utils.getColorFromTier(6)));
+	public static RegistryObject<Item> INSANIUM_SHEARS = items.register("insanium_shears", () -> new EssenceShearsItem(ModItemTier.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
+	public static RegistryObject<Item> INSANIUM_FISHING_ROD = items.register("insanium_fishing_rod", () -> new EssenceFishingRodItem(ModItemTier.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
+	public static RegistryObject<Item> INSANIUM_SICKLE = items.register("insanium_sickle", () -> new EssenceSickleItem(ModItemTier.INSANIUM, 9, Utils.getColorFromTier(6), 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
+	public static RegistryObject<Item> INSANIUM_SCYTHE = items.register("insanium_scythe", () -> new EssenceScytheItem(ModItemTier.INSANIUM, 9, Utils.getColorFromTier(6), 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumToolsAugments; }});
 
 	public static RegistryObject<Item> INSANIUM_HELMET = items.register("insanium_helmet", () -> new EssenceHelmetItem(ModArmorMaterial.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }});
 	public static RegistryObject<Item> INSANIUM_CHESTPLATE = items.register("insanium_chestplate", () -> new EssenceChestplateItem(ModArmorMaterial.INSANIUM, 6, 1){@Override public int getAugmentSlots() { return ConfigHolder.insaniumArmorAugments; }});

@@ -3,6 +3,7 @@ package com.focamacho.mysticaladaptations;
 import com.blakebr0.cucumber.util.FeatureFlagDisplayItemGenerator;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceBowItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceCrossbowItem;
+import com.blakebr0.mysticalagriculture.item.tool.EssenceFishingRodItem;
 import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import com.focamacho.mysticaladaptations.config.ConfigMysticalAdaptations;
 import com.focamacho.mysticaladaptations.handlers.MobDropsHandler;
@@ -73,6 +74,8 @@ public class MysticalAdaptations {
             ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("pulling"), EssenceCrossbowItem.getPullingPropertyGetter());
             ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("charged"), EssenceCrossbowItem.getChargedPropertyGetter());
             ItemProperties.register(ModItems.INSANIUM_CROSSBOW.get(), new ResourceLocation("firework"), EssenceCrossbowItem.getFireworkPropertyGetter());
+
+            ItemProperties.register(ModItems.INSANIUM_FISHING_ROD.get(), new ResourceLocation("cast"), EssenceFishingRodItem.getCastPropertyGetter());
         });
     }
 
