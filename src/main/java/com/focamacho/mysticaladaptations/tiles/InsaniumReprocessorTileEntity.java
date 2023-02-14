@@ -30,6 +30,8 @@ import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
+import java.util.function.Consumer;
+
 public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity implements MenuProvider {
 
     private static final int FUEL_TICK_MULTIPLIER = 20;
@@ -48,7 +50,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
 
     public InsaniumReprocessorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INSANIUM_REPROCESSOR.get(), pos, state);
-        this.inventory = createInventoryHandler(null);
+        this.inventory = createInventoryHandler();
         this.energy = new BaseEnergyStorage(fuelCapacity, this::markDirtyAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH}, this::canInsertStackSided, null);
     }
@@ -178,8 +180,8 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
         }
     }
 
-    public static BaseItemStackHandler createInventoryHandler(Runnable onContentsChanged) {
-        var inventory = BaseItemStackHandler.create(3, onContentsChanged);
+    public static BaseItemStackHandler createInventoryHandler() {
+        var inventory = BaseItemStackHandler.create(3);
 
         inventory.setOutputSlots(2);
 

@@ -1,6 +1,7 @@
 package com.focamacho.mysticaladaptations.block;
 
 import com.blakebr0.cucumber.util.Formatting;
+import com.blakebr0.cucumber.util.Utils;
 import com.blakebr0.mysticalagriculture.lib.ModTooltips;
 import com.focamacho.mysticaladaptations.init.ModTileEntities;
 import com.focamacho.mysticaladaptations.tiles.InsaniumFurnaceTileEntity;
@@ -68,10 +69,10 @@ public class InsaniumFurnaceBlock extends AbstractFurnaceBlock {
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
         double cookingSpeedDifference = 200D * 0.005D;
         double cookingSpeedValue = Math.ceil(((200D - cookingSpeedDifference) / cookingSpeedDifference) * 100D) + 100D;
-        var cookingSpeed = Formatting.percent(cookingSpeedValue * 4);
+        var cookingSpeed = Component.literal(Utils.format(cookingSpeedValue * 4)).append("%");
         double burnTimeDifference = (1600D * 0.1D) / cookingSpeedDifference;
         double burnTimeValue = Math.ceil(((burnTimeDifference - 8D) / 8D) * 100D) + 100D;
-        var fuelEfficiency = Formatting.percent(burnTimeValue * 4);
+        var fuelEfficiency = Component.literal(Utils.format(burnTimeValue * 4)).append("%");
 
         tooltip.add(ModTooltips.COOKING_SPEED.args(cookingSpeed).build());
         tooltip.add(ModTooltips.FUEL_EFFICIENCY.args(fuelEfficiency).build());

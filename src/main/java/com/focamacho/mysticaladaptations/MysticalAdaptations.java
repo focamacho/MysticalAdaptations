@@ -1,6 +1,5 @@
 package com.focamacho.mysticaladaptations;
 
-import com.blakebr0.cucumber.util.FeatureFlagDisplayItemGenerator;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceBowItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceCrossbowItem;
 import com.blakebr0.mysticalagriculture.item.tool.EssenceFishingRodItem;
@@ -14,12 +13,11 @@ import com.focamacho.mysticaladaptations.init.ModRegistry;
 import com.focamacho.mysticaladaptations.util.Reference;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.network.chat.Component;
+import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -30,7 +28,6 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,33 +85,32 @@ public class MysticalAdaptations {
         }
     }
 
-    @SubscribeEvent
-    public void onCreativeTab(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(Reference.MOD_ID, "creative_tab"), (builder) -> {
-            var displayItems = FeatureFlagDisplayItemGenerator.create((flagSet, output, hasPermission) -> {
-                output.accept(new ItemStack(ModAugments.HUNGERLESS.getItem()));
-                output.accept(new ItemStack(ModAugments.WOODCUTTER.getItem()));
-                output.accept(new ItemStack(ModAugments.MINING_AOE_V.getItem()));
-                output.accept(new ItemStack(ModAugments.STRENGTH_IV.getItem()));
-                output.accept(new ItemStack(ModAugments.ABSORPTION_VI.getItem()));
-                output.accept(new ItemStack(ModAugments.HEALTH_BOOST_VI.getItem()));
-                output.accept(new ItemStack(ModAugments.ATTACK_AOE_IV.getItem()));
-                output.accept(new ItemStack(ModAugments.TILLING_AOE_V.getItem()));
+    public static final CreativeModeTab creativeTab = new CreativeModeTab(Reference.MOD_ID) {
 
-                if(ModList.get().isLoaded("vampirism")) {
-                    if(ConfigHolder.thirstlessAugment) output.accept(new ItemStack(ModAugments.THIRSTLESS.getItem()));
-                    if(ConfigHolder.daywalkerAugment) output.accept(new ItemStack(ModAugments.DAYWALKER.getItem()));
-                }
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.INSANIUM_SWORD.get());
+        }
 
-                for (RegistryObject<Item> entry : ModItems.items.getEntries()) {
-                    output.accept(entry);
-                }
-            });
+        @Override
+        public void fillItemList(NonNullList<ItemStack> items) {
+            //Add Augments to Mystical Adaptations creative tab
+            items.add(new ItemStack(ModAugments.HUNGERLESS.getItem()));
+            items.add(new ItemStack(ModAugments.WOODCUTTER.getItem()));
+            items.add(new ItemStack(ModAugments.MINING_AOE_V.getItem()));
+            items.add(new ItemStack(ModAugments.STRENGTH_IV.getItem()));
+            items.add(new ItemStack(ModAugments.ABSORPTION_VI.getItem()));
+            items.add(new ItemStack(ModAugments.HEALTH_BOOST_VI.getItem()));
+            items.add(new ItemStack(ModAugments.ATTACK_AOE_IV.getItem()));
+            items.add(new ItemStack(ModAugments.TILLING_AOE_V.getItem()));
 
-            builder.title(Component.translatable("itemGroup.mysticaladaptations"))
-                    .icon(() -> new ItemStack(ModItems.INSANIUM_SWORD.get()))
-                    .displayItems(displayItems);
-        });
-    }
+            if(ModList.get().isLoaded("vampirism")) {
+                if(ConfigHolder.thirstlessAugment) items.add(new ItemStack(ModAugments.THIRSTLESS.getItem()));
+                if(ConfigHolder.daywalkerAugment) items.add(new ItemStack(ModAugments.DAYWALKER.getItem()));
+            }
+
+            super.fillItemList(items);
+        }
+    };
 
 }

@@ -24,7 +24,7 @@ public class InsaniumReprocessorContainer extends AbstractContainerMenu {
     private final BlockPos pos;
 
     private InsaniumReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, BlockPos pos) {
-        this(type, id, playerInventory, p -> false, InsaniumReprocessorTileEntity.createInventoryHandler(null), pos);
+        this(type, id, playerInventory, p -> false, InsaniumReprocessorTileEntity.createInventoryHandler(), pos);
     }
 
     private InsaniumReprocessorContainer(MenuType<?> type, int id, Inventory playerInventory, Function<Player, Boolean> isUsableByPlayer, BaseItemStackHandler inventory, BlockPos pos) {
