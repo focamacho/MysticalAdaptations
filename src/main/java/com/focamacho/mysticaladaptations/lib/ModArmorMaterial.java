@@ -1,7 +1,6 @@
 package com.focamacho.mysticaladaptations.lib;
 
 import com.blakebr0.mysticalagradditions.init.ModItems;
-import com.focamacho.mysticaladaptations.config.ConfigHolder;
 import com.focamacho.mysticaladaptations.util.Utils;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

@@ -1,6 +1,5 @@
 package com.focamacho.mysticaladaptations.init;
 
-import com.focamacho.mysticaladaptations.MysticalAdaptations;
 import com.focamacho.mysticaladaptations.block.InsaniumFurnaceBlock;
 import com.focamacho.mysticaladaptations.block.InsaniumReprocessorBlock;
 import com.focamacho.mysticaladaptations.util.Reference;
