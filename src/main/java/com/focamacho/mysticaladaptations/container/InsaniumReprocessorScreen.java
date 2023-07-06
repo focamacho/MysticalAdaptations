@@ -1,9 +1,10 @@
 package com.focamacho.mysticaladaptations.container;
 
 import com.blakebr0.cucumber.client.screen.BaseContainerScreen;
+import com.blakebr0.cucumber.util.Formatting;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.focamacho.mysticaladaptations.tiles.InsaniumReprocessorTileEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -25,15 +26,15 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
     }
 
     @Override
-    protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+    protected void renderLabels(GuiGraphics stack, int mouseX, int mouseY) {
         var title = this.getTitle().getString();
 
-        this.font.draw(stack, title, (float) (this.imageWidth / 2 - this.font.width(title) / 2), 6.0F, 4210752);
-        this.font.draw(stack, this.playerInventoryTitle, 8.0F, (float) (this.imageHeight - 96 + 2), 4210752);
+        stack.drawString(this.font, title, (this.imageWidth / 2 - this.font.width(title) / 2), 6, 4210752);
+        stack.drawString(this.font, this.playerInventoryTitle, 8, (this.imageHeight - 96 + 2), 4210752);
     }
 
     @Override
-    protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
+    protected void renderBg(GuiGraphics stack, float partialTicks, int mouseX, int mouseY) {
         this.renderDefaultBg(stack, partialTicks, mouseX, mouseY);
 
         int x = this.getGuiLeft();
@@ -41,21 +42,21 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
 
         int i1 = this.getEnergyBarScaled(78);
 
-        this.blit(stack, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
+        stack.blit(BACKGROUND, x + 7, y + 95 - i1, 176, 109 - i1, 15, i1);
 
         if (this.getFuelItemValue() > 0) {
             int lol = this.getBurnLeftScaled(13);
-            this.blit(stack, x + 31, y + 52 - lol, 176, 12 - lol, 14, lol + 1);
+            stack.blit(BACKGROUND, x + 31, y + 52 - lol, 176, 12 - lol, 14, lol + 1);
         }
 
         if (this.getProgress() > 0) {
             int i2 = this.getProgressScaled(24);
-            this.blit(stack, x + 98, y + 51, 176, 14, i2 + 1, 16);
+            stack.blit(BACKGROUND, x + 98, y + 51, 176, 14, i2 + 1, 16);
         }
     }
 
     @Override
-    protected void renderTooltip(PoseStack stack, int mouseX, int mouseY) {
+    protected void renderTooltip(GuiGraphics stack, int mouseX, int mouseY) {
         int x = this.getGuiLeft();
         int y = this.getGuiTop();
 
@@ -63,12 +64,11 @@ public class InsaniumReprocessorScreen extends BaseContainerScreen<InsaniumRepro
 
         if (mouseX > x + 7 && mouseX < x + 20 && mouseY > y + 17 && mouseY < y + 94) {
             var text = Component.literal(number(this.getEnergyStored()) + " / " + number(this.getMaxEnergyStored()) + " FE");
-            this.renderTooltip(stack, text, mouseX, mouseY);
+            stack.renderTooltip(font, text, mouseX, mouseY);
         }
 
         if (this.getFuelLeft() > 0 && mouseX > x + 30 && mouseX < x + 45 && mouseY > y + 39 && mouseY < y + 53) {
-            var text = Component.literal(number(this.getFuelLeft()) + " FE");
-            this.renderTooltip(stack, text, mouseX, mouseY);
+            stack.renderTooltip(font, Formatting.energy(this.getFuelLeft()), mouseX, mouseY);
         }
     }
 

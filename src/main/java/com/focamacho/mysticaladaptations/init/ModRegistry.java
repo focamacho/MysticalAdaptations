@@ -7,6 +7,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ModRegistry {
 
     public static void register() {
+        ModCreativeTabs.REGISTRY.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModItems.items.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModBlocks.blocks.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModContainers.containers.register(FMLJavaModLoadingContext.get().getModEventBus());

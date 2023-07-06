@@ -1,12 +1,12 @@
 plugins {
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 apply plugin: 'net.minecraftforge.gradle'
 apply from: 'https://raw.githubusercontent.com/SizableShrimp/ForgeUpdatesRemapper/main/remapper.gradle'
 
-version = '1.19.4-1.0'
+version = '1.20.1-1.0'
 group = 'com.focamacho'
 
 java {
@@ -15,7 +15,7 @@ java {
 }
 
 minecraft {
-    mappings channel: 'parchment', version: '2023.06.26-1.19.4'
+    mappings channel: 'parchment', version: '2023.06.26-1.20.1'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -58,20 +58,20 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.0.50'
 
     //Cucumber Library
-    implementation fg.deobf("curse.maven:cucumber-272335:4599267")
+    implementation fg.deobf("curse.maven:cucumber-272335:4602089")
 
     //Mystical Agriculture
-    implementation fg.deobf("curse.maven:mystical-agriculture-246640:4590644")
+    implementation fg.deobf("curse.maven:mystical-agriculture-246640:4602097")
 
     //Mystical Agradditions
-    implementation fg.deobf("curse.maven:mystical-agradditions-256247:4576944")
+    implementation fg.deobf("curse.maven:mystical-agradditions-256247:4602098")
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.4-1.9.0') { transitive = false;}
-    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.19.4-1.9.0') { transitive = false; }
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false;}
+    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false; }
 }
 
 jar {
