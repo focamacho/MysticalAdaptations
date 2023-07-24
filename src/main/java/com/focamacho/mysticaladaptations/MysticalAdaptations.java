@@ -19,7 +19,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -86,35 +85,6 @@ public class MysticalAdaptations {
         if (config.getSpec() == ConfigMysticalAdaptations.spec) {
             ConfigHolder.updateConfigs();
         }
-    }
-
-    @SubscribeEvent
-    public void onCreativeTab(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(new ResourceLocation(Reference.MOD_ID, "creative_tab"), (builder) -> {
-            var displayItems = FeatureFlagDisplayItemGenerator.create((flagSet, output) -> {
-                output.accept(new ItemStack(ModAugments.HUNGERLESS.getItem()));
-                output.accept(new ItemStack(ModAugments.WOODCUTTER.getItem()));
-                output.accept(new ItemStack(ModAugments.MINING_AOE_V.getItem()));
-                output.accept(new ItemStack(ModAugments.STRENGTH_IV.getItem()));
-                output.accept(new ItemStack(ModAugments.ABSORPTION_VI.getItem()));
-                output.accept(new ItemStack(ModAugments.HEALTH_BOOST_VI.getItem()));
-                output.accept(new ItemStack(ModAugments.ATTACK_AOE_IV.getItem()));
-                output.accept(new ItemStack(ModAugments.TILLING_AOE_V.getItem()));
-
-                if(ModList.get().isLoaded("vampirism")) {
-                    if(ConfigHolder.thirstlessAugment) output.accept(new ItemStack(ModAugments.THIRSTLESS.getItem()));
-                    if(ConfigHolder.daywalkerAugment) output.accept(new ItemStack(ModAugments.DAYWALKER.getItem()));
-                }
-
-                for (RegistryObject<Item> entry : ModItems.items.getEntries()) {
-                    output.accept(entry);
-                }
-            });
-
-            builder.title(Component.translatable("itemGroup.mysticaladaptations"))
-                    .icon(() -> new ItemStack(ModItems.INSANIUM_SWORD.get()))
-                    .displayItems(displayItems);
-        });
     }
 
 }
