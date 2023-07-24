@@ -149,7 +149,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
                     }
 
                     if (tile.recipe != null) {
-                        var recipeOutput = tile.recipe.assemble(tile.inventory);
+                        var recipeOutput = tile.recipe.assemble(tile.inventory, level.registryAccess());
                         if (!recipeOutput.isEmpty() && (output.isEmpty() || StackHelper.canCombineStacks(output, recipeOutput))) {
                             tile.progress = 0;
                             tile.energy.extractEnergy(fuelUsage, false);

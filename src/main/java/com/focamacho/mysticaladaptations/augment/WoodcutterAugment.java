@@ -5,6 +5,7 @@ import com.blakebr0.mysticalagriculture.api.tinkering.Augment;
 import com.blakebr0.mysticalagriculture.api.tinkering.AugmentType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -70,7 +71,7 @@ public class WoodcutterAugment extends Augment {
         float hardness = state.getDestroySpeed(world, pos);
         Item item = stack.getItem();
         boolean harvest = (state.canHarvestBlock(world, pos, player) || item.isCorrectToolForDrops(stack, state)) && (!extra || item.getDestroySpeed(stack, world.getBlockState(pos)) > 1.0F);
-        return !(hardness < 0.0F) && (!extra || harvest) && BlockHelper.breakBlocksAOE(stack, world, player, pos);
+        return !(hardness < 0.0F) && (!extra || harvest) && BlockHelper.harvestAOEBlock(stack, world, (ServerPlayer)player, pos);
     }
 
     private boolean isWood(Block block) {

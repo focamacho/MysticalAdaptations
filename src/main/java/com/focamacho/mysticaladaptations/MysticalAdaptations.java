@@ -41,7 +41,6 @@ public class MysticalAdaptations {
 
     public MysticalAdaptations() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigMysticalAdaptations.spec);
-        ConfigHolder.updateConfigs();
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
@@ -57,6 +56,7 @@ public class MysticalAdaptations {
 
     private void setup(final FMLCommonSetupEvent event) {
         //SeedExtractorRecipeHandler.initRecipes();
+        ConfigHolder.updateConfigs();
         if(Utils.isVampirismLoaded) {
             if(!ConfigHolder.thirstlessAugment) ModAugments.THIRSTLESS.setEnabled(false);
             if(!ConfigHolder.daywalkerAugment) ModAugments.DAYWALKER.setEnabled(false);
@@ -91,7 +91,7 @@ public class MysticalAdaptations {
     @SubscribeEvent
     public void onCreativeTab(CreativeModeTabEvent.Register event) {
         event.registerCreativeModeTab(new ResourceLocation(Reference.MOD_ID, "creative_tab"), (builder) -> {
-            var displayItems = FeatureFlagDisplayItemGenerator.create((flagSet, output, hasPermission) -> {
+            var displayItems = FeatureFlagDisplayItemGenerator.create((flagSet, output) -> {
                 output.accept(new ItemStack(ModAugments.HUNGERLESS.getItem()));
                 output.accept(new ItemStack(ModAugments.WOODCUTTER.getItem()));
                 output.accept(new ItemStack(ModAugments.MINING_AOE_V.getItem()));
