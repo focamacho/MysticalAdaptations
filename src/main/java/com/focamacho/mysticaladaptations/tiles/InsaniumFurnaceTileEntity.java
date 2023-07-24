@@ -45,23 +45,6 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
         return (int) (super.getBurnDuration(stack) * InsaniumFurnaceTileEntity.burnTimeMultiplier);
     }
 
-    @Override
-    public void setItem(int slot, ItemStack stack) {
-        ItemStack itemstack = this.items.get(slot);
-        boolean flag = !stack.isEmpty() && stack.sameItem(itemstack) && ItemStack.tagMatches(stack, itemstack);
-        this.items.set(slot, stack);
-        if (stack.getCount() > this.getMaxStackSize()) {
-            stack.setCount(this.getMaxStackSize());
-        }
-
-        if (slot == 0 && !flag) {
-            this.cookingTotalTime = 0;
-            this.cookingProgress = 0;
-            this.setChanged();
-        }
-
-    }
-
     protected boolean canBurn(Recipe<?> recipe, NonNullList<ItemStack> items, int maxStackSize) {
         if (!items.get(0).isEmpty() && recipe != null) {
             ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, this.level.registryAccess());
@@ -71,7 +54,7 @@ public class InsaniumFurnaceTileEntity extends AbstractFurnaceBlockEntity {
                 ItemStack itemstack1 = items.get(2);
                 if (itemstack1.isEmpty()) {
                     return true;
-                } else if (!itemstack1.sameItem(itemstack)) {
+                } else if (!itemstack1.is(itemstack.getItem())) {
                     return false;
                 } else if (itemstack1.getCount() + itemstack.getCount() <= maxStackSize && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                     return true;
