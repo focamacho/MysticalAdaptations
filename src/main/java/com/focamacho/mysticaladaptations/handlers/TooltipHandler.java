@@ -28,7 +28,7 @@ public class TooltipHandler {
                 }
             }
             if(index != -1){
-                event.getToolTip().set(index, Component.literal(ChatFormatting.GRAY + Component.translatable("tooltip.mysticalagriculture.tier").getString() + Utils.getColorFromTier(6) + "6"));
+                event.getToolTip().set(index, Component.literal(ChatFormatting.GRAY + String.format(Component.translatable("tooltip.mysticalagriculture.tier").getString(), Utils.getColorFromTier(6) + "6")));
             }
         }
     }
