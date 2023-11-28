@@ -49,7 +49,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
     public InsaniumReprocessorTileEntity(BlockPos pos, BlockState state) {
         super(ModTileEntities.INSANIUM_REPROCESSOR.get(), pos, state);
         this.inventory = createInventoryHandler(null);
-        this.energy = new BaseEnergyStorage(fuelCapacity, this::markDirtyAndDispatch);
+        this.energy = new BaseEnergyStorage(fuelCapacity, this::setChangedAndDispatch);
         this.inventoryCapabilities = SidedItemStackHandlerWrapper.create(this.inventory, new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH}, this::canInsertStackSided, null);
     }
 
@@ -174,7 +174,7 @@ public class InsaniumReprocessorTileEntity extends BaseInventoryTileEntity imple
         }
 
         if (mark) {
-            tile.markDirtyAndDispatch();
+            tile.setChangedAndDispatch();
         }
     }
 
