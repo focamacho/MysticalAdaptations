@@ -32,8 +32,20 @@
 	"augment.mysticaladaptations.attack_aoe_iv": "Attack AOE IV",
 	"augment.mysticaladaptations.tilling_aoe_v": "Tilling AOE V",
 
+	"augment.mysticaladaptations.hungerless.description": "Makes you never feel hungry again.",
+	"augment.mysticaladaptations.woodcutter.description": "Breaks an entire tree.",
+	"augment.mysticaladaptations.mining_aoe_v.description": "Increases Mining AOE to 11x11.",
+	"augment.mysticaladaptations.strength_iv.description": "Grants Strength IV.",
+	"augment.mysticaladaptations.absorption_vi.description": "Grants 12 absorption hearts.",
+	"augment.mysticaladaptations.health_boost_vi.description": "Increases max health by 12 hearts.",
+	"augment.mysticaladaptations.attack_aoe_iv.description": "Increases Mining AOE to 9x9.",
+	"augment.mysticaladaptations.tilling_aoe_v.description": "Increases Tilling AOE to 11x11.",
+
 	"augment.mysticaladaptations.thirstless": "Thirstless",
 	"augment.mysticaladaptations.daywalker": "Daywalker",
+
+	"augment.mysticaladaptations.thirstless.description": "Makes you never feel thirsty (of blood) again.",
+	"augment.mysticaladaptations.daywalker.description": "Protect vampires from the sunlight.",
 
 	"container.mysticaladaptations.insanium_furnace": "Insanium Furnace"
 }

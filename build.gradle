@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply from: 'https://raw.githubusercontent.com/SizableShrimp/ForgeUpdatesRemapper/main/remapper.gradle'
 
-version = '1.20.1-1.0'
+version = '1.20.1-1.0.1'
 group = 'com.focamacho'
 
 java {
