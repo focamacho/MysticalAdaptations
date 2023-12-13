@@ -37,6 +37,8 @@ public class WoodcutterAugment extends Augment {
     }
 
     private boolean harvest(ItemStack stack, Level world, BlockPos pos, Player player) {
+        if(world.isClientSide) return false;
+
         boolean woodcutter = !player.isCrouching();
 
         BlockPos blockPos = pos;
