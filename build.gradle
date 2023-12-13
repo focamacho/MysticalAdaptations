@@ -61,17 +61,17 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.0.50'
 
     //Cucumber Library
-    implementation fg.deobf("curse.maven:cucumber-272335:4602089")
+    implementation fg.deobf("curse.maven:cucumber-272335:4906607")
 
     //Mystical Agriculture
-    implementation fg.deobf("curse.maven:mystical-agriculture-246640:4602097")
+    implementation fg.deobf("curse.maven:mystical-agriculture-246640:4904207")
 
     //Mystical Agradditions
-    implementation fg.deobf("curse.maven:mystical-agradditions-256247:4602098")
+    implementation fg.deobf("curse.maven:mystical-agradditions-256247:4904346")
 
     //Vampirism
-    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false;}
-    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false; }
+    compileOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false }
+    runtimeOnly fg.deobf('de.teamlapen.vampirism:Vampirism:1.20.1-1.9.1-alpha+20230621-1954') { transitive = false }
 }
 
 jar {
